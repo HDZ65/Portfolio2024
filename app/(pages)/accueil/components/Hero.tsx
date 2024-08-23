@@ -6,7 +6,7 @@ import { Box, Typography } from "@mui/material";
 import { IoArrowForwardCircleOutline } from "react-icons/io5"; // Assurez-vous que ce module est installé
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import SwipeDownloadButton from "./SwipeDownloadButton";
-
+import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 // Fonction principale pour le composant Hero
 export default function Hero() {
   return (
@@ -23,7 +23,7 @@ export default function Hero() {
         Bienvenue sur mon portfolio de développeur web basé à Tarbes, France.
       </Typography>
       <Box width="100%" display="flex" gap="1.6rem" >
-        <ButtonLink label="Mes Projets" variant="contained" icon={<IoArrowForwardCircleOutline />} to="/projets" />
+        <ButtonLink label="Mes Projets" variant="contained" icon={<WorkRoundedIcon />} to="/projets" />
         <ButtonLink label="Contact" variant="outlined" icon={<EmailRoundedIcon />} to="/contact" />
       </Box>
       <SwipeDownloadButton />

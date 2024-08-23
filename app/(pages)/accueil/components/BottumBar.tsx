@@ -8,7 +8,7 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import ContactMailRoundedIcon from '@mui/icons-material/ContactMailRounded';
 import { Stack } from '@mui/material';
-
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 /**
  * Composant BottumBar
  * Barre de navigation en bas de page avec des icônes et des étiquettes
@@ -45,7 +45,7 @@ const BottumBar: React.FC = () => {
             >
                 <BottomNavigationAction sx={{ borderRadius: "30px 0 0 30px" }} label="Accueil" icon={<HomeRoundedIcon />} />
                 <BottomNavigationAction  label="Projets" icon={<WorkRoundedIcon />} />
-                <BottomNavigationAction sx={{ borderRadius: " 0 30px 30px 0 " }} label="Contact" icon={<ContactMailRoundedIcon />} />
+                <BottomNavigationAction sx={{ borderRadius: " 0 30px 30px 0 " }} label="Contact" icon={<EmailRoundedIcon />} />
             </BottomNavigation>
     );
 };
