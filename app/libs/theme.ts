@@ -108,6 +108,7 @@ const theme = experimental_extendTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
+                    
                     whiteSpace: "nowrap",
                     width: "100%",
                     textTransform: 'none',
@@ -172,6 +173,18 @@ const theme = experimental_extendTheme({
                 },
             },
         },
+        MuiSpeedDial: {
+            styleOverrides: {
+                root: {
+                    position: "fixed",
+                    top: 0,
+                    right: 0,
+                    zIndex: 1000,
+                    transition: "none",
+                },
+            },
+        },
+        
     },
     colorSchemes: {
         light: {

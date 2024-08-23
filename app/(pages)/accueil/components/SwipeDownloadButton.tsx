@@ -26,10 +26,9 @@ const SwipeContainer = styled(Box)({
     position: 'relative',
     cursor: 'pointer',
     userSelect: 'none', 
-
 });
 
-const SwipeCircle = styled(Box)<{ isDragging: boolean }>(({ isDragging }) => ({
+const SwipeCircle = styled(Box)(({ theme }) => ({
     width: '48px',
     height: '48px',
     backgroundColor: '#0288d1',
@@ -42,7 +41,10 @@ const SwipeCircle = styled(Box)<{ isDragging: boolean }>(({ isDragging }) => ({
     alignItems: 'center',
     justifyContent: 'center',
     color: '#fff',
-    transition: isDragging ? 'none' : 'left 0.5s',
+    transition: 'left 0.5s',
+    '&.dragging': {
+        transition: 'none',
+    },
 }));
 
 const SwipeDownloadButton = () => {
@@ -147,7 +149,7 @@ const SwipeDownloadButton = () => {
             <SwipeCircle
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
-                isDragging={isDragging}
+                className={isDragging ? 'dragging' : ''} // Utilisation de classes CSS pour gérer l'état
                 style={{ left: `${leftPosition}px`, fontSize: '1.5rem', zIndex: 1000 }} 
             >
                 {isDownloading ? (

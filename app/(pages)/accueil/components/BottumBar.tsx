@@ -6,8 +6,6 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import ContactMailRoundedIcon from '@mui/icons-material/ContactMailRounded';
-import { Stack } from '@mui/material';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 /**
  * Composant BottumBar
