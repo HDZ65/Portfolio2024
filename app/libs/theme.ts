@@ -77,7 +77,7 @@ const theme = experimental_extendTheme({
         MuiStack: {
             styleOverrides: {
                 root: {
-                    backgroundColor: "var(--mui-palette-secondary-main)",
+                    backgroundColor: "var(--mui-palette-background-paper)",
                     boxShadow: "inset 0 0 10px 0 #81d4fa",
                     padding: "1.6rem",
                 },

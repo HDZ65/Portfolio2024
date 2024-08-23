@@ -21,7 +21,7 @@ const SwipeContainer = styled(Box)({
     justifyContent: 'space-between',
     width: '100%',
     padding: '0.9rem',
-    backgroundColor: 'var(--mui-palette-secondary-main)',
+    backgroundColor: 'var(--mui-palette-background-paper)',
     borderRadius: '50px',
     position: 'relative',
     cursor: 'pointer',
