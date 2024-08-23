@@ -26,6 +26,8 @@ const SwipeContainer = styled(Box)({
     position: 'relative',
     cursor: 'pointer',
     userSelect: 'none', 
+    boxShadow: "inset 0 0 20px 0 #b3e5fc",
+
 });
 
 const SwipeCircle = styled(Box)<{ isDragging: boolean }>(({ isDragging }) => ({
