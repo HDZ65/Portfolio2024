@@ -26,7 +26,7 @@ const SwipeContainer = styled(Box)({
     position: 'relative',
     cursor: 'pointer',
     userSelect: 'none', 
-    boxShadow: "inset 0 0 20px 0 #b3e5fc",
+    boxShadow: "inset 0 0 10px 0 #b3e5fc",
 
 });
 
