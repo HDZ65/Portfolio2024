@@ -5,6 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import ButtonLink from "@/app/components/Button/ButtonLink";
+import SendIcon from '@mui/icons-material/Send'; // Import de l'icône
 
 // Schéma de validation avec Zod
 const schema = z.object({
@@ -77,7 +78,7 @@ export default function Contact() {
                 />
               )}
             />
-            <ButtonLink to="/" label="Envoyer" variant="contained" icon={null} />
+            <ButtonLink to="/" label="Envoyer" variant="contained" icon={<SendIcon />} /> {/* Ajout de l'icône */}
           </Box>
         </form>
       </Stack>

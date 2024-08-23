@@ -185,7 +185,7 @@ const theme = experimental_extendTheme({
                 },
                 background: {
                     default: "#000B11",
-                    paper: "#fff",
+                    paper: "#EDF1F3",
                 },
                 text: {
                     primary: "#fff",
