@@ -68,7 +68,7 @@ const theme = experimental_extendTheme({
                     letterSpacing: 0.3, // Ajustement pour une meilleure lisibilité
                 },
                 h4: {
-                    fontSize: 20,
+                    fontSize: 18,
                     lineHeight: 1.35, // Ajustement pour une meilleure lisibilité
                     letterSpacing: 0.35, // Ajustement pour une meilleure lisibilité
                 },
