@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <Box component="header" >
-      <Stack className="flex flex-col justify-center gap-3" borderRadius="0 0 30px 30px" sx={{ position: 'relative' }}>
+      <Stack className="flex flex-col justify-center gap-3" borderRadius="0 0 30px 30px" sx={{ position: 'relative', paddingY: "1rem" }}>
         <MenuReseaux />
         <Typography color="var(--mui-palette-text-secondary)" variant="h3" >
           {pageTitle}
