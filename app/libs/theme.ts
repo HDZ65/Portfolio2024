@@ -51,7 +51,7 @@ const theme = experimental_extendTheme({
                     letterSpacing: 0.3,
                 },
                 h1: {
-                    fontSize: 34,
+                    fontSize: 36,
                     lineHeight: 1.1, // Ajustement pour une meilleure lisibilité
                     letterSpacing: 0.3, // Ajustement pour une meilleure lisibilité
                 },
@@ -78,7 +78,7 @@ const theme = experimental_extendTheme({
             styleOverrides: {
                 root: {
                     backgroundColor: "var(--mui-palette-secondary-main)",
-                    boxShadow: "inset 0 0 20px 0 #81d4fa",
+                    boxShadow: "inset 0 0 10px 0 #81d4fa",
                     padding: "1.6rem",
                 },
             },
@@ -167,10 +167,8 @@ const theme = experimental_extendTheme({
                     zIndex: 1000,
                     borderRadius: "30px ",
                     backgroundColor: "var(--mui-palette-secondary-main)",
-                    boxShadow: "inset 0 0 20px 0 #81d4fa",
-
-
-                    
+                    boxShadow: "inset 0 0 10px 0 #81d4fa",
+                    marginBottom: "0.5rem",
                 },
             },
         },

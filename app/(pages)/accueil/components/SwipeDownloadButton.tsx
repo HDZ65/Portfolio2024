@@ -134,11 +134,11 @@ const SwipeDownloadButton = () => {
                 color={isDownloaded ? 'success.main' : 'var(--mui-palette-text-secondary)'}
                 variant="body1"
                 component="span"
-                sx={{ textAlign: 'center', userSelect: 'none', fontWeight: 'bold', width: '100%', paddingLeft: '2.5rem' }}
+                sx={{ textAlign: 'center', userSelect: 'none', fontWeight: 'bold', width: '100%', paddingLeft: '2.5rem', whiteSpace: "nowrap" }}
             >
                 {isDownloaded ? 'Téléchargé avec succès' : 'Télécharger mon CV'}
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 'fit-content', paddingLeft: '0.5rem' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 'fit-content'}}>
             <ChevronRightRoundedIcon  sx={{ color: 'var(--mui-palette-primary-main)', userSelect: 'none', fontSize: '2rem', opacity: 0.5 }} />
             <ChevronRightRoundedIcon  sx={{ color: 'var(--mui-palette-primary-main)', userSelect: 'none', fontSize: '2rem', marginLeft: '-1rem', opacity: 0.75 }} />
             <ChevronRightRoundedIcon  sx={{ color: 'var(--mui-palette-primary-main)', userSelect: 'none', fontSize: '2rem', marginLeft: '-1rem', opacity: 1 }} />

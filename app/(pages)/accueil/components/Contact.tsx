@@ -23,7 +23,7 @@ export default function Contact() {
   };
 
   return (
-    <Box  component="section" display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap="1.6rem"  width="100%">
+    <Box component="section" display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap="1.6rem" width="100%">
       <Stack className="flex flex-col justify-center gap-6 w-full" borderRadius="30px">
         <Typography color="var(--mui-palette-text-secondary)" variant="h2">
           Contact
@@ -39,6 +39,9 @@ export default function Contact() {
                   label="Nom / Prénom"
                   error={!!errors.name}
                   helperText={errors.name ? String(errors.name.message) : ""}
+                  InputProps={{
+                    style: { color: 'black', fontSize: '18px' } // Texte en noir et 18px
+                  }}
                 />
               )}
             />
@@ -51,6 +54,9 @@ export default function Contact() {
                   label="Email"
                   error={!!errors.email}
                   helperText={errors.email ? String(errors.email.message) : ""}
+                  InputProps={{
+                    style: { color: 'black', fontSize: '18px' } // Texte en noir et 18px
+                  }}
                 />
               )}
             />
@@ -65,6 +71,9 @@ export default function Contact() {
                   rows={4}
                   error={!!errors.message}
                   helperText={errors.message ? String(errors.message.message) : ""}
+                  InputProps={{
+                    style: { color: 'black', fontSize: '18px' } // Texte en noir et 18px
+                  }}
                 />
               )}
             />

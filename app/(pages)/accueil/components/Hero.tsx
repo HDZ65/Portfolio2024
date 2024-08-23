@@ -16,7 +16,8 @@ export default function Hero() {
         <Box color="var(--mui-palette-primary-main)" component="span" >
           Bonjour!
         </Box>
-        Je suis Alexandre Hernandez
+        <br />
+        Je suis Alexandre
       </Typography>
       <Typography variant="h4" >
         Bienvenue sur mon portfolio de développeur web basé à Tarbes, France.

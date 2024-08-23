@@ -14,13 +14,13 @@ export default function Header() {
 
   // Utilisation de useEffect pour mettre à jour le titre de la page en fonction du chemin
   useEffect(() => {
-    const title = pathname === "/" ? "Mon portfolio" : pathname.replace("/", "");
+    const title = pathname === "/" ? "Portfolio" : pathname.replace("/", "");
     setPageTitle(title);
   }, [pathname]);
 
   return (
     <Box component="header" >
-      <Stack className="flex flex-col justify-center gap-6" borderRadius="0 0 30px 30px" sx={{ position: 'relative' }}>
+      <Stack className="flex flex-col justify-center gap-3" borderRadius="0 0 30px 30px" sx={{ position: 'relative' }}>
         <MenuReseaux />
         <Typography color="var(--mui-palette-text-secondary)" variant="h3" >
           {pageTitle}
