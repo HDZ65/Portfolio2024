@@ -7,7 +7,7 @@ export default function Picture() {
       alt="Photo de Alexandre"
       width={500}
       height={500}
-      className="rounded-full object-cover w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32"
+      className="rounded-full object-cover w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32"
     />
   )
 }
