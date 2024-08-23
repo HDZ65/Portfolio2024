@@ -13,6 +13,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { CheckCircleOutline } from '@mui/icons-material';
 import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+
 // Styles pour le conteneur et le cercle
 const SwipeContainer = styled(Box)({
     display: 'flex',
@@ -59,6 +60,14 @@ const SwipeDownloadButton = () => {
             setLeftPosition(newLeft);
         };
 
+        const handleTouchMove = (e: TouchEvent) => {
+            if (!isDragging) return;
+            const containerWidth = swipeRef.current?.offsetWidth ?? 0;
+            const touch = e.touches[0];
+            const newLeft = Math.min(Math.max(0, touch.clientX - (swipeRef.current?.getBoundingClientRect().left ?? 0) - dragOffset), containerWidth - 54);
+            setLeftPosition(newLeft);
+        };
+
         const handleMouseUp = () => {
             if (!isDragging) return;
             const containerWidth = swipeRef.current?.offsetWidth ?? 0;
@@ -90,17 +99,27 @@ const SwipeDownloadButton = () => {
             }
         };
 
+        const handleTouchEnd = () => {
+            handleMouseUp();
+        };
+
         if (isDragging) {
             window.addEventListener('mousemove', handleMouseMove);
             window.addEventListener('mouseup', handleMouseUp);
+            window.addEventListener('touchmove', handleTouchMove);
+            window.addEventListener('touchend', handleTouchEnd);
         } else {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('mouseup', handleMouseUp);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
         }
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('mouseup', handleMouseUp);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
         };
     }, [isDragging, dragOffset, leftPosition]);
 
@@ -108,6 +127,13 @@ const SwipeDownloadButton = () => {
         setIsDragging(true);
         const circleLeft = e.currentTarget.getBoundingClientRect().left;
         setDragOffset(e.clientX - circleLeft);
+    };
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setIsDragging(true);
+        const touch = e.touches[0];
+        const circleLeft = e.currentTarget.getBoundingClientRect().left;
+        setDragOffset(touch.clientX - circleLeft);
     };
 
     return (
@@ -119,6 +145,7 @@ const SwipeDownloadButton = () => {
         >
             <SwipeCircle
                 onMouseDown={handleMouseDown}
+                onTouchStart={handleTouchStart}
                 isDragging={isDragging}
                 style={{ left: `${leftPosition}px`, fontSize: '1.5rem', zIndex: 1000 }} 
             >

@@ -181,7 +181,7 @@ const theme = experimental_extendTheme({
                     mainChannel: "225 225 225",
                 },
                 secondary: {
-                    main: lightBlue[50],
+                    main: "#EDF9FF",
                 },
                 background: {
                     default: "#000B11",
