@@ -5,7 +5,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
-import { styled } from '@mui/system';
+import { styled, keyframes } from '@mui/system';
 import DownloadIcon from '@mui/icons-material/Download';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -26,6 +26,8 @@ const SwipeContainer = styled(Box)({
     position: 'relative',
     cursor: 'pointer',
     userSelect: 'none', 
+    border: "1px solid rgba(var(--mui-palette-primary-mainChannel) / 0.5)",
+
 });
 
 const SwipeCircle = styled(Box)(({ theme }) => ({
@@ -46,6 +48,13 @@ const SwipeCircle = styled(Box)(({ theme }) => ({
         transition: 'none',
     },
 }));
+
+// Animation pour les icônes
+const fadeInOut = keyframes`
+  0%, 100% { opacity: 0.3; }
+  33% { opacity: 1; }
+  66% { opacity: 0.5; }
+`;
 
 const SwipeDownloadButton = () => {
     const [isDragging, setIsDragging] = useState(false);
@@ -150,7 +159,7 @@ const SwipeDownloadButton = () => {
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
                 className={isDragging ? 'dragging' : ''} // Utilisation de classes CSS pour gérer l'état
-                style={{ left: `${leftPosition}px`, fontSize: '1.5rem', zIndex: 1000 }} 
+                style={{ left: `${leftPosition}px`, fontSize: '1.5rem', zIndex: 500 }} 
             >
                 {isDownloading ? (
                     <CircularProgress size={24} color="inherit" />
@@ -164,14 +173,42 @@ const SwipeDownloadButton = () => {
                 color={isDownloaded ? 'success.main' : 'var(--mui-palette-text-secondary)'}
                 variant="body1"
                 component="span"
-                sx={{ textAlign: 'center', userSelect: 'none', fontWeight: 'bold', width: '100%', paddingLeft: '2.5rem', whiteSpace: "nowrap" }}
+                sx={{ textAlign: 'center', userSelect: 'none', fontWeight: '500', width: '100%', paddingLeft: '2.5rem', whiteSpace: "nowrap" }}
             >
                 {isDownloaded ? 'Merci !' : 'Télécharger mon CV'}
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 'fit-content'}}>
-            <ChevronRightRoundedIcon  sx={{ color: 'var(--mui-palette-primary-main)', userSelect: 'none', fontSize: '2rem', opacity: 0.5 }} />
-            <ChevronRightRoundedIcon  sx={{ color: 'var(--mui-palette-primary-main)', userSelect: 'none', fontSize: '2rem', marginLeft: '-1rem', opacity: 0.75 }} />
-            <ChevronRightRoundedIcon  sx={{ color: 'var(--mui-palette-primary-main)', userSelect: 'none', fontSize: '2rem', marginLeft: '-1rem', opacity: 1 }} />
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 'fit-content' }}>
+                <ChevronRightRoundedIcon
+                    sx={{
+                        color: 'var(--mui-palette-primary-main)',
+                        userSelect: 'none',
+                        fontSize: '2rem',
+                        animation: `${fadeInOut} 3s infinite`,
+                        animationDelay: '0s',
+                        marginRight: '-0.3rem',
+                    }}
+                />
+                <ChevronRightRoundedIcon
+                    sx={{
+                        color: 'var(--mui-palette-primary-main)',
+                        userSelect: 'none',
+                        fontSize: '2rem',
+                        animation: `${fadeInOut} 3s infinite`,
+                        animationDelay: '1s',
+                        marginLeft: '-1rem',
+                        marginRight: '-0.3rem',
+                    }}
+                />
+                <ChevronRightRoundedIcon
+                    sx={{
+                        color: 'var(--mui-palette-primary-main)',
+                        userSelect: 'none',
+                        fontSize: '2rem',
+                        animation: `${fadeInOut} 3s infinite`,
+                        animationDelay: '2s',
+                        marginLeft: '-1rem',
+                    }}
+                />
             </Box>
         </SwipeContainer>
     );

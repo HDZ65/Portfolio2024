@@ -20,13 +20,12 @@ export default function Hero() {
           Je suis Alexandre
         </Typography>
       <Typography variant="h4">
-          Bienvenue sur mon portfolio de développeur web basé à Tarbes, France.
+          Développeur web et web mobile basé à Tarbes, France.
         </Typography>
       <Box width="100%" display="flex" gap="1.6rem">
           <ButtonLink label="Mes Projets" variant="contained" icon={<WorkRoundedIcon />} to="/projets" />
           <ButtonLink label="Contact" variant="outlined" icon={<EmailRoundedIcon />} to="/contact" />
         </Box>
-      <SwipeDownloadButton />
     </Box>
   )
 }

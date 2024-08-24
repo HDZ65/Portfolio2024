@@ -40,6 +40,7 @@ const theme = experimental_extendTheme({
     },
     shape: {
         borderRadius: 30,
+        
     },
     components: {
         MuiTypography: {
@@ -52,33 +53,31 @@ const theme = experimental_extendTheme({
                 },
                 h1: {
                     fontSize: 36,
-                    lineHeight: 1.1, // Ajustement pour une meilleure lisibilité
-                    letterSpacing: 0.3, // Ajustement pour une meilleure lisibilité
+                    lineHeight: 1.1, 
+                    letterSpacing: 0.3, 
                 },
                 h2: {
                     fontSize: 24,
-                    fontWeight: 500,
-                    lineHeight: 1.3, // Ajustement pour une meilleure lisibilité
-                    letterSpacing: 0.4, // Ajustement pour une meilleure lisibilité
+                    fontWeight: 300,
+                    lineHeight: 1.3, 
+                    letterSpacing: 0.4, 
                 },
                 h3: {
                     fontSize: 18,
-                    fontWeight: 500,
-                    lineHeight: 1.4, // Ajustement pour une meilleure lisibilité
-                    letterSpacing: 0.3, // Ajustement pour une meilleure lisibilité
+                    fontWeight: 400,
+                    lineHeight: 1.4, 
+                    letterSpacing: 0.3, 
                 },
                 h4: {
                     fontSize: 18,
-                    lineHeight: 1.35, // Ajustement pour une meilleure lisibilité
-                    letterSpacing: 0.35, // Ajustement pour une meilleure lisibilité
+                    lineHeight: 1.35, 
+                    letterSpacing: 0.35, 
                 },
             },
         },
         MuiStack: {
             styleOverrides: {
                 root: {
-                    backgroundColor: "var(--mui-palette-background-paper)",
-                    
                     padding: "1.6rem",
                 },
             },
@@ -151,7 +150,7 @@ const theme = experimental_extendTheme({
         MuiCircularProgress: {
             styleOverrides: {
                 root: {
-                    color: "blue",
+                    color: "var(--mui-palette-text-primary)",
                     "--CircularProgress-size": "58px",
                     "--CircularProgress-trackThickness": "3px",
                     "--CircularProgress-progressThickness": "1px"
@@ -165,44 +164,54 @@ const theme = experimental_extendTheme({
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    zIndex: 1000,
-                    borderRadius: "30px ",
+                    zIndex: 500,
                     backgroundColor: "var(--mui-palette-background-paper)",
-                    
-                    marginBottom: "0.5rem",
                 },
             },
         },
-        MuiSpeedDial: {
+        MuiInputBase: {
             styleOverrides: {
                 root: {
-                    position: "fixed",
-                    top: 0,
-                    right: 0,
-                    zIndex: 1000,
-                    transition: "none",
+                    borderColor: "var(--mui-palette-text-primary)",
+                    color: "var(--mui-palette-text-primary)",
                 },
             },
         },
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+                    color: "var(--mui-palette-text-primary)",
+                    borderColor: "var(--mui-palette-text-primary)",
+                },
+            },
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    borderColor: "var(--mui-palette-text-primary)",
+                    color: "var(--mui-palette-text-primary)",
+                },
+            },
+        },        
         
     },
     colorSchemes: {
         light: {
             palette: {
                 primary: {
-                    main: lightBlue[600],
-                    mainChannel: "225 225 225",
+                    main: lightBlue[600], // bleu
+                    mainChannel: "225 225 225", // blanc
                 },
                 secondary: {
-                    main: "#EDF9FF",
+                    main: "#EDF9FF", // bleu clair
                 },
                 background: {
-                    default: "#000B11",
-                    paper: "#F6F8FA",
+                    default: "#060808", // noir
+                    paper: "#060808", // gris foncé
                 },
                 text: {
-                    primary: "#fff",
-                    secondary: "#000B11",
+                    primary: lightBlue[50], // blanc
+                    secondary: lightBlue[50], // noir bleuté
                 },
             },
         },

@@ -1,7 +1,6 @@
 // Fichier: MenuReseaux.tsx
 "use client"
 
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDial from '@mui/material/SpeedDial';
@@ -10,6 +9,7 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { useState } from 'react';
 
 // Définition des actions pour le menu des réseaux sociaux
 const actions = [
@@ -20,22 +20,22 @@ const actions = [
 
 // Fonction principale du composant MenuReseaux
 export default function MenuReseaux() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <Box position="absolute" top={6} right={16} aria-label="Menu des réseaux sociaux">
-      <Backdrop open={open} />
+    < >
+      <Backdrop open={open} sx={{ zIndex: 1000 }} />
       <SpeedDial
         ariaLabel="Menu des réseaux sociaux"
         icon={<ShareOutlinedIcon sx={{ color: "var(--mui-palette-text-secondary)" }} />}
         onClose={handleClose}
         onOpen={handleOpen}
         open={open}
-        direction="left"
+        direction="down"
         id='menu-reseaux'
-        transitionDuration={0}
+        sx={{ position: "absolute", top: "18px", right: "25px", width: "40px" }}
       >
         {actions.map((action) => (
           <SpeedDialAction
@@ -47,6 +47,6 @@ export default function MenuReseaux() {
           />
         ))}
       </SpeedDial>
-    </Box>
+    </>
   );
 }
