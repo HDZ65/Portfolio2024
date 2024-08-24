@@ -183,7 +183,7 @@ const SwipeDownloadButton = () => {
                         color: 'var(--mui-palette-primary-main)',
                         userSelect: 'none',
                         fontSize: '2rem',
-                        animation: `${fadeInOut} 3s infinite`,
+                        animation: `${fadeInOut} 0.5s infinite ease-in-out`,
                         animationDelay: '0s',
                         marginRight: '-0.3rem',
                     }}
@@ -193,8 +193,8 @@ const SwipeDownloadButton = () => {
                         color: 'var(--mui-palette-primary-main)',
                         userSelect: 'none',
                         fontSize: '2rem',
-                        animation: `${fadeInOut} 3s infinite`,
-                        animationDelay: '1s',
+                        animation: `${fadeInOut} 0.5s infinite ease-in-out`,
+                        animationDelay: '0.5s',
                         marginLeft: '-1rem',
                         marginRight: '-0.3rem',
                     }}
@@ -204,8 +204,8 @@ const SwipeDownloadButton = () => {
                         color: 'var(--mui-palette-primary-main)',
                         userSelect: 'none',
                         fontSize: '2rem',
-                        animation: `${fadeInOut} 3s infinite`,
-                        animationDelay: '2s',
+                        animation: `${fadeInOut} 0.5s infinite ease-in-out`,
+                        animationDelay: '1s',
                         marginLeft: '-1rem',
                     }}
                 />
