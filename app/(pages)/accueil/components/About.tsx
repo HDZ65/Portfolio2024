@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 export default function About() {
     return (
-        <Box component="section" display="flex" flexDirection="column" alignItems="start" justifyContent="center" gap="1.5rem">
+        <Box component="section" display="flex" flexDirection="column" alignItems="start" justifyContent="center" gap="1.6rem">
 
             <Typography variant="h1">
                 Qui suis-je ?
@@ -16,11 +16,11 @@ export default function About() {
                 Rigoureux et créatif, j&apos;ai développé de solides compétences que ce soit en maquetage sur figma ou en développement. Particulierement avec react, nextJS et mongoDB.
             </Typography>
 
-            <Box>
-                <Typography variant="body1">
-                    Mon objectif est de rejoindre une équipe dynamique où je pourrai mettre en pratique mes connaissances et contribuer à la réalisation de projets ambitieux.
-                </Typography>
-            </Box>
+
+            <Typography variant="body1">
+                Mon objectif est de rejoindre une équipe dynamique où je pourrai mettre en pratique mes connaissances et contribuer à la réalisation de projets ambitieux.
+            </Typography>
+
         </Box>
     )
 }

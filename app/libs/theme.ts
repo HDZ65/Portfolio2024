@@ -1,5 +1,6 @@
 "use client";
 
+import { BorderAll } from "@mui/icons-material";
 import { experimental_extendTheme, PaletteColor, PaletteColorOptions } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
 import { Roboto } from "next/font/google";
@@ -40,7 +41,7 @@ const theme = experimental_extendTheme({
     },
     shape: {
         borderRadius: 30,
-        
+
     },
     components: {
         MuiTypography: {
@@ -50,28 +51,37 @@ const theme = experimental_extendTheme({
                     fontSize: 18,
                     lineHeight: 1.5,
                     letterSpacing: 0.3,
+                    marginBottom: "0",
+
                 },
                 h1: {
                     fontSize: 36,
-                    lineHeight: 1.1, 
-                    letterSpacing: 0.3, 
+                    lineHeight: 1.1,
+                    letterSpacing: 0.3,
+                    marginBottom: "0",
+
                 },
                 h2: {
-                    fontSize: 24,
+                    fontSize: 28,
                     fontWeight: 300,
-                    lineHeight: 1.3, 
-                    letterSpacing: 0.4, 
+                    lineHeight: 1.3,
+                    letterSpacing: 0.4,
+                    marginBottom: "0",
                 },
                 h3: {
                     fontSize: 18,
                     fontWeight: 400,
-                    lineHeight: 1.4, 
-                    letterSpacing: 0.3, 
+                    lineHeight: 1.4,
+                    letterSpacing: 0.3,
+                    marginBottom: "0",
+
                 },
                 h4: {
                     fontSize: 18,
-                    lineHeight: 1.35, 
-                    letterSpacing: 0.35, 
+                    lineHeight: 1.35,
+                    letterSpacing: 0.35,
+                    marginBottom: "0",
+
                 },
             },
         },
@@ -79,6 +89,9 @@ const theme = experimental_extendTheme({
             styleOverrides: {
                 root: {
                     padding: "1.6rem",
+                    "@media (max-width: 400px)": {
+                        padding: "1rem",
+                    },
                 },
             },
         },
@@ -107,7 +120,7 @@ const theme = experimental_extendTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    
+
                     whiteSpace: "nowrap",
                     width: "100%",
                     textTransform: 'none',
@@ -137,12 +150,9 @@ const theme = experimental_extendTheme({
                     justifyContent: "center",
                     gap: "3.2rem",
                     marginBottom: "5rem",
-                    "@media (min-width: 600px)": {
-                        paddingLeft: 0,
-                        paddingRight: 0,
-                    },
-                    "@media (min-width: 1200px)": {
-                        maxWidth: "1700px",
+
+                    "@media (max-width: 400px)": {
+                        padding: "1rem",
                     },
                 },
             },
@@ -180,20 +190,55 @@ const theme = experimental_extendTheme({
         MuiInputLabel: {
             styleOverrides: {
                 root: {
-                    color: "var(--mui-palette-text-primary)",
-                    borderColor: "var(--mui-palette-text-primary)",
+                    color: "var(--mui-palette-background-paper)",
                 },
             },
         },
-        MuiOutlinedInput: {
+        MuiCard: {
             styleOverrides: {
                 root: {
-                    borderColor: "var(--mui-palette-text-primary)",
-                    color: "var(--mui-palette-text-primary)",
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "1.5rem",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "0px",
+                    height: "7rem",
+                    width: "100%",
+                    backgroundColor: "transparent",
+                    "@media (max-width: 400px)": {
+                        gap: "1rem",
+                    },
                 },
             },
-        },        
-        
+        },
+        MuiCardMedia: {
+            styleOverrides: {
+                root: {
+                    width: "50%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "12px",
+                },
+            },
+        },
+        MuiCardContent: {
+            styleOverrides: {
+                root: {
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    height: "100%",
+                    width: "100%",
+                    padding: "0",
+                    paddingBottom: "0px",
+                    "&:last-child": {
+                        paddingBottom: "0",
+                    },
+                },
+            },
+        },
     },
     colorSchemes: {
         light: {

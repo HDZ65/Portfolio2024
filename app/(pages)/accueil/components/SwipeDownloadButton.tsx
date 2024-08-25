@@ -25,7 +25,7 @@ const SwipeContainer = styled(Box)({
     borderRadius: '50px',
     position: 'relative',
     cursor: 'pointer',
-    userSelect: 'none', 
+    userSelect: 'none',
     border: "1px solid rgba(var(--mui-palette-primary-mainChannel) / 0.5)",
 
 });
@@ -58,7 +58,7 @@ const fadeInOut = keyframes`
 
 const SwipeDownloadButton = () => {
     const [isDragging, setIsDragging] = useState(false);
-    const [leftPosition, setLeftPosition] = useState(6);
+    const [leftPosition, setLeftPosition] = useState(8);
     const [dragOffset, setDragOffset] = useState(0);
     const [isDownloading, setIsDownloading] = useState(false);
     const [isDownloaded, setIsDownloaded] = useState(false);
@@ -68,7 +68,7 @@ const SwipeDownloadButton = () => {
         const handleMouseMove = (e: MouseEvent) => {
             if (!isDragging) return;
             const containerWidth = swipeRef.current?.offsetWidth ?? 0;
-            const newLeft = Math.min(Math.max(0, e.clientX - (swipeRef.current?.getBoundingClientRect().left ?? 0) - dragOffset), containerWidth - 54);
+            const newLeft = Math.min(Math.max(0, e.clientX - (swipeRef.current?.getBoundingClientRect().left ?? 0) - dragOffset), containerWidth - 60);
             setLeftPosition(newLeft);
         };
 
@@ -76,7 +76,7 @@ const SwipeDownloadButton = () => {
             if (!isDragging) return;
             const containerWidth = swipeRef.current?.offsetWidth ?? 0;
             const touch = e.touches[0];
-            const newLeft = Math.min(Math.max(0, touch.clientX - (swipeRef.current?.getBoundingClientRect().left ?? 0) - dragOffset), containerWidth - 54);
+            const newLeft = Math.min(Math.max(0, touch.clientX - (swipeRef.current?.getBoundingClientRect().left ?? 0) - dragOffset), containerWidth - 60);
             setLeftPosition(newLeft);
         };
 
@@ -85,7 +85,7 @@ const SwipeDownloadButton = () => {
             const containerWidth = swipeRef.current?.offsetWidth ?? 0;
             if (leftPosition >= containerWidth - 80) { // Position où le cercle s'arrête pour télécharger
                 setIsDownloading(true);
-                setLeftPosition(containerWidth - 54); // Garder le cercle à droite pendant le téléchargement
+                setLeftPosition(containerWidth - 60); // Garder le cercle à droite pendant le téléchargement
                 setIsDragging(false); // Relâcher le cercle dès que le téléchargement commence
                 // Simuler le téléchargement du fichier
                 setTimeout(() => {
@@ -102,12 +102,12 @@ const SwipeDownloadButton = () => {
                     // Réinitialiser l'état après 2 secondes avec une transition
                     setTimeout(() => {
                         setIsDownloaded(false);
-                        setLeftPosition(6);
+                        setLeftPosition(8);
                     }, 1000);
                 }, 1000); // Simuler un délai de téléchargement de 1 seconde
             } else {
                 setIsDragging(false);
-                setLeftPosition(6);
+                setLeftPosition(8);
             }
         };
 
@@ -159,7 +159,7 @@ const SwipeDownloadButton = () => {
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
                 className={isDragging ? 'dragging' : ''} // Utilisation de classes CSS pour gérer l'état
-                style={{ left: `${leftPosition}px`, fontSize: '1.5rem', zIndex: 500 }} 
+                style={{ left: `${leftPosition}px`, fontSize: '1.5rem', zIndex: 500 }}
             >
                 {isDownloading ? (
                     <CircularProgress size={24} color="inherit" />
@@ -183,7 +183,7 @@ const SwipeDownloadButton = () => {
                         color: 'var(--mui-palette-primary-main)',
                         userSelect: 'none',
                         fontSize: '2rem',
-                        animation: `${fadeInOut} 0.5s infinite ease-in-out`,
+                        animation: `${fadeInOut} 3s infinite`,
                         animationDelay: '0s',
                         marginRight: '-0.3rem',
                     }}
@@ -193,8 +193,8 @@ const SwipeDownloadButton = () => {
                         color: 'var(--mui-palette-primary-main)',
                         userSelect: 'none',
                         fontSize: '2rem',
-                        animation: `${fadeInOut} 0.5s infinite ease-in-out`,
-                        animationDelay: '0.5s',
+                        animation: `${fadeInOut} 3s infinite`,
+                        animationDelay: '1s',
                         marginLeft: '-1rem',
                         marginRight: '-0.3rem',
                     }}
@@ -204,8 +204,8 @@ const SwipeDownloadButton = () => {
                         color: 'var(--mui-palette-primary-main)',
                         userSelect: 'none',
                         fontSize: '2rem',
-                        animation: `${fadeInOut} 0.5s infinite ease-in-out`,
-                        animationDelay: '1s',
+                        animation: `${fadeInOut} 3s infinite`,
+                        animationDelay: '2s',
                         marginLeft: '-1rem',
                     }}
                 />

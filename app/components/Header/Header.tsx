@@ -1,8 +1,8 @@
 // Fichier: Header.tsx
 "use client"
 
-import { Box, Stack, Typography } from "@mui/material";
-import MenuReseaux from "./Button/MenuReseaux";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import MenuReseaux from "../Button/MenuReseaux";
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from "react";
 
@@ -11,11 +11,10 @@ export default function Header() {
   const pathname = usePathname()?.slice(1) || '';
 
   return (
-    <Box component="header" aria-label="En-tête du site">
-      <Stack className="flex flex-col justify-center gap-1"  sx={{ position: 'relative', paddingY: "1rem" }}>
+      <Stack component="header" className="flex flex-col justify-center gap-1"  sx={{ position: 'relative', paddingY: "1rem" }}>
         <MenuReseaux />
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography  variant="h3"  >
+          <Typography sx={{ textTransform: 'capitalize' }} variant="h3"  >
             {pathname || 'Portfolio'}
           </Typography>
         </Box>
@@ -26,6 +25,5 @@ export default function Header() {
 
         </Box>
       </Stack>
-    </Box>
   )
 }
