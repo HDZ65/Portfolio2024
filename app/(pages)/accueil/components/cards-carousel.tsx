@@ -12,11 +12,11 @@ import observateurImage from './../../../../public/observateur.jpg';
 
 export function AppleCardsCarouselDemo() {
     const cards = data.map((card, index) => (
-        <Card key={card.src} card={card} index={index} />
+        <Card key={index} card={card} index={index} /> // Utilisation de l'index comme clé
     ));
 
     return (
-        <div className="w-full h-full ">
+        <div className="w-full h-full " role="region" aria-label="Carousel de softskills">
             <Typography variant="h2" >
                 Softskills
             </Typography>
@@ -61,25 +61,25 @@ const data = [
     {
         category: "",
         title: "Créatif",
-        src: creatifImage,
+        src: creatifImage.src, // Utilisation de la propriété 'src' de l'image
         content: <DummyContent />,
     },
     {
         category: "",
         title: "Autonome",
-        src: autonomeImage,
+        src: autonomeImage.src, // Utilisation de la propriété 'src' de l'image
         content: <DummyContent />,
     },
     {
         category: "",
         title: "Esprit d'équipe",
-        src: espritEquipeImage,
+        src: espritEquipeImage.src, // Utilisation de la propriété 'src' de l'image
         content: <DummyContent />,
     },
     {
         category: "",
         title: "Observateur",
-        src: observateurImage,
+        src: observateurImage.src, // Utilisation de la propriété 'src' de l'image
         content: <DummyContent />,
     },
 ];
