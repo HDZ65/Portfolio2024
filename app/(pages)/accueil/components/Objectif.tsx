@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
-export default function About() {
+export default function Objectif() {
     return (
         <Box display="flex" flexDirection="column" alignItems="start" justifyContent="center" gap="1.6rem" >
             <Typography variant="h2">
-                Qui suis-je ?
+                Mon objectif
             </Typography>
 
             <Typography fontSize="16px">
-                Alexandre Hernandez, 28 ans, Développeur web junior passionné par la création d&apos;expériences digitales immersives.
+                Mon objectif est de rejoindre une équipe dynamique où je pourrai mettre en pratique mes connaissances et contribuer à la réalisation de projets ambitieux.
             </Typography>
         </Box>
     )

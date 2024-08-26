@@ -50,38 +50,40 @@ const theme = experimental_extendTheme({
                     fontWeight: 300,
                     fontSize: 18,
                     lineHeight: 1.5,
-                    letterSpacing: 0.3,
+                    letterSpacing: 0.5, // Espacement légèrement augmenté pour une meilleure lisibilité des paragraphes
                     marginBottom: "0",
-
                 },
                 h1: {
                     fontSize: 36,
                     lineHeight: 1.1,
-                    letterSpacing: 0.3,
+                    letterSpacing: 0.5, // Adapté pour une taille de police de 36px
                     marginBottom: "0",
-
                 },
                 h2: {
                     fontSize: 28,
                     fontWeight: 300,
                     lineHeight: 1.3,
-                    letterSpacing: 0.4,
+                    letterSpacing: 0.4, // Adapté pour une taille de police de 28px
                     marginBottom: "0",
                 },
                 h3: {
                     fontSize: 18,
                     fontWeight: 400,
                     lineHeight: 1.4,
-                    letterSpacing: 0.3,
+                    letterSpacing: 0.3, // Adapté pour une taille de police de 18px
                     marginBottom: "0",
-
                 },
                 h4: {
                     fontSize: 18,
                     lineHeight: 1.35,
-                    letterSpacing: 0.35,
+                    letterSpacing: 0.4, // Espacement légèrement augmenté pour une meilleure lisibilité des sous-titres
                     marginBottom: "0",
-
+                },
+                h5: {
+                    fontSize: 24,
+                    lineHeight: 1.35,
+                    letterSpacing: 0.4, // Adapté pour une taille de police de 24px
+                    marginBottom: "0",
                 },
             },
         },
@@ -255,8 +257,8 @@ const theme = experimental_extendTheme({
                     paper: "#060808", // gris foncé
                 },
                 text: {
-                    primary: lightBlue[50], // blanc
-                    secondary: lightBlue[50], // noir bleuté
+                    primary: "#FAFAFA", // blanc
+                    secondary: "#fafafa", // noir bleuté
                 },
             },
         },
