@@ -26,7 +26,7 @@ export default function Contact() {
 
     return (
 
-        <Stack sx={{ backgroundColor: "var(--mui-palette-text-primary)" }} direction="column" gap="1.6rem" justifyContent="center" width="100%" component="section"  borderRadius="30px">
+        <Stack padding="1.6rem" sx={{ backgroundColor: "var(--mui-palette-text-primary)" }} direction="column" gap="1.6rem" justifyContent="center" width="100%" component="section"  borderRadius="30px">
 
             <Typography color="var(--mui-palette-background-paper)" variant="h2">
                 Contact

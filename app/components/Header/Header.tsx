@@ -11,19 +11,18 @@ export default function Header() {
   const pathname = usePathname()?.slice(1) || '';
 
   return (
-      <Stack component="header" className="flex flex-col justify-center gap-1"  sx={{ position: 'relative', paddingY: "1rem" }}>
+    <Stack component="header" display={'flex'} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}  sx={{ position: 'relative', paddingY: "1rem" }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'start' }}>
+        <Typography sx={{ textTransform: 'capitalize' }} variant="h3"  >
+          {pathname || 'Portfolio'}
+        </Typography>
+        <Typography variant="h4">
+          Alexandre HERNANDEZ
+        </Typography>
+      </Box>
+      <Box position={'relative'} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <MenuReseaux />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography sx={{ textTransform: 'capitalize' }} variant="h3"  >
-            {pathname || 'Portfolio'}
-          </Typography>
-        </Box>
-        <Box className="flex flex-col items-start">
-          <Typography  variant="h4">
-            Alexandre HERNANDEZ
-          </Typography>
-
-        </Box>
-      </Stack>
+      </Box>
+    </Stack>
   )
 }

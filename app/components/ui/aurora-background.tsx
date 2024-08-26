@@ -15,7 +15,7 @@ export const AuroraBackground = ({
   return (
     <main>
       <div>
-      <div className="absolute inset-0 overflow-hidden max-w-[100dvw]">
+      <div className="absolute inset-0 overflow-hidden max-w-[100dvw] z-[-10]">
           <div
             className={cn(
               `

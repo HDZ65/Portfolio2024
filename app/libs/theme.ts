@@ -1,6 +1,6 @@
 "use client";
 
-import { BorderAll } from "@mui/icons-material";
+import { BorderAll, Padding } from "@mui/icons-material";
 import { experimental_extendTheme, PaletteColor, PaletteColorOptions } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
 import { Roboto } from "next/font/google";
@@ -47,7 +47,7 @@ const theme = experimental_extendTheme({
         MuiTypography: {
             styleOverrides: {
                 root: {
-                    fontWeight: 300,
+                    fontWeight: 400,
                     fontSize: 18,
                     lineHeight: 1.5,
                     letterSpacing: 0.5, // Espacement légèrement augmenté pour une meilleure lisibilité des paragraphes
@@ -58,6 +58,9 @@ const theme = experimental_extendTheme({
                     lineHeight: 1.1,
                     letterSpacing: 0.5, // Adapté pour une taille de police de 36px
                     marginBottom: "0",
+                    "@media (min-width: 850px)": {
+                        fontSize: 48,
+                    },
                 },
                 h2: {
                     fontSize: 28,
@@ -65,6 +68,9 @@ const theme = experimental_extendTheme({
                     lineHeight: 1.3,
                     letterSpacing: 0.4, // Adapté pour une taille de police de 28px
                     marginBottom: "0",
+                    "@media (min-width: 850px)": {
+                        fontWeight: 500,
+                    },
                 },
                 h3: {
                     fontSize: 18,
@@ -91,9 +97,15 @@ const theme = experimental_extendTheme({
             styleOverrides: {
                 root: {
                     padding: "1.6rem",
-                    "@media (max-width: 400px)": {
-                        padding: "1rem",
+                    maxWidth: "1450px",
+                    margin: "0 auto",
+                    "@media (min-width: 600px)": {
+                        padding: "2rem",
                     },
+                    "@media (min-width: 850px)": {
+                        padding: "2rem 4rem",
+                    },
+                    
                 },
             },
         },
@@ -152,9 +164,16 @@ const theme = experimental_extendTheme({
                     justifyContent: "center",
                     gap: "3.2rem",
                     marginBottom: "5rem",
-
-                    "@media (max-width: 400px)": {
-                        padding: "1rem",
+                    "@media (min-width: 600px)": {
+                        padding: "2rem",
+                    },
+                    "@media (min-width: 850px)": {
+                        padding: "4rem",
+                        gap: "4.8rem",
+                    },
+                    "@media (min-width: 1200px)": {
+                        maxWidth: "1450px",
+                        gap: "5.4rem",
                     },
                 },
             },
@@ -246,7 +265,7 @@ const theme = experimental_extendTheme({
         light: {
             palette: {
                 primary: {
-                    main: lightBlue[600], // bleu
+                    main: lightBlue[700], // bleu
                     mainChannel: "225 225 225", // blanc
                 },
                 secondary: {
@@ -257,8 +276,8 @@ const theme = experimental_extendTheme({
                     paper: "#060808", // gris foncé
                 },
                 text: {
-                    primary: "#FAFAFA", // blanc
-                    secondary: "#fafafa", // noir bleuté
+                    primary: "#fff", // blanc
+                    secondary: "#fff", // noir bleuté
                 },
             },
         },

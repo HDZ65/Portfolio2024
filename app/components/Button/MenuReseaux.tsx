@@ -35,7 +35,7 @@ export default function MenuReseaux() {
         open={open}
         direction="down"
         id='menu-reseaux'
-        sx={{ position: "absolute", top: "18px", right: "25px", width: "40px" }}
+        sx={{ position: "absolute", top: "0", right: "0", width: "40px", transform: "translate(-25%, -9%)" }}
       >
         {actions.map((action) => (
           <SpeedDialAction
