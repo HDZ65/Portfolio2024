@@ -1,4 +1,6 @@
-import { Box, Typography, Link } from "@mui/material";
+import { GroupSharp } from "@mui/icons-material";
+import { Box, Typography} from "@mui/material";
+import Link from "next/link";
 
 export default function Qui({ className }: { className: string }) {
   return (
@@ -28,8 +30,12 @@ export default function Qui({ className }: { className: string }) {
       </Typography>
 
       <Typography textAlign={{ xs: 'start' }}  >
-        Alexandre Hernandez, 28 ans, <strong>Développeur web junior</strong> passionné par la création d&apos;<strong>expériences digitales</strong>. Je suis particulièrement intéressé par le <strong>développement front-end</strong> et le <strong>UI/UX design</strong>. Maîtrisant <strong>React</strong>, <strong>Next.js</strong>, <strong>JavaScript</strong> et <strong>Tailwind CSS</strong>, j&apos;ai mis à profit ces compétences pour concevoir et développer des sites web dynamiques tels que <strong>"Élisabeth Coach holistique"</strong> (Mon projet le plus important), <strong>"Éminence"</strong>, ainsi que ce portfolio entre autres. <Link href="/projets" sx={{ color: "#ffffff" }}>Voir mes projets</Link>
-      </Typography>
+        Alexandre Hernandez, 28 ans, <strong>Développeur web fullstack</strong> passionné par la création d&apos;<strong>expériences digitales</strong>. Maîtrisant <strong>React</strong>, <strong>Next.js</strong>, <strong>JavaScript</strong> et <strong>Tailwind CSS</strong>, j&apos;ai mis à profit ces compétences pour concevoir et développer des sites web dynamiques tels que <strong>"Élisabeth Coach holistique"</strong> (Mon projet le plus concequent), <strong>"Éminence"</strong>, ainsi que ce portfolio entre autres. <Typography color="primary" component={Link} href="/projets" >Voir mes projets</Typography>
+      </Typography> 
     </Box>
   )
 }
+
+// parler de quoi je m'interesse
+// mes competence en design si cest necessaire pour une entreprise en GROS
+// LE TEMPS QUE TU PASSE je sais pas tu decrit comment tu fais ta journée en gros

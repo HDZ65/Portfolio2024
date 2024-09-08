@@ -28,7 +28,7 @@ export const projects: Project[] = [
     {
         slug: 'Elisabeth-Coaching',
         title: 'Élisabeth Coaching',
-        description: 'Plateforme de réservation complète pour coaching holistique, développée lors d\'un stage. Ce projet démontre mes compétences full-stack, de la conception à la mise en production. L\'architecture moderne utilise Next.js 14 et MongoDB, offrant une expérience utilisateur fluide et une gestion efficace via une interface d\'administration complète.',
+        description:'Plateforme de réservation complète pour coaching holistique, développée pour une cliente professionnelle. Ce projet, actuellement en production, répond aux besoins opérationnels de l\'entreprise. L\'architecture moderne, basée sur Next.js 14 et MongoDB, offre une expérience utilisateur fluide et une gestion efficace via une interface d\'administration complète. Cette réalisation démontre ma capacité à concevoir et déployer des solutions web performantes et sur mesure pour des clients professionnels.',
         image: '/imageProjets/elisabeth.png',
         link: 'https://coach-holistique--seven.vercel.app/',
         techno: [
@@ -77,7 +77,11 @@ export const projects: Project[] = [
             {
                 name: 'Interface d\'Administration',
                 description: 'Panneau de contrôle pour gérer les rendez-vous, les utilisateurs, les articles et les prestations.'
-            }
+            },
+            {
+                name: 'Optimisation SEO',
+                description: 'Amélioration du référencement pour augmenter la visibilité en ligne.'
+            },
         ],
         accessibilite: [
             {
@@ -90,10 +94,7 @@ export const projects: Project[] = [
             }
         ],
         prochainesEtapes: [
-            {
-                name: 'Optimisation SEO',
-                description: 'Amélioration du référencement pour augmenter la visibilité en ligne.'
-            },
+
             {
                 name: 'Intégration de Témoignages',
                 description: 'Ajout d\'une section pour afficher les avis et retours des clients.'
@@ -110,7 +111,7 @@ export const projects: Project[] = [
     {
         slug: 'eminence-bijoux-luxe',
         title: 'Éminence - Bijoux de Luxe',
-        description: 'Site vitrine sophistiqué pour une marque fictive de bijoux de luxe. Ce projet met en valeur mes compétences en développement web moderne. L\'interface utilisateur offre des animations subtiles et sobre pour marquer l\'esthétique luxueuse des bijoux. L\'architecture évolutive permet d\'envisager de futures intégrations e-commerce que je prévois de réaliser dans un second temps.',
+        description: 'Site vitrine sophistiqué pour une marque fictive de bijoux de luxe. Ce projet met en valeur mes compétences en développement web moderne. L\'interface utilisateur offre des animations subtiles et sobre pour marquer l\'esthétique luxueuse des bijoux. L\'architecture évolutive de Next.js permet d\'envisager de futures intégrations e-commerce que je prévois de réaliser dans un second temps.',
         image: '/imageProjets/eminence.png',
         link: 'https://eminence-virid.vercel.app/',
         techno: [
@@ -178,10 +179,7 @@ export const projects: Project[] = [
                 name: 'Moteur de Recherche',
                 description: 'Ajout d\'une fonctionnalité de recherche avancée pour les produits.'
             },
-            {
-                name: 'Optimisation des Performances',
-                description: 'Amélioration continue des temps de chargement et de l\'expérience utilisateur.'
-            }
+
         ],
         github: 'https://github.com/HDZ65/Eminence',
     },
@@ -190,7 +188,7 @@ export const projects: Project[] = [
     {
         slug: 'chic-and-trim',
         title: 'Chic&Trim - Coiffure',
-        description: 'Site vitrine dynamique et moderne pour un salon de coiffure fictif. Ce projet démontre ma maîtrise du développement front-end sans framework JavaScript. Il présente un design entièrement responsive, des animations personnalisées en JavaScript et GSAP, ainsi qu\'un carrousel d\'images fait sur mesure, le tout optimisé pour une navigation fluide sur tous les appareils.',
+        description: 'Site vitrine dynamique et moderne pour un salon de coiffure. Ce projet démontre ma maîtrise du développement front-end sans framework JavaScript. Il présente un design entièrement responsive, des animations personnalisées en JavaScript et GSAP, ainsi qu\'un carrousel d\'images fait sur mesure, le tout optimisé pour une navigation fluide sur tous les appareils.',
         image: '/imageProjets/chic&trim.png',
         link: 'https://chic-and-trim.vercel.app/',
         techno: [
@@ -226,7 +224,7 @@ export const projects: Project[] = [
             },
             {
                 name: 'Carrousel Personnalisé',
-                description: 'Implémentation d\'un carrousel d\'images sans librairie externe, en JavaScript.'
+                description: 'Implémentation d\'un carrousel d\'images en JavaScript.'
             },
             {
                 name: 'Menu Burger Responsive',
@@ -260,10 +258,7 @@ export const projects: Project[] = [
                 name: 'Blog',
                 description: 'Création d\'une section blog pour partager des conseils de coiffure et des nouvelles du salon.'
             },
-            {
-                name: 'Optimisation des Performances',
-                description: 'Amélioration continue des temps de chargement et de l\'expérience utilisateur.'
-            }
+            
         ],
         github: 'https://github.com/HDZ65/chic-and-trim',
     },
