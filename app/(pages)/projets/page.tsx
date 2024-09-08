@@ -7,7 +7,7 @@ import { projects } from "./data/projets";
 import ProjectCard from "./components/ProjectCard";
 import ProjectDetail from "./components/projectDetail";
 import ProjectCardMobile from "./components/ProjectCardMobile";
-import Image from "next/image";
+
 
 export default function Page() {
     return (
