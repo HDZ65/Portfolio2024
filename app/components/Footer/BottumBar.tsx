@@ -40,9 +40,10 @@ const BottumBar: React.FC = () => {
                 }}
                 showLabels
                 aria-label="Navigation principale"
+                sx={{ display: { xs: "flex", md: "none" } }}
             >
                 <BottomNavigationAction sx={{ borderRadius: "30px 0 0 30px" }} label="Accueil" icon={<HomeRoundedIcon />} />
-                <BottomNavigationAction  label="Projets" icon={<WorkRoundedIcon />} />
+                <BottomNavigationAction sx={{ borderRadius: " 0 30px 30px 0 " }} label="Projets" icon={<WorkRoundedIcon />} />
                 <BottomNavigationAction sx={{ borderRadius: " 0 30px 30px 0 " }} label="Contact" icon={<EmailRoundedIcon />} />
             </BottomNavigation>
     );

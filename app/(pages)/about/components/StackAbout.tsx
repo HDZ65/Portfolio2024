@@ -54,7 +54,7 @@ export const SkeletonTwo = () => {
               alt={`Logo de ${image.split('/')[1].split('.')[0]}`}
               width="500"
               height="500"
-              className="rounded-lg  h-14 w-14 sm:h-16 sm:w-16 md:h-24 md:w-24 lg:h-32 lg:w-32 flex-shrink-0"
+              className="rounded-lg  h-12 w-12 sm:h-16 sm:w-16  flex-shrink-0"
             />
           </motion.div>
         ))}

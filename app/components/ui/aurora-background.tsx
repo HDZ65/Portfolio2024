@@ -13,9 +13,9 @@ export const AuroraBackground = ({
   ...props
 }: AuroraBackgroundProps) => {
   return (
-    <main>
+    
       <div>
-      <div className="absolute inset-0 overflow-hidden max-w-[100dvw] z-[-10]">
+      <div className="absolute inset-0 overflow-hidden h-[100dvh] w-[100dvw] z-[-10]">
           <div
             className={cn(
               `
@@ -42,6 +42,5 @@ export const AuroraBackground = ({
         </div >
         {children}
       </div>
-    </main>
   );
 };

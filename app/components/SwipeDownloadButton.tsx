@@ -27,7 +27,6 @@ const SwipeContainer = styled(Box)({
     cursor: 'pointer',
     userSelect: 'none',
     border: "1px solid rgba(var(--mui-palette-primary-mainChannel) / 0.5)",
-
 });
 
 const SwipeCircle = styled(Box)(({ theme }) => ({

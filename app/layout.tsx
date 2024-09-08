@@ -22,9 +22,8 @@ export default function RootLayout({
       <head>
         <title>Portfolio Alexandre Hernandez</title>
       </head>
-      <body>
+      <body className="">
         <ThemeProvider>
-          <Header />
           <AuroraBackground>
             {children}
           </AuroraBackground>

@@ -1,16 +1,19 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { CssBaseline, Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider} from "@mui/material";
 import theme from './theme';
+import { useMemo } from 'react';
 
 
 
-export default function ThemeProvider( {children}: {children: React.ReactNode} ) {
+
+export default function MuiThemeProvider( {children}: {children: React.ReactNode} ) {
+  const memoizedTheme = useMemo(() => theme, []);
   return (
-    <AppRouterCacheProvider>
-        <CssVarsProvider theme={theme}>
+    <AppRouterCacheProvider >
+        <ThemeProvider theme={memoizedTheme}>
             <CssBaseline />
             {children}
-        </CssVarsProvider>
+        </ThemeProvider>
     </AppRouterCacheProvider>
   )
 }

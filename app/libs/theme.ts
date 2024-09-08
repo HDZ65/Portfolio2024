@@ -1,10 +1,10 @@
 "use client";
 
 import { BorderAll, Padding } from "@mui/icons-material";
-import { experimental_extendTheme, PaletteColor, PaletteColorOptions } from "@mui/material";
+import {  PaletteColor, PaletteColorOptions } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
 import { Roboto } from "next/font/google";
-
+import { extendTheme } from '@mui/material/styles';
 // Déclarations de modules pour les types personnalisés
 declare module '@mui/material/styles' {
     interface Palette {
@@ -35,7 +35,7 @@ const roboto = Roboto({
 });
 
 // Extension du thème MUI
-const theme = experimental_extendTheme({
+const theme = extendTheme({
     typography: {
         fontFamily: roboto.style.fontFamily,
     },
@@ -47,19 +47,22 @@ const theme = experimental_extendTheme({
         MuiTypography: {
             styleOverrides: {
                 root: {
-                    fontWeight: 400,
-                    fontSize: 18,
+                    fontWeight: 300,
+                    fontSize: 16,
                     lineHeight: 1.5,
-                    letterSpacing: 0.5, // Espacement légèrement augmenté pour une meilleure lisibilité des paragraphes
+                    letterSpacing: 0.5, 
                     marginBottom: "0",
+
                 },
                 h1: {
                     fontSize: 36,
+
                     lineHeight: 1.1,
                     letterSpacing: 0.5, // Adapté pour une taille de police de 36px
                     marginBottom: "0",
                     "@media (min-width: 850px)": {
-                        fontSize: 48,
+                        fontSize: 42,
+                        fontWeight: 300,
                     },
                 },
                 h2: {
@@ -69,8 +72,9 @@ const theme = experimental_extendTheme({
                     letterSpacing: 0.4, // Adapté pour une taille de police de 28px
                     marginBottom: "0",
                     "@media (min-width: 850px)": {
-                        fontWeight: 500,
+                        fontSize: 32,
                     },
+
                 },
                 h3: {
                     fontSize: 18,
@@ -91,21 +95,27 @@ const theme = experimental_extendTheme({
                     letterSpacing: 0.4, // Adapté pour une taille de police de 24px
                     marginBottom: "0",
                 },
+                body1: {
+                    fontSize: 18,
+                    lineHeight: 1.5,
+                    letterSpacing: 0.5,
+                    marginBottom: "0",
+                },
+                body2: {
+                    fontSize: 16,
+                    lineHeight: 1.5,
+                    letterSpacing: 0.5,
+                    marginBottom: "0",
+                },
             },
         },
+        
         MuiStack: {
             styleOverrides: {
                 root: {
-                    padding: "1.6rem",
                     maxWidth: "1450px",
                     margin: "0 auto",
-                    "@media (min-width: 600px)": {
-                        padding: "2rem",
-                    },
-                    "@media (min-width: 850px)": {
-                        padding: "2rem 4rem",
-                    },
-                    
+
                 },
             },
         },
@@ -120,13 +130,12 @@ const theme = experimental_extendTheme({
         MuiFab: {
             styleOverrides: {
                 root: {
-                    backgroundColor: "var(--mui-palette-background-paper)",
+                    backgroundColor: "transparent",
                     height: "2.5rem",
                     width: "2.5rem",
                     boxShadow: "none",
                     "&:hover": {
                         boxShadow: "none",
-                        backgroundColor: "var(--mui-palette-background-paper)",
                     },
                 },
             },
@@ -139,7 +148,7 @@ const theme = experimental_extendTheme({
                     width: "100%",
                     textTransform: 'none',
                     fontWeight: 300,
-                    fontSize: 18,
+                    fontSize: 16,
                     boxShadow: "none",
                     "&:hover": {
                         boxShadow: "none",
@@ -152,29 +161,23 @@ const theme = experimental_extendTheme({
                 contained: {
                     // Styles pour les boutons contenus
                 },
+                text: {
+                    width: "fit-content",
+                    padding: "0.2rem 1rem",
+                    "&:hover": {
+                        backgroundColor: "var(--mui-palette-primary-main)",
+                    },
+                },
             },
         },
         MuiContainer: {
             styleOverrides: {
                 root: {
-                    padding: "1.6rem",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "3.2rem",
-                    marginBottom: "5rem",
-                    "@media (min-width: 600px)": {
-                        padding: "2rem",
-                    },
-                    "@media (min-width: 850px)": {
-                        padding: "4rem",
-                        gap: "4.8rem",
-                    },
-                    "@media (min-width: 1200px)": {
-                        maxWidth: "1450px",
-                        gap: "5.4rem",
-                    },
+                    padding: "2rem 0",
                 },
             },
         },
@@ -200,36 +203,20 @@ const theme = experimental_extendTheme({
                 },
             },
         },
-        MuiInputBase: {
-            styleOverrides: {
-                root: {
-                    borderColor: "var(--mui-palette-text-primary)",
-                    color: "var(--mui-palette-text-primary)",
-                },
-            },
-        },
-        MuiInputLabel: {
-            styleOverrides: {
-                root: {
-                    color: "var(--mui-palette-background-paper)",
-                },
-            },
-        },
+
         MuiCard: {
             styleOverrides: {
                 root: {
                     display: "flex",
                     flexDirection: "row",
-                    gap: "1.5rem",
                     alignItems: "center",
                     justifyContent: "center",
                     borderRadius: "0px",
+                    gap: "1.5rem",
                     height: "7rem",
                     width: "100%",
                     backgroundColor: "transparent",
-                    "@media (max-width: 400px)": {
-                        gap: "1rem",
-                    },
+
                 },
             },
         },
@@ -260,6 +247,47 @@ const theme = experimental_extendTheme({
                 },
             },
         },
+        MuiSpeedDialAction: {
+            styleOverrides: {
+                fab: {
+                    backgroundColor: "transparent",
+                    "&:hover": {
+                        backgroundColor: "var(--mui-palette-primary-main)",
+                    },
+                },
+            },
+        },
+        MuiList: {
+            styleOverrides: {
+                root: {
+                    padding: "0",
+                    paddingTop: "0",
+                    paddingBottom: "0",
+                    marginTop: "0",
+                    marginBottom: "0",
+                },
+            },
+        },
+        MuiListItem: {
+            styleOverrides: {
+                root: {
+                    padding: "0",
+                },
+            },
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                },
+                label: {
+                    paddingLeft: "1.5rem",
+                    paddingRight: "1.5rem",
+                    paddingTop: "2rem",
+                    paddingBottom: "2rem",
+                },
+            },
+        },
+
     },
     colorSchemes: {
         light: {
@@ -276,8 +304,11 @@ const theme = experimental_extendTheme({
                     paper: "#060808", // gris foncé
                 },
                 text: {
-                    primary: "#fff", // blanc
-                    secondary: "#fff", // noir bleuté
+                    primary: "#f1f1f1", // blanc
+                    secondary: "#f1f1f1", // noir bleuté
+                },
+                common: {
+                    onBackgroundChannel: "225 225 225", // blanc
                 },
             },
         },
