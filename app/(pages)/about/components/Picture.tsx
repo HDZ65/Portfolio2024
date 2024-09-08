@@ -13,7 +13,6 @@ export default function Picture({ className }: { className: string }) {
       justifyContent="center" 
       overflow="hidden"
       sx={{
-        backdropFilter: "blur(10px)", // Effet de flou
         boxShadow: "0 0px 10px 0 rgba(2, 136, 209, 0.37)", // Ombre légère
         border: "1px solid rgba(255, 255, 255, 0.18)", // Bordure subtile
         color: "#ffffff", // Assurez-vous que le texte est lisible sur le nouveau fond

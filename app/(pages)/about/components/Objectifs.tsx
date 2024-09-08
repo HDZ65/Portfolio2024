@@ -6,12 +6,11 @@ export default function Objectif({ className }: { className: string }) {
       className={className}
 
             sx={{
-                backdropFilter: "blur(10px)", // Effet de flou
                 boxShadow: "0 0px 10px 0 rgba(2, 136, 209, 0.37)", // Ombre légère
                 border: "1px solid rgba(255, 255, 255, 0.18)", // Bordure subtile
                 color: "#ffffff", // Assurez-vous que le texte est lisible sur le nouveau fond
                 transition: 'all 1s ease',
-                marginBottom: { xs: '60px', md: '0' },
+                marginBottom: { xs: '90px', md: '0' },
 
                 ":hover": {
                     boxShadow: `0 0px 15px 0 var(--mui-palette-primary-main)`,

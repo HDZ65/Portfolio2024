@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <Stack sx={{ zIndex: 1000 }}>
-      <Grid2 zIndex={1000} container component="header" sx={{ position: 'relative', paddingY: "2rem", paddingX: { xs: "1rem", md: "0" } }}>
+      <Grid2 zIndex={1000} container component="header" sx={{ position: 'relative', paddingY: { xs: "1rem", md: "2rem" }, paddingX: { xs: "1rem", md: "0" } }}>
         <Grid2 size="grow" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'start' }}>
           <Typography sx={{ textTransform: 'capitalize', textDecoration: 'underline' }} variant="h3"  >
             {pathname || 'Portfolio'}

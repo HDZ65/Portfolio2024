@@ -15,20 +15,25 @@ export default function Hero() {
 
     <Stack
       sx={{
-        position: 'absolute',
+        position: { xs: '', md: 'absolute' },
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%, -50%)',
+        transform: { xs: '', md: 'translate(-50%, -50%)' },
         backgroundSize: '400% 400%',
-        padding: '2.5rem',
+        padding: {xxs: ' 0 ', xs: ' 0 1rem', md: '2.5rem' },
         justifyContent: 'center',
         width: { xs: '100%', md: '60%' },
+        margin: { xs: ' auto', md: '0' },
       }}
 
       display="flex"
       flexDirection={{ xs: 'column' }}
       alignItems="center"
-      gap={{ xs: "2rem", md: "2.5rem" }}
+      gap={{
+        xxs: "1rem", 
+        xs: "2rem",
+        md: "2.5rem"
+      }}
       direction="column"
       aria-label="Hero section pour Alexandre Hernandez"
     >

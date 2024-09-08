@@ -62,10 +62,12 @@ const ContactForm: React.FC = () => {
  
             <Stack
                 sx={{
-                    position: 'absolute',
+                    position: { xs: '', md: 'absolute' },
+
                     top: '50%',
                     left: '50%',
-                    transform: 'translate(-50%, -50%)',
+                    transform: { xs: '', md: 'translate(-50%, -50%)' },
+                    margin: { xs: ' auto', md: '0' },
                     backgroundSize: '400% 400%',
                     animation: `${morphing} 15s ease infinite`,
                     padding: {xs: '1.5rem', md: '2.5rem'},
@@ -74,7 +76,6 @@ const ContactForm: React.FC = () => {
                     width: '60%',
                     maxWidth: '600px', 
                     borderRadius: '30px',
-                    backdropFilter: 'blur(30px)',
                     boxShadow: "0 0px 10px 0 rgba(2, 136, 209, 0.37)", // Ombre légère
 
                     border: '1px solid rgba(255, 255, 255, 0.18)',
