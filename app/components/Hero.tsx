@@ -49,7 +49,7 @@ export default function Hero() {
           Développeur web fullstack basé à Tarbes, France.
         </Typography>
         <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h4">
-          Actuellement en recherche d'entreprise pour une alternance.
+          Actuellement en recherche d'entreprise pour une alternance Concepteur Développeur d'Applications.
         </Typography>
       </Box>
       <Box width="100%" display="flex" gap={{ xs: "1.6rem", md: "2rem" }}>

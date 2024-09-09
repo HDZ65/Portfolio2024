@@ -37,7 +37,7 @@ export default function Qui({ className }: { className: string }) {
       <Box textAlign={{ xs: 'start' }} >
         <Box textAlign={{ xs: 'start' }} component="div">
           <Typography>
-            Passionné de <strong>développement web</strong>, je m&apos;intéresse aussi au <strong>design UI/UX</strong> et au <strong>SEO</strong>. Je crée rapidement des maquettes avec Figma et approfondis mes connaissances en SEO quotidiennement.
+            Je m&apos;intéresse aussi au <strong>design UI/UX</strong> et au <strong>SEO</strong>. je crée des interfaces utilisateur intuitives avec Figma et approfondis mes connaissances en SEO quotidiennement.
           </Typography>
 
           <Typography>

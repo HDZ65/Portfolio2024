@@ -41,10 +41,11 @@ const LinkNav: React.FC = () => {
     <Grid2 size={8} sx={{ display: { xs: "none", md: "flex" } }} justifyContent={'center'} alignItems={'center'} gap={{ xs: 2, md: 4, lg: 8 }}>
         {content.map((item, index) => {
             const isActive = pathname === item.href.slice(1);
+            const commonStyles = `flex flex-row items-center gap-2 text-lg xl:px-6 px-4 max-lg:px-3 select-none`;
             return isActive ? (
                 <Box
                     key={index}
-                    className={`flex flex-row items-center gap-2 text-lg xl:px-6 px-4 max-lg:px-3 text-[var(--mui-palette-primary-main)] underline`}
+                    className={`${commonStyles} text-[var(--mui-palette-primary-main)] underline`}
                     aria-current="page"
                 >
                     {item.label}
@@ -53,7 +54,7 @@ const LinkNav: React.FC = () => {
                 <Link
                     key={index}
                     href={item.href}
-                    className={`flex flex-row items-center gap-2 text-lg xl:px-6 px-4 max-lg:px-3 hover:underline text-secondary`}
+                    className={`${commonStyles} hover:underline text-secondary`}
                 >
                     {item.label}
                 </Link>
