@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <title>Portfolio Alexandre Hernandez</title>
       </head>
-      <body className="">
+      <body className="overflow-x-hidden">
         <ThemeProvider>
           <AuroraBackground>
             {children}

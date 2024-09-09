@@ -54,11 +54,11 @@ export default function ProjectDetail() {
             <Box display={'flex'} flexDirection={'column'} gap={3 } width={'100%'}>
                 <Box display={'flex'} flexDirection={'column'} alignItems={'cente'} gap={3 }>
                     <Box display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'} gap={6} sx={{borderBottom: '1px solid', borderColor: 'text.secondary', paddingBottom: '1rem'}}>
-                        <Link sx={{ fontWeight: 'bold', fontSize: '24px', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={1} href={openProject.link} target="_blank" rel="noopener noreferrer">
+                        <Link sx={{ fontSize: '24px', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={1} href={openProject.link} target="_blank" rel="noopener noreferrer">
                             {openProject.title}
                             <IconArrowRight size={24} />
                         </Link>
-                        <Link sx={{ marginRight: '1rem', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1, fontWeight: 'bold', fontSize: '18px', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} href={openProject.github} target="_blank" rel="noopener noreferrer">
+                        <Link sx={{ marginRight: '1rem', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1, fontSize: '18px', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} href={openProject.github} target="_blank" rel="noopener noreferrer">
                             GitHub
                             <IconBrandGithub size={24} />
                         </Link>
@@ -81,7 +81,7 @@ export default function ProjectDetail() {
 
             <ScrollableBox>
                 <Box className="border-l px-4" display={'flex'} flexDirection={'column'} gap={3 } width={'50%'}>
-                    <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }} variant='h3' >
+                    <Typography sx={{}} variant='h3' >
                         Fonctionnalités :
                     </Typography>
                     <List>
@@ -90,8 +90,8 @@ export default function ProjectDetail() {
                                 <ListItemText
                                     primary={feature.name}
                                     secondary={feature.description}
-                                    primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', marginBottom: '0.2rem' }}
-                                    secondaryTypographyProps={{ fontWeight: 'light', color: 'text.secondary', fontSize: '14px' }}
+                                    primaryTypographyProps={{ fontSize: '18px', marginBottom: '0.2rem' }}
+                                    secondaryTypographyProps={{  color: 'text.secondary' }}
                                 />
                             </ListItem>
                         ))}
@@ -99,7 +99,7 @@ export default function ProjectDetail() {
                 </Box>
                 {openProject.prochainesEtapes && (
                     <Box className="border-l px-4" display={'flex'} flexDirection={'column'} gap={3 } width={'50%'}>
-                        <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }} variant='h3' >
+                        <Typography sx={{}} variant='h3' >
                             Prochaines étapes :
                         </Typography>
                         <List >
@@ -108,8 +108,8 @@ export default function ProjectDetail() {
                                     <ListItemText
                                         primary={step.name}
                                         secondary={step.description}
-                                        primaryTypographyProps={{ fontWeight: 'bold', fontSize: '18px', marginBottom: '0.2rem' }}
-                                        secondaryTypographyProps={{ fontWeight: 'light', color: 'text.secondary', fontSize: '14px' }}
+                                        primaryTypographyProps={{ fontSize: '18px', marginBottom: '0.2rem' }}
+                                        secondaryTypographyProps={{  color: 'text.secondary' }}
                                     />
                                 </ListItem>
                             ))}

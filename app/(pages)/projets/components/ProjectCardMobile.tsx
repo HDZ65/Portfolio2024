@@ -39,7 +39,7 @@ const ProjectCardMobile: React.FC<ProjectCardProps> = ({ project, isLast = false
                     </Typography>
                     <Box width="100%" >
                         {project.techno.slice(0, 1).map((techno, index) => (
-                            <Typography key={index} variant="body2" sx={{ fontSize: "14px" }}>{techno.name}</Typography>
+                            <Typography key={index} variant="body2" >{techno.name}</Typography>
 
                         ))}
                     </Box>

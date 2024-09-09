@@ -2,14 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'San Francisco';
-    src: url('/fonts/SanFranciscoText-Regular.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* Utilisation de la police */
-  body {
-    font-family: 'San Francisco', sans-serif;
-  }
