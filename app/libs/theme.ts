@@ -208,12 +208,11 @@ const theme = extendTheme({
             styleOverrides: {
                 root: {
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     borderRadius: "0px",
                     gap: "1.5rem",
-                    height: "7rem",
                     width: "100%",
                     backgroundColor: "transparent",
 
@@ -223,7 +222,7 @@ const theme = extendTheme({
         MuiCardMedia: {
             styleOverrides: {
                 root: {
-                    width: "50%",
+                    width: "100%",
                     height: "100%",
                     objectFit: "cover",
                     borderRadius: "12px",
@@ -239,6 +238,8 @@ const theme = extendTheme({
                     alignItems: "flex-start",
                     height: "100%",
                     width: "100%",
+                    gap: "1.5rem",
+
                     padding: "0",
                     paddingBottom: "0px",
                     "&:last-child": {

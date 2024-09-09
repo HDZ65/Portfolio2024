@@ -3,6 +3,36 @@
 import { Box, Link, Typography, List, ListItem, ListItemText, Chip, IconButton, Button } from "@mui/material";
 import { useProjectContext } from "@/app/(pages)/projets/context/useProjectContext";
 import { IconArrowRight, IconBrandGithub } from "@tabler/icons-react";
+import { styled } from '@mui/system';
+
+// Création d'un composant Box stylisé avec une barre de défilement personnalisée
+const ScrollableBox = styled(Box)(({ theme }) => ({
+  height: '100%',
+  overflow: 'auto',
+  display: 'flex',
+  flexDirection: 'row',
+  gap: theme.spacing(6),
+  justifyContent: 'space-between',
+  width: '100%',
+
+  '&::-webkit-scrollbar': {
+    width: '8px',
+  },
+  '&::-webkit-scrollbar-track': {
+    background: "transparent",
+    borderRadius: '30px',
+  },
+  '&::-webkit-scrollbar-thumb': {
+    background: theme.palette.primary.main,
+    borderRadius: '30px',
+    border: '1px solid rgba(255, 255, 255, 0.18)',
+    transition: 'all 1s ease',
+
+  },
+  '&::-webkit-scrollbar-thumb:hover': {
+    background: theme.palette.primary.dark,
+  },
+}));
 
 export default function ProjectDetail() {
     const { openProject } = useProjectContext();
@@ -19,6 +49,7 @@ export default function ProjectDetail() {
             alignItems={'start'} 
             flexDirection={'column'} 
             gap={6}
+            
         >
             <Box display={'flex'} flexDirection={'column'} gap={3 } width={'100%'}>
                 <Box display={'flex'} flexDirection={'column'} alignItems={'cente'} gap={3 }>
@@ -47,7 +78,8 @@ export default function ProjectDetail() {
                 </Box>
 
             </Box>
-            <Box display={'flex'} flexDirection={'row'} gap={6} justifyContent={'space-between'} width={'100%'}>
+
+            <ScrollableBox>
                 <Box className="border-l px-4" display={'flex'} flexDirection={'column'} gap={3 } width={'50%'}>
                     <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }} variant='h3' >
                         Fonctionnalités :
@@ -84,7 +116,7 @@ export default function ProjectDetail() {
                         </List>
                     </Box>
                 )}
-            </Box>
+            </ScrollableBox>
         </Box>
     )
 }

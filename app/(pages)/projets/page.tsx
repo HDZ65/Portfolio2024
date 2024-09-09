@@ -7,8 +7,7 @@ import { projects } from "./data/projets";
 import ProjectCard from "./components/ProjectCard";
 import ProjectDetail from "./components/projectDetail";
 import ProjectCardMobile from "./components/ProjectCardMobile";
-
-
+import Grid2 from '@mui/material/Grid2';
 export default function Page() {
     return (
         <ProjectProvider>
@@ -16,23 +15,42 @@ export default function Page() {
                 <Header />
                 <Stack
                     component={'main'}
+ 
                     height={{ xs: 'auto', md: "calc(100dvh - 113.48px)" }}
                     maxHeight={{ xs: 'none', md: "calc(100dvh - 113.48px)" }}
                     display='flex'
-                    flexDirection='column'
+                    flexDirection='row'
                     justifyContent='space-between'
-                >
+                    gap={4}
+                    paddingBottom={{ xs: 0, md: 4 }}
 
-                    <Box display='flex' flexDirection='row' height='100%' gap={4}>
-                        <Box gap={4} display='flex' flexDirection='column' padding={{xs: 1, md: 0}} width={{ xs: '100%', md: '40%' }} height='100%' >
-                            <Typography variant="h2">Parcourir mes projets :</Typography>
-                            <ProjectCardMobile project={projects[0]} />
-                            <ProjectCardMobile project={projects[1]} />
-                            <ProjectCardMobile project={projects[2]} />
-                            <ProjectCard />
+                >
+                    <Box
+                        display='flex'
+                        flexDirection='column'
+                        paddingX={{ xs: "1rem", md: "1rem", lg: "1rem", xl: "0" }}
+
+                        width={{ xs: '100%', md: '40%' }}
+                        height='100%'
+                        gap={{ xs: 0, md: 4 }}
+                    >
+                        <Typography marginBottom={{ xs: 4, md: 0 }} variant="h2">Parcourir mes projets :</Typography>
+                        <Box display={{ xs: 'block', md: 'none' }}>
+                            <Grid2 container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 2, md: 12 }}>
+                                {projects.map((project, index) => (
+                                    <Grid2 size={{ xs: 1, sm: 1, md: 4 }} key={project.slug}>
+                                        <ProjectCardMobile
+                                            project={project}
+                                            isLast={index === projects.length - 1}
+                                        />
+                                    </Grid2>
+                                ))}
+                            </Grid2>
                         </Box>
-                        <ProjectDetail />
+
+                        <ProjectCard />
                     </Box>
+                    <ProjectDetail />
                 </Stack>
             </ScrollPages>
         </ProjectProvider>

@@ -15,12 +15,21 @@ export default function Header() {
 
   return (
     <Stack sx={{ zIndex: 1000 }}>
-      <Grid2 zIndex={1000} container component="header" sx={{ position: 'relative', paddingY: { xs: "1rem", md: "2rem" }, paddingX: { xs: "1rem", md: "0" } }}>
+      <Grid2 zIndex={1000} container component="header" sx={{ position: 'relative', paddingY: { xs: "1rem", md: "2rem" }, paddingX: { xs: "1rem", md: "1rem", lg: "1rem", xl: "0" } }}>
         <Grid2 size="grow" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'start' }}>
           <Typography sx={{ textTransform: 'capitalize', textDecoration: 'underline' }} variant="h3"  >
             {pathname || 'Portfolio'}
           </Typography>
-          <Link sx={{ textDecoration: 'none', color: 'inherit', '&:hover': { color: 'var(--mui-palette-primary-main)' } }} href="/" variant="h4">
+          <Link 
+            sx={{ 
+              textDecoration: 'none', 
+              color: 'inherit', 
+              whiteSpace: 'nowrap',
+              '&:hover': { color: 'var(--mui-palette-primary-main)' } 
+            }} 
+            href="/" 
+            variant="h4"
+          >
             Alexandre HERNANDEZ
           </Link>
         </Grid2>

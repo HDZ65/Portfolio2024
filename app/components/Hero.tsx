@@ -20,7 +20,7 @@ export default function Hero() {
         left: '50%',
         transform: { xs: '', md: 'translate(-50%, -50%)' },
         backgroundSize: '400% 400%',
-        padding: {xxs: ' 0 ', xs: ' 0 1rem', md: '2.5rem' },
+        padding: { xxs: ' 0 ', xs: ' 0 1rem', md: '2.5rem' },
         justifyContent: 'center',
         width: { xs: '100%', md: '60%' },
         margin: { xs: ' auto', md: '0' },
@@ -30,7 +30,7 @@ export default function Hero() {
       flexDirection={{ xs: 'column' }}
       alignItems="center"
       gap={{
-        xxs: "1rem", 
+        xxs: "1rem",
         xs: "2rem",
         md: "2.5rem"
       }}
@@ -44,9 +44,14 @@ export default function Hero() {
       <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h1">
         Je suis Alexandre Hernandez
       </Typography>
-      <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h4">
-        Développeur web fullstack basé à Tarbes, France.
-      </Typography>
+      <Box>
+        <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h4">
+          Développeur web fullstack basé à Tarbes, France.
+        </Typography>
+        <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h4">
+          Actuellement en recherche d'entreprise pour une alternance.
+        </Typography>
+      </Box>
       <Box width="100%" display="flex" gap={{ xs: "1.6rem", md: "2rem" }}>
         <ButtonLink label="Mes Projets" variant="contained" icon={<WorkRoundedIcon />} to="/projets" />
         <ButtonLink label="Contact" variant="outlined" icon={<EmailRoundedIcon />} to="/contact" />

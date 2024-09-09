@@ -4,7 +4,7 @@ import NextIcon from "@/app/components/ui/icons/NextIcon";
 import ReactIcon from "@/app/components/ui/icons/ReactIcon";
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
-
+import PhpIcon from "@/app/components/ui/icons/PhpIcon";
 // Définition du type pour les compétences
 type Skill = {
     icon: React.ComponentType<{ className: string }>;
@@ -14,6 +14,7 @@ type Skill = {
 
 // Liste des compétences avec leurs URLs
 const skills: Skill[] = [
+    { icon: PhpIcon, name: "Php", url: "https://www.php.net/" },
     { icon: JavaScriptIcon, name: "JavaScript", url: "https://developer.mozilla.org/fr/docs/Web/JavaScript" },
     { icon: ReactIcon, name: "React", url: "https://reactjs.org/" },
     { icon: NextIcon, name: "Next.js", url: "https://nextjs.org/" },
@@ -35,7 +36,7 @@ export default function Competences({ className }: { className: string }) {
                 },
             }}
             borderRadius="30px"
-            padding={{ xs: "1.6rem", md: "3rem" }}
+            padding={{ xs: "1.6rem", md: "2rem" }}
             display="flex"
             flexDirection="column"
             alignItems="start"
