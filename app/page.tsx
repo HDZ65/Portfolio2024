@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <ScrollPages>
       <Header />
-      <Stack component={'main'} className="h-[calc(100dvh - 113.48px)]">
+      <Stack component={'main'}  height={{xs:'calc(100dvh - 128px)', md:'calc(100dvh - 112px)'}}>
           <Hero />
       </Stack>
     </ScrollPages>

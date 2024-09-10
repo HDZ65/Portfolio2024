@@ -15,21 +15,21 @@ export default function Hero() {
 
     <Stack
       sx={{
-        
         backgroundSize: '400% 400%',
         padding: { xxs: ' 0 ', xs: ' 0 1rem', md: '2.5rem' },
-        justifyContent: 'center',
-        width: { xs: '100%', md: '60%' },
-        margin: { xs: ' auto'  },
+        width: { xs: '100%', md: '90%' },
+        marginX: { xs: ' auto' },
+        height: 'fit-content',
       }}
 
       display="flex"
       flexDirection={{ xs: 'column' }}
-      alignItems="center"
+      alignItems={{ xs: 'start', md: 'center' }}
+      justifyContent="start"
       gap={{
         xxs: "1rem",
         xs: "2rem",
-        md: "2.5rem"
+        xl: "2.5rem"
       }}
       direction="column"
       aria-label="Hero section pour Alexandre Hernandez"
@@ -42,12 +42,41 @@ export default function Hero() {
         Je suis Alexandre Hernandez
       </Typography>
       <Box>
-        <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h4">
-          Développeur web fullstack basé à Tarbes, France.
+        <Typography 
+          width={{ xs: '100%' }} 
+          textAlign={{ xs: 'start', md: 'center' }} 
+          variant="h5" 
+          component="div" 
+          sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'flex-start', md: 'center' } }}
+        >
+          Développeur web fullstack{' '}
+          <Typography 
+            variant="h5" 
+            color="text.secondary" 
+            component="span" 
+            sx={{ ml: 1 }}
+          >
+            basé à Tarbes, France
+          </Typography>
         </Typography>
-        <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h4">
-          Actuellement en recherche d'entreprise pour une alternance Concepteur Développeur d'Applications.
+        <Typography 
+          width={{ xs: '100%' }} 
+          textAlign={{ xs: 'start', md: 'center' }} 
+          variant="h5" 
+          component="div" 
+          sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'flex-start', md: 'center' } }}
+        >
+          Actuellement en recherche d'entreprise{' '}
+          <Typography 
+            variant="h5" 
+            color="text.secondary" 
+            component="h5" 
+            sx={{ ml: 1 }}
+          >
+           pour une alternance Concepteur Développeur d'Applications.
+          </Typography>
         </Typography>
+
       </Box>
       <Box width="100%" display="flex" gap={{ xs: "1.6rem", md: "2rem" }}>
         <ButtonLink label="Mes Projets" variant="contained" icon={<WorkRoundedIcon />} to="/projets" />

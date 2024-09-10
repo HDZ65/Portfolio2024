@@ -153,6 +153,7 @@ const SwipeDownloadButton = () => {
             aria-label="Télécharger mon CV"
             role="button"
             tabIndex={0}
+            sx={{ marginBottom: { xs: "86px", md: "0" } }}
         >
             <SwipeCircle
                 onMouseDown={handleMouseDown}
