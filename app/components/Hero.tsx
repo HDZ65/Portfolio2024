@@ -18,7 +18,7 @@ export default function Hero() {
         backgroundSize: '400% 400%',
         padding: { xxs: ' 0 ', xs: ' 0 1rem', md: '2.5rem' },
         width: { xs: '100%', md: '90%' },
-        marginX: { xs: ' auto' },
+        margin: { xs: ' auto' },
         height: 'fit-content',
       }}
 
@@ -27,7 +27,7 @@ export default function Hero() {
       alignItems={{ xs: 'start', md: 'center' }}
       justifyContent="start"
       gap={{
-        xxs: "1rem",
+  
         xs: "2rem",
         xl: "2.5rem"
       }}

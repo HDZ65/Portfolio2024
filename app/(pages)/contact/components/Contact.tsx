@@ -17,9 +17,9 @@ import axios from 'axios';
 
 // Schéma de validation du formulaire
 const schema = z.object({
-    name: z.string().min(1, "Le nom complet est requis"),
-    email: z.string().email("Email invalide"),
-    message: z.string().min(1, "Le message est requis"),
+    name: z.string().min(1, "Votre nom ou prénom est requis"),
+    email: z.string().email("Zut, l'email est invalide"),
+    message: z.string().min(1, "Écrivez un petit mot"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -54,7 +54,8 @@ const ContactForm: React.FC = () => {
     return (
         <Stack
         sx={{
-            margin: { xs: 'auto' },
+            marginBottom: {xs: '3rem', sm: 'auto'},
+
             backgroundSize: '400% 400%',
             padding: {xs: '1.6rem', md: '2rem'},
             gap: {xs: '1.6rem', md: '2rem'},
@@ -82,11 +83,11 @@ const ContactForm: React.FC = () => {
             <Typography id="contact-title" color="text.primary" variant="h2" component="h1" sx={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>
                 Contact
             </Typography>
-            <Typography color="text.primary" variant="h4" component="h2" sx={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>
+            <Typography color="text.primary" variant="h4" component="h2" width="100%">
                 Actuellement à la recherche d'une alternance en développement web concepteur développeur d'application.
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Box display="flex" flexDirection="column" gap={{xs: '1.5rem', md: '2.5rem'}} width="100%">
+                <Box display="flex" flexDirection="column" gap={{xs: '1.6rem', md: '2rem'}} width="100%">
                     {formFields.map((field) => (
                         <Controller
                             key={field.name}
