@@ -14,9 +14,10 @@ export default function Details({ project }: { project: Project }) {
         >
             <Box display={'flex'} flexDirection={'column'} gap={3} >
                 <Box display={'flex'} flexDirection={'column'} alignItems={'center'} gap={3}>
-                    <Box display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'} gap={6} sx={{ borderBottom: '1px solid', borderColor: 'text.secondary', paddingBottom: '1rem' }}>
+                    <Box width="100%" display={'flex'} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'} gap={6} sx={{ borderBottom: '1px solid', borderColor: 'text.secondary', paddingBottom: '1rem' }}>
                         <Link sx={{ fontWeight: 'bold', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={1} href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Visiter le site du projet ${project.title}`}>
                             {project.title}
+                            <Typography>voir le projet</Typography>
                         </Link>
                         <Link sx={{ marginRight: '1rem', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1,  textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} href={project.github} target="_blank" rel="noopener noreferrer">
                             GitHub

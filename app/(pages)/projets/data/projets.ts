@@ -190,7 +190,7 @@ export const projects: Project[] = [
         title: 'Chic&Trim - Coiffure',
         description: 'Site vitrine dynamique et moderne pour un salon de coiffure. Ce projet démontre ma maîtrise du développement front-end sans framework JavaScript. Il présente un design entièrement responsive, des animations personnalisées en JavaScript et GSAP, ainsi qu\'un carrousel d\'images fait sur mesure, le tout optimisé pour une navigation fluide sur tous les appareils.',
         image: '/imageProjets/chic&trim.png',
-        link: 'https://chic-and-trim.vercel.app/',
+        link: 'https://chic-trim.vercel.app/',
         techno: [
             {
                 name: 'HTML5',

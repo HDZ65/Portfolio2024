@@ -57,6 +57,7 @@ export default function ProjectDetail() {
                         <Link sx={{ fontSize: '24px', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} display={'flex'} flexDirection={'row'} alignItems={'center'} gap={1} href={openProject.link} target="_blank" rel="noopener noreferrer">
                             {openProject.title}
                             <IconArrowRight size={24} />
+                            <Typography>voir le projet</Typography>
                         </Link>
                         <Link sx={{ marginRight: '1rem', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1, fontSize: '18px', textDecoration: 'none', '&:hover': { textDecoration: 'underline', color: 'primary.main' } }} href={openProject.github} target="_blank" rel="noopener noreferrer">
                             GitHub
@@ -79,8 +80,8 @@ export default function ProjectDetail() {
 
             </Box>
 
-            <ScrollableBox>
-                <Box className="border-l px-4" display={'flex'} flexDirection={'column'} gap={3 } width={'50%'}>
+            <ScrollableBox className="h-full border-l">
+                <Box className=" px-4" display={'flex'} flexDirection={'column'} gap={3 } height={'100%'} width={'50%'}>
                     <Typography sx={{}} variant='h3' >
                         Fonctionnalités :
                     </Typography>
@@ -98,7 +99,7 @@ export default function ProjectDetail() {
                     </List>
                 </Box>
                 {openProject.prochainesEtapes && (
-                    <Box className="border-l px-4" display={'flex'} flexDirection={'column'} gap={3 } width={'50%'}>
+                    <Box className="  px-4" display={'flex'} height={'100%'}  flexDirection={'column'} gap={3 } width={'50%'}>
                         <Typography sx={{}} variant='h3' >
                             Prochaines étapes :
                         </Typography>

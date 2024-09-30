@@ -35,12 +35,14 @@ export default function Hero() {
       aria-label="Hero section pour Alexandre Hernandez"
     >
       <Picture />
-      <Typography color="var(--mui-palette-primary-main)" width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h1">
-        <FlipWords words={words} />
+      <Box display="flex" flexDirection="column" gap="1rem">
+        <Typography color="var(--mui-palette-primary-main)" width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h1">
+          <FlipWords words={words} />
       </Typography>
       <Typography width={{ xs: '100%' }} textAlign={{ xs: 'start', md: 'center' }} variant="h1">
         Je suis Alexandre Hernandez
       </Typography>
+      </Box>
       <Box>
         <Typography 
           width={{ xs: '100%' }} 
