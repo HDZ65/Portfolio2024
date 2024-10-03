@@ -48,6 +48,7 @@ const BottumBar: React.FC = () => {
             />
             <BottomNavigationAction 
                 value="#contact"
+                sx={{ borderRadius: "0 30px 0 0" }} 
                 label="Contact" 
                 icon={<EmailRoundedIcon />} 
             />

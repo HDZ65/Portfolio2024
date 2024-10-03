@@ -10,6 +10,7 @@ interface AnimatedContactButtonProps {
   expandedWidth?: string;
   label?: string;
   title?: string;
+  fullWidth?: boolean;
 }
 
 const AnimatedContactButton: React.FC<AnimatedContactButtonProps> = ({
@@ -18,6 +19,7 @@ const AnimatedContactButton: React.FC<AnimatedContactButtonProps> = ({
   expandedWidth = '173px',
   label = 'Me Contacter',
   title = 'Me contacter pour discuter de vos projets',
+  fullWidth = false,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const theme = useTheme();
@@ -31,15 +33,15 @@ const AnimatedContactButton: React.FC<AnimatedContactButtonProps> = ({
   }, [isMobile]);
 
   const buttonStyle = {
-    minWidth: isMobile ? expandedWidth : '48px',
-    width: isMobile || isHovered ? expandedWidth : '48px',
+    minWidth: fullWidth ? '100%' : (isMobile ? expandedWidth : '48px'),
+    width: fullWidth ? '100%' : (isMobile || isHovered ? expandedWidth : '48px'),
     height: '48px',
     borderRadius: '24px',
     padding: '0 12px',
     transition: prefersReducedMotion ? 'none' : 'width 0.3s ease-in-out',
     overflow: 'hidden',
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: fullWidth ? 'center' : 'flex-start',
     alignItems: 'center',
     gap: '8px',
     backgroundColor: inverted ? 'background.paper' : 'primary.main',
@@ -67,7 +69,7 @@ const AnimatedContactButton: React.FC<AnimatedContactButtonProps> = ({
       <Typography
         sx={{
           opacity: isMobile || isHovered ? 1 : 0,
-          maxWidth: isMobile || isHovered ? '130px' : '0',
+          maxWidth: fullWidth ? 'none' : (isMobile || isHovered ? '130px' : '0'),
           transition: prefersReducedMotion ? 'none' : 'opacity 0.3s ease-in-out, max-width 0.3s ease-in-out',
           whiteSpace: 'nowrap',
           overflow: 'hidden',

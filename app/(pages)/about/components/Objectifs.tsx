@@ -1,8 +1,10 @@
 'use client'
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import AnimatedContactButton from "@/app/components/AnimatedContactButton";
 
 export default function Objectif({ className }: { className: string }) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     return (
         <Box
             className={className}
@@ -30,7 +32,7 @@ export default function Objectif({ className }: { className: string }) {
             <Typography sx={{ position: "relative", zIndex: 2 }}>
                 Mon objectif est de <strong>trouver une alternance en tant que concepteur développeur d'applications</strong> où je pourrai mettre en pratique mes <strong>connaissances</strong>, développer mes compétences et contribuer à la réalisation de <strong>projets</strong> au sein d'une équipe.
             </Typography>
-            <AnimatedContactButton href="#contact" />
+            <AnimatedContactButton href="#contact" fullWidth={isMobile}/>
         </Box>
     )
 }

@@ -27,15 +27,15 @@ export default function Hero() {
   }, [isMobile]);
 
   const ButtonStyle = (isHovered: boolean, inverted: boolean, expandedWidth: string) => ({
-    minWidth: isMobile ? expandedWidth : '48px',
-    width: isMobile || isHovered ? expandedWidth : '48px',
+    minWidth: isMobile ? '100%' : '48px',
+    width: isMobile ? '100%' : (isHovered ? expandedWidth : '48px'),
     height: '48px',
     borderRadius: '24px',
     padding: '0 12px',
     transition: 'width 0.3s ease-in-out',
     overflow: 'hidden',
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: isMobile ? 'center' : 'flex-start', // Centrer le contenu sur mobile
     alignItems: 'center',
     gap: '8px',
     backgroundColor: inverted ? 'background.paper' : 'primary.main',
@@ -117,7 +117,7 @@ export default function Hero() {
         </Typography>
 
       </Box>
-      <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: "1.6rem", md: "2rem" }}>
+      <Box display="flex" width="100%" flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: "1.6rem", md: "2rem" }}>
         <Button
           variant="contained"
           href="#mesProjets"
@@ -126,12 +126,13 @@ export default function Hero() {
           sx={ButtonStyle(isProjectHovered, false, '160px')}
           aria-label={isProjectHovered ? "Mes Projets" : "Voir mes projets"}
           title="Voir mes projets de développement web"
+          fullWidth={isMobile} // Ajout de cette propriété
         >
           <WorkRoundedIcon sx={{ flexShrink: 0 }} />
           <Typography
             sx={{
               opacity: isMobile || isProjectHovered ? 1 : 0,
-              maxWidth: isMobile || isProjectHovered ? '120px' : '0',
+              maxWidth: isMobile || isProjectHovered ? 'none' : '0', // Permettre au texte de s'étendre sur mobile
               transition: 'opacity 0.3s ease-in-out, max-width 0.3s ease-in-out',
               whiteSpace: 'nowrap',
               overflow: 'hidden',
@@ -140,7 +141,7 @@ export default function Hero() {
             Mes Projets
           </Typography>
         </Button>
-        <AnimatedContactButton href="#contact" />
+        <AnimatedContactButton href="#contact" fullWidth={isMobile} />
       </Box>
     </Stack>
   )
