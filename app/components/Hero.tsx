@@ -117,7 +117,7 @@ export default function Hero() {
         </Typography>
 
       </Box>
-      <Box display="flex" width="100%" flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: "1.6rem", md: "2rem" }}>
+      <Box display="flex" width="100%" justifyContent="center" alignItems="center" flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: "1.6rem", md: "2rem" }}>
         <Button
           variant="contained"
           href="#mesProjets"
