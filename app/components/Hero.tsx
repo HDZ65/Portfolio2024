@@ -117,7 +117,7 @@ export default function Hero() {
         </Typography>
 
       </Box>
-      <Box display="flex" gap={{ xs: "1.6rem", md: "2rem" }}>
+      <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} gap={{ xs: "1.6rem", md: "2rem" }}>
         <Button
           variant="contained"
           href="#mesProjets"
@@ -140,10 +140,8 @@ export default function Hero() {
             Mes Projets
           </Typography>
         </Button>
-
         <AnimatedContactButton href="#contact" />
       </Box>
-      {/* <SwipeDownloadButton /> */}
     </Stack>
   )
 }

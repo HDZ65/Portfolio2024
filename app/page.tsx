@@ -151,7 +151,7 @@ function ContactSection(): JSX.Element {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: { xs: 14, md: 0 },
+        paddingBottom: { xs: 12, md: 0 },
       }}
     >
       <Contact />
