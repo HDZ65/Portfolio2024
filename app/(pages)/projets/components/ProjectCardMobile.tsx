@@ -17,7 +17,7 @@ const ProjectCardMobile: React.FC<ProjectCardProps> = ({ project, isLast = false
                     display: { xs: "flex", md: "none" },
                     marginBottom: isLast ? "0" : "2.5rem",
                     padding: "1.5rem",
-                    borderRadius: '30px',
+                    borderRadius: '10px',
                     boxShadow: "0 0px 10px 0 rgba(2, 136, 209, 0.37)",
                     border: '1px solid rgba(255, 255, 255, 0.18)',
                     transition: 'all 1s ease',
