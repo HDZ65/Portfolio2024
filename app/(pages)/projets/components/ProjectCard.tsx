@@ -23,7 +23,7 @@ export default function ProjectCard() {
                         position: 'relative', 
                         cursor: 'pointer',
                         boxShadow: openProject?.slug === project.slug ? '0 0 20px 0 var(--mui-palette-primary-main)' : 'none',
-                        borderRadius: '30px',
+                        borderRadius: '12px',
                         overflow: 'hidden',
                     }}
                     className='group'
@@ -40,7 +40,7 @@ export default function ProjectCard() {
                         left={0}
                         right={0}
                         bottom={0}
-                        className='transition-all duration-300 backdrop-blur-sm bg-black/30 opacity-0 group-hover:opacity-100'
+                        className='transition-all duration-300 backdrop-blur-sm bg-gray-900/30 opacity-0 group-hover:opacity-100'
                     />
                     <Box
                         position='absolute'
@@ -54,7 +54,7 @@ export default function ProjectCard() {
                         }}
                         className='transition-all duration-300 opacity-0 group-hover:opacity-100'
                     >
-                        <Typography variant='h2'>{project.title}</Typography>
+                        <Typography color="white" variant='h2'>{project.title}</Typography>
                         <Typography sx={{ color: "var(--mui-palette-primary-main)", textDecoration: 'underline' }}>
                             Voir en détail
                         </Typography>

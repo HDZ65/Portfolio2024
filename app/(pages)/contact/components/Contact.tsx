@@ -54,21 +54,17 @@ const ContactForm: React.FC = () => {
     return (
         <Stack
         sx={{
-            marginBottom: {xs: '3rem', sm: 'auto'},
-
             backgroundSize: '400% 400%',
-            padding: {xs: '1.6rem', md: '2rem'},
-            gap: {xs: '1.6rem', md: '2rem'},
+            padding: {xs: '1.6rem', md: '3rem'},
+            gap: {xs: '1.6rem', md: '3rem'},
             justifyContent: 'center',
-            width: '60%',
-            maxWidth: '600px', 
-            borderRadius: '30px',
-            boxShadow: "0 0px 10px 0 rgba(2, 136, 209, 0.37)",
-            border: '1px solid rgba(255, 255, 255, 0.18)',
+            width: '80%',
+            maxWidth: '800px', 
+            borderRadius: '12px',
             transition: 'all 1s ease',
+            border: '1px solid #9b9ba1',
 
             ":hover": {
-                boxShadow: `0 0px 15px 0 var(--mui-palette-primary-main)`,
             },
             '@media (prefers-reduced-motion: reduce)': {
                 animation: 'none',
@@ -87,7 +83,7 @@ const ContactForm: React.FC = () => {
                 Actuellement à la recherche d'une alternance en développement web concepteur développeur d'application.
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Box display="flex" flexDirection="column" gap={{xs: '1.6rem', md: '2rem'}} width="100%">
+                <Box display="flex" flexDirection="column" gap={{xs: '1.6rem', md: '3rem'}} width="100%">
                     {formFields.map((field) => (
                         <Controller
                             key={field.name}

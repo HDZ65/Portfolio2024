@@ -6,16 +6,14 @@ export default function Picture({ className }: { className: string }) {
     <Box  
     className={className}
 
-      borderRadius="30px" 
+      borderRadius="12px" 
       display="flex" 
       flexDirection="column" 
       alignItems="center" 
       justifyContent="center" 
       overflow="hidden"
       sx={{
-        boxShadow: "0 0px 10px 0 rgba(2, 136, 209, 0.37)", // Ombre légère
-        border: "1px solid rgba(255, 255, 255, 0.18)", // Bordure subtile
-        color: "#ffffff", // Assurez-vous que le texte est lisible sur le nouveau fond
+        backgroundColor: "var(--mui-palette-background-paper)",
         transition: 'all 1s ease',
 
         ":hover": {

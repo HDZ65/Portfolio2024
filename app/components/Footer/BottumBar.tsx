@@ -33,23 +33,21 @@ const BottumBar: React.FC = () => {
         >
             <BottomNavigationAction 
                 value="/"
-                sx={{ borderRadius: "30px 0 0 0" }} 
                 label="Accueil" 
                 icon={<HomeRoundedIcon />} 
             />
             <BottomNavigationAction 
-                value="/projets"
+                value="#mesProjets"
                 label="Projets" 
                 icon={<WorkRoundedIcon />} 
             />
             <BottomNavigationAction 
-                value="/about"
+                value="#aPropos"
                 label="À propos" 
                 icon={<PersonRoundedIcon />} 
             />
             <BottomNavigationAction 
-                value="/contact"
-                sx={{ borderRadius: "0 30px 0 0" }} 
+                value="#contact"
                 label="Contact" 
                 icon={<EmailRoundedIcon />} 
             />

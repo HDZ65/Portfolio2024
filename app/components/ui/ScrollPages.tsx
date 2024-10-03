@@ -21,7 +21,7 @@ export default function ScrollPages({ children }: { children: React.ReactNode })
       // Ajout d'attributs ARIA pour améliorer l'accessibilité
       aria-live="polite"
       aria-atomic="true"
-      className='h-[100dvh]'
+      className=''
     >
       {children}
     </motion.div>

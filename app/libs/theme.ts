@@ -1,9 +1,9 @@
 "use client";
 
 import { BorderAll, Padding } from "@mui/icons-material";
-import {  PaletteColor, PaletteColorOptions } from "@mui/material";
+import { PaletteColor, PaletteColorOptions } from "@mui/material";
 import { lightBlue } from "@mui/material/colors";
-import { Roboto } from "next/font/google";
+
 import { extendTheme } from '@mui/material/styles';
 // Déclarations de modules pour les types personnalisés
 declare module '@mui/material/styles' {
@@ -27,17 +27,17 @@ declare module '@mui/material/Button' {
     }
 }
 
-// Configuration de la police Roboto
-const roboto = Roboto({
-    subsets: ["latin"],
-    weight: ["300", "400", "500", "700"],
-    display: "swap",
-});
+
 
 // Extension du thème MUI
 const theme = extendTheme({
     typography: {
-        fontFamily: roboto.style.fontFamily,
+        fontFamily: "'Montserrat', 'Switzer', sans-serif",
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 500,
+        fontWeightBold: 700,
+        
     },
     shape: {
         borderRadius: 30,
@@ -47,10 +47,10 @@ const theme = extendTheme({
         MuiTypography: {
             styleOverrides: {
                 root: {
-                    fontWeight: 300,
+                    fontWeight: 400,
                     fontSize: 16,
                     lineHeight: 1.5,
-                    letterSpacing: 0.5, 
+                    letterSpacing: '-0.015em', // Ajustement général pour Montserrat
                     marginBottom: "0",
 
                 },
@@ -58,21 +58,23 @@ const theme = extendTheme({
                     fontSize: 36,
 
                     lineHeight: 1.1,
-                    letterSpacing: 0.5, // Adapté pour une taille de police de 36px
+                    letterSpacing: '-0.025em', // Ajusté pour les grands titres
                     marginBottom: "0",
                     "@media (min-width: 850px)": {
-                        fontSize: 56,
-                        fontWeight: 300,
+                        fontSize: 38,
+                        fontWeight: 400,
+                        letterSpacing: '-0.03em', // Légèrement plus serré pour les grands écrans
                     },
                     "@media (min-width: 2000px)": {
-                        fontSize: 80,
+                        fontSize: 40,
+                        letterSpacing: '-0.032em', // Encore plus serré pour les très grands écrans
                     },
                 },
                 h2: {
                     fontSize: 28,
                     fontWeight: 300,
                     lineHeight: 1.3,
-                    letterSpacing: 0.4, // Adapté pour une taille de police de 28px
+                    letterSpacing: '-0.02em', // Ajusté pour les sous-titres
                     marginBottom: "0",
                     "@media (min-width: 850px)": {
                         fontSize: 32,
@@ -84,45 +86,45 @@ const theme = extendTheme({
                     fontSize: 20,
                     fontWeight: 400,
                     lineHeight: 1.4,
-                    letterSpacing: 0.3, // Adapté pour une taille de police de 18px
+                    letterSpacing: '-0.015em', // Légèrement moins serré que h2
                     marginBottom: "0",
                 },
                 h4: {
                     fontSize: 18,
                     lineHeight: 1.35,
-                    letterSpacing: 0.4, // Espacement légèrement augmenté pour une meilleure lisibilité des sous-titres
+                    letterSpacing: '-0.01em', // Espacement modéré pour h4
                     marginBottom: "0",
                 },
                 h5: {
                     fontSize: 24,
                     lineHeight: 1.35,
-                    letterSpacing: 0.4, // Adapté pour une taille de police de 24px
+                    letterSpacing: '-0.01em', // Similaire à h4
                     marginBottom: "0",
                     "@media (max-width: 850px)": {
                         fontSize: 18,
+                        letterSpacing: '-0.005em', // Légèrement plus ouvert pour les petits écrans
                     },
                 },
                 body1: {
                     fontSize: 19,
                     lineHeight: 1.5,
-                    letterSpacing: 0.8,
+                    letterSpacing: '0em', // Espacement normal pour le texte principal
                     marginBottom: "0",
-                    fontWeight: 300,
+                    fontWeight: 400,
                 },
                 body2: {
                     fontSize: 17,
                     lineHeight: 1.5,
-                    letterSpacing: 0.5,
+                    letterSpacing: '0.01em', // Légèrement plus ouvert pour le texte secondaire
                     marginBottom: "0",
                     fontWeight: 300,
                 },
             },
         },
-        
+
         MuiStack: {
             styleOverrides: {
                 root: {
-                    maxWidth: "1350px",
                     margin: "0 auto",
 
                 },
@@ -149,6 +151,17 @@ const theme = extendTheme({
                 },
             },
         },
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: "transparent",
+                    "&:hover": {
+                        backgroundColor: "transparent",
+                    },
+                },
+
+            },
+        },
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -159,6 +172,7 @@ const theme = extendTheme({
                     fontWeight: 300,
                     fontSize: 18,
                     boxShadow: "none",
+                    color: "white",
                     "&:hover": {
                         boxShadow: "none",
                     },
@@ -257,10 +271,25 @@ const theme = extendTheme({
                 },
             },
         },
+        MuiSpeedDialIcon: {
+            styleOverrides: {
+                root: {
+                    color: "white",
+                },
+            },
+        },
+        MuiSpeedDial: {
+            styleOverrides: {
+                root: {
+                    color: "white",
+                },
+            },
+        },
         MuiSpeedDialAction: {
             styleOverrides: {
                 fab: {
                     backgroundColor: "transparent",
+                    color: "white",
                     "&:hover": {
                         backgroundColor: "var(--mui-palette-primary-main)",
                     },
@@ -303,22 +332,22 @@ const theme = extendTheme({
         light: {
             palette: {
                 primary: {
-                    main: lightBlue[700], // bleu
-                    mainChannel: "245 245 247", // blanc
+                    main: lightBlue[600], // bleu
+                    mainChannel: "#1D1D1F", // blanc
                 },
                 secondary: {
                     main: "#86868b", // bleu clair
                 },
                 background: {
-                    default: "#060808", // noir
-                    paper: "#060808", // gris foncé
+                    default: "#FFF", // noir
+                    paper: "#f7f7f7f7", // gris foncé
                 },
                 text: {
-                    primary: "#F0F0F0", // blanc
+                    primary: "#1D1D1F", // blanc
                     secondary: "#9b9ba1", // noir bleuté
                 },
                 common: {
-                    onBackgroundChannel: "#F0F0F0", // blanc
+                    onBackgroundChannel: "#1D1D1F", // blanc
                 },
             },
         },

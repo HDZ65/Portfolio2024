@@ -29,13 +29,13 @@ export default function MenuReseaux() {
             <Backdrop open={open} sx={{ zIndex: 1000 }} />
             <SpeedDial
                 ariaLabel="Menu des réseaux sociaux"
-                icon={<ShareOutlinedIcon sx={{ color: "var(--mui-palette-text-primary)"}} />}
+                icon={<ShareOutlinedIcon sx={{ zIndex: 1000, color: open ? "white" : "var(--mui-palette-text-primary)" }} />}
                 onClose={handleClose}
                 onOpen={handleOpen}
                 open={open}
                 direction="down"
                 id='menu-reseaux'
-                sx={{  position: "absolute", top: "0", right: "0", width: "40px"  }}
+                sx={{  position: "absolute", top: { xs: "-20px", md: "-5px" }, right: { xs: 5, md: 80 }, width: "40px"  }}
             >
                 {actions.map((action) => (
                     <SpeedDialAction
