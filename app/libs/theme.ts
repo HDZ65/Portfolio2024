@@ -72,7 +72,7 @@ const theme = extendTheme({
                 },
                 h2: {
                     fontSize: 28,
-                    fontWeight: 300,
+                    fontWeight: 400,
                     lineHeight: 1.3,
                     letterSpacing: '-0.02em', // Ajusté pour les sous-titres
                     marginBottom: "0",
