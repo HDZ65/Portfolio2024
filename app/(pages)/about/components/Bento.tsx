@@ -9,10 +9,10 @@ import { BentoGrid } from "@/app/components/ui/Bento-grid";
 export default function Bento() {
     return (
             <BentoGrid>
-                <Qui className="md:col-span-6" />
-                <Picture className="md:col-span-2" />
+                <Qui className="md:col-span-10" />
+                {/* <Picture className="md:col-span-3" /> */}
                 <Competences className="md:col-span-4" />
-                <Objectifs className="md:col-span-4" />
+                <Objectifs className="md:col-span-6" />
             </BentoGrid>
     )
 }

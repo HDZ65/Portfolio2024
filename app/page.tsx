@@ -62,15 +62,16 @@ function AboutSection(): JSX.Element {
       component="section"
       id="aPropos"
       sx={{
-        height: { xs: 'fit-content', md: '100dvh' },
+        minHeight: { xs: 'fit-content', md: '100dvh' },
       }}
     >
       <Stack
         sx={{
           display: "flex",
           justifyContent: "center",
-          height: { xs: 'fit-content', md: '100dvh' },
+          minHeight: { xs: 'fit-content', md: '100dvh' },
           paddingX: { xs: "1rem", md: "1rem", lg: "1rem", xl: "0" },
+          paddingY: { xs: "1rem", md: "1rem", lg: "1rem", xl: "0" },
           flexDirection: { xs: 'column' },
           alignItems: { xs: 'start', sm: 'center' },
         }}

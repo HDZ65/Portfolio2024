@@ -77,7 +77,7 @@ const theme = extendTheme({
                     letterSpacing: '-0.02em', // Ajusté pour les sous-titres
                     marginBottom: "0",
                     "@media (min-width: 850px)": {
-                        fontSize: 32,
+                        fontSize: 30,
                     },
 
 
@@ -106,7 +106,7 @@ const theme = extendTheme({
                     },
                 },
                 body1: {
-                    fontSize: 19,
+                    fontSize: 18,
                     lineHeight: 1.5,
                     letterSpacing: '0em', // Espacement normal pour le texte principal
                     marginBottom: "0",

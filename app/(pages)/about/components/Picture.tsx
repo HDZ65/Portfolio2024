@@ -25,7 +25,7 @@ export default function Picture({ className }: { className: string }) {
       <Image
         src={moi}
         alt="Picture"
-        width={500}
+        width={400}
         height={500}
         className="h-full w-full object-cover"
       />

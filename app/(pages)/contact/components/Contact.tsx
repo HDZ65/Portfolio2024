@@ -55,11 +55,11 @@ const ContactForm: React.FC = () => {
         <Stack
         sx={{
             backgroundSize: '400% 400%',
-            padding: {xs: '1.6rem', md: '3rem'},
-            gap: {xs: '1.6rem', md: '3rem'},
+            padding: {xs: '1.6rem', md: '2rem'},
+            gap: {xs: '1.6rem', md: '2rem'},
             justifyContent: 'center',
             width: '80%',
-            maxWidth: '800px', 
+            maxWidth: '900px', 
             borderRadius: '12px',
             transition: 'all 1s ease',
             border: '1px solid #9b9ba1',
@@ -83,7 +83,7 @@ const ContactForm: React.FC = () => {
                 Actuellement à la recherche d'une alternance en développement web concepteur développeur d'application.
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Box display="flex" flexDirection="column" gap={{xs: '1.6rem', md: '3rem'}} width="100%">
+                <Box display="flex" flexDirection="column" gap={{xs: '1.6rem', md: '2rem'}} width="100%">
                     {formFields.map((field) => (
                         <Controller
                             key={field.name}
