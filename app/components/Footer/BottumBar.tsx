@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -16,41 +16,64 @@ import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 const BottumBar: React.FC = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const [value, setValue] = useState('/');
 
-    const handleNavigation = (path: string) => {
-        router.push(path);
+    useEffect(() => {
+        if (pathname === '/') setValue('/');
+        else if (pathname.includes('#mesProjets')) setValue('#mesProjets');
+        else if (pathname.includes('#aPropos')) setValue('#aPropos');
+        else if (pathname.includes('#contact')) setValue('#contact');
+    }, [pathname]);
+
+    const handleNavigation = (newValue: string) => {
+        setValue(newValue);
+        router.push(newValue);
     };
 
     return (
         <BottomNavigation
-            value={pathname}
-            onChange={(_, newValue) => {
-                handleNavigation(newValue);
-            }}
+            value={value}
+            onChange={(_, newValue) => handleNavigation(newValue)}
             showLabels
             aria-label="Navigation principale"
-            sx={{ display: { xs: "flex", md: "none" } }}
+            sx={{ 
+                display: { xs: "flex", md: "none" },
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                zIndex: 1000,
+                '& .MuiBottomNavigationAction-root': {
+                    color: 'text.secondary',
+                },
+                '& .Mui-selected': {
+                    color: 'primary.main',
+                },
+            }}
         >
             <BottomNavigationAction 
                 value="/"
                 label="Accueil" 
                 icon={<HomeRoundedIcon />} 
+                aria-label="Aller à l'accueil"
             />
             <BottomNavigationAction 
                 value="#mesProjets"
                 label="Projets" 
                 icon={<WorkRoundedIcon />} 
+                aria-label="Voir mes projets"
             />
             <BottomNavigationAction 
                 value="#aPropos"
                 label="À propos" 
                 icon={<PersonRoundedIcon />} 
+                aria-label="En savoir plus sur moi"
             />
             <BottomNavigationAction 
                 value="#contact"
-                sx={{ borderRadius: "0 30px 0 0" }} 
                 label="Contact" 
                 icon={<EmailRoundedIcon />} 
+                aria-label="Me contacter"
             />
         </BottomNavigation>
     );
