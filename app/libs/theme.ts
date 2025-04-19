@@ -32,12 +32,80 @@ declare module '@mui/material/Button' {
 // Extension du thème MUI
 const theme = extendTheme({
     typography: {
-        fontFamily: "'Montserrat', 'Switzer', sans-serif",
+        fontFamily: "'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif",
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,
-        fontWeightBold: 700,
-        
+        fontWeightBold: 600,
+        h1: {
+            fontSize: '2.5rem', // 40px
+            fontWeight: 500,
+            lineHeight: 1.1,
+            letterSpacing: '-0.025em',
+            marginBottom: 0,
+            '@media (min-width: 850px)': {
+                fontSize: '3rem', // 48px
+                letterSpacing: '-0.03em',
+            },
+        },
+        h2: {
+            fontSize: '2rem', // 32px
+            fontWeight: 500,
+            lineHeight: 1.2,
+            letterSpacing: '-0.02em',
+            marginBottom: 0,
+            '@media (min-width: 850px)': {
+                fontSize: '2.25rem', // 36px
+            },
+        },
+        h3: {
+            fontSize: '1.75rem', // 28px
+            fontWeight: 500,
+            lineHeight: 1.2,
+            letterSpacing: '-0.015em',
+            color: '#B88746',
+            marginBottom: 0,
+            '@media (min-width: 850px)': {
+                fontSize: '2rem', // 32px
+            },
+        },
+        h4: {
+            fontSize: '1.5rem', // 24px
+            fontWeight: 500,
+            lineHeight: 1.3,
+            letterSpacing: '-0.01em',
+            marginBottom: 0,
+        },
+        h5: {
+            fontSize: '1.25rem', // 20px
+            fontWeight: 500,
+            lineHeight: 1.3,
+            letterSpacing: '-0.01em',
+            marginBottom: 0,
+            '@media (min-width: 850px)': {
+                fontSize: '1.5rem', // 24px
+            },
+        },
+        body1: {
+            fontSize: '1.125rem', // 18px
+            fontWeight: 400,
+            lineHeight: 1.5,
+            letterSpacing: '-0.01em',
+            marginBottom: 0,
+            '@media (min-width: 850px)': {
+                fontSize: '1.25rem', // 20px
+            },
+        },
+        body2: {
+            fontSize: '1rem', // 16px
+            fontWeight: 400,
+            lineHeight: 1.5,
+            letterSpacing: '0',
+            marginBottom: 0,
+            '@media (min-width: 850px)': {
+                fontSize: '1.125rem', // 18px
+            },
+        },
     },
     shape: {
         borderRadius: 30,
@@ -47,86 +115,14 @@ const theme = extendTheme({
         MuiTypography: {
             styleOverrides: {
                 root: {
-                    fontWeight: 400,
-                    fontSize: 16,
-                    lineHeight: 1.5,
-                    letterSpacing: '-0.015em', // Ajustement général pour Montserrat
-                    marginBottom: "0",
-
-                },
-                h1: {
-                    fontSize: 36,
-
-                    lineHeight: 1.1,
-                    letterSpacing: '-0.025em', // Ajusté pour les grands titres
-                    marginBottom: "0",
-                    "@media (min-width: 850px)": {
-                        fontSize: 38,
-                        fontWeight: 400,
-                        letterSpacing: '-0.03em', // Légèrement plus serré pour les grands écrans
-                    },
-                    "@media (min-width: 2000px)": {
-                        fontSize: 40,
-                        letterSpacing: '-0.032em', // Encore plus serré pour les très grands écrans
-                    },
-                },
-                h2: {
-                    fontSize: 28,
-                    fontWeight: 400,
-                    lineHeight: 1.3,
-                    letterSpacing: '-0.02em', // Ajusté pour les sous-titres
-                    marginBottom: "0",
-                    "@media (min-width: 850px)": {
-                        fontSize: 30,
-                    },
-
-
-                },
-                h3: {
-                    fontSize: 20,
-                    fontWeight: 400,
-                    lineHeight: 1.4,
-                    letterSpacing: '-0.015em', // Légèrement moins serré que h2
-                    marginBottom: "0",
-                },
-                h4: {
-                    fontSize: 18,
-                    lineHeight: 1.35,
-                    letterSpacing: '-0.01em', // Espacement modéré pour h4
-                    marginBottom: "0",
-                },
-                h5: {
-                    fontSize: 24,
-                    lineHeight: 1.35,
-                    letterSpacing: '-0.01em', // Similaire à h4
-                    marginBottom: "0",
-                    "@media (max-width: 850px)": {
-                        fontSize: 18,
-                        letterSpacing: '-0.005em', // Légèrement plus ouvert pour les petits écrans
-                    },
-                },
-                body1: {
-                    fontSize: 18,
-                    lineHeight: 1.5,
-                    letterSpacing: '0em', // Espacement normal pour le texte principal
-                    marginBottom: "0",
-                    fontWeight: 400,
-                },
-                body2: {
-                    fontSize: 17,
-                    lineHeight: 1.5,
-                    letterSpacing: '0.01em', // Légèrement plus ouvert pour le texte secondaire
-                    marginBottom: "0",
-                    fontWeight: 300,
+                    marginBottom: 0,
                 },
             },
         },
-
         MuiStack: {
             styleOverrides: {
                 root: {
                     margin: "0 auto",
-
                 },
             },
         },

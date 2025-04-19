@@ -2,11 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.golden-gradient {
-  background: linear-gradient(45deg, #B08D57 0%, #D1BFA3 50%, #B08D57 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% auto;
-}
-

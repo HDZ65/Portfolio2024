@@ -7,7 +7,7 @@ import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import { Box, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 import Grid2 from '@mui/material/Grid2';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -55,11 +55,8 @@ const LinkNav: React.FC = () => {
                     left: '72px',
                     top: '0.2rem',
                     zIndex: 1001,
-                    '@media (max-width: 900px)': {
-                        left: '5px',
-                        top: '0'
-                    }
                 }}
+                className="md:left-[72px] md:top-[0.2rem] left-[5px] top-0"
             >
                 <Link href="/">
                     <Image 
