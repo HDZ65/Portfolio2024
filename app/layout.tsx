@@ -25,7 +25,6 @@ export default function RootLayout({
       <body className="overflow-x-hidden ">
         <ThemeProvider>
             {children}
-          <BottumBar />
         </ThemeProvider>
       </body>
     </html>

@@ -1,3 +1,5 @@
+'use client'
+
 // Composant de bouton de contact animé
 import React, { useState, useEffect } from 'react';
 import { Button, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -33,44 +35,46 @@ const AnimatedContactButton: React.FC<AnimatedContactButtonProps> = ({
   }, [isMobile]);
 
   const buttonStyle = {
-    minWidth: fullWidth ? '100%' : (isMobile ? expandedWidth : '48px'),
-    width: fullWidth ? '100%' : (isMobile || isHovered ? expandedWidth : '48px'),
+    minWidth: fullWidth ? '100%' : '48px',
+    width: fullWidth ? '100%' : (isHovered ? '160px' : '48px'),
     height: '48px',
     borderRadius: '24px',
     padding: '0 12px',
-    transition: prefersReducedMotion ? 'none' : 'width 0.3s ease-in-out',
+    transition: 'all 0.5s cubic-bezier(0.0, 0.0, 0.2, 1)',
     overflow: 'hidden',
     display: 'flex',
     justifyContent: fullWidth ? 'center' : 'flex-start',
     alignItems: 'center',
     gap: '8px',
-    backgroundColor: inverted ? 'background.paper' : 'primary.main',
-    color: inverted ? 'primary.main' : 'background.paper',
-    border: inverted ? '1px solid' : 'none',
+    backgroundColor: 'background.paper',
+    color: 'primary.main',
+    border: '1px solid',
     borderColor: 'primary.main',
+    boxShadow: isHovered ? '0 0 15px rgba(176, 141, 87, 0.15)' : 'none',
     '&:hover': {
-      backgroundColor: inverted ? 'background.paper' : 'primary.main',
-      color: inverted ? 'primary.main' : 'background.paper',
+      backgroundColor: 'background.paper',
+      color: 'primary.main',
+      boxShadow: '0 0 15px rgba(176, 141, 87, 0.15)',
     },
   };
 
   return (
     <Button
-      variant={inverted ? 'outlined' : 'contained'}
+      variant="outlined"
       href={href}
-      onMouseEnter={() => !isMobile && setIsHovered(true)}
-      onMouseLeave={() => !isMobile && setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       sx={buttonStyle}
-      aria-label={isHovered ? label : "Me contacter"}
-      title={title}
-      aria-expanded={isHovered || isMobile ? 'true' : 'false'}
+      aria-label={isHovered ? "Contact" : "Me contacter"}
+      title="Me contacter"
+      fullWidth={fullWidth}
     >
       <EmailRoundedIcon sx={{ flexShrink: 0 }} />
       <Typography
         sx={{
-          opacity: isMobile || isHovered ? 1 : 0,
-          maxWidth: fullWidth ? 'none' : (isMobile || isHovered ? '130px' : '0'),
-          transition: prefersReducedMotion ? 'none' : 'opacity 0.3s ease-in-out, max-width 0.3s ease-in-out',
+          opacity: fullWidth || isHovered ? 1 : 0,
+          maxWidth: fullWidth || isHovered ? 'none' : '0',
+          transition: 'all 0.5s cubic-bezier(0.0, 0.0, 0.2, 1)',
           whiteSpace: 'nowrap',
           overflow: 'hidden',
         }}

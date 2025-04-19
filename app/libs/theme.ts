@@ -333,21 +333,21 @@ const theme = extendTheme({
             palette: {
                 primary: {
                     main: lightBlue[600], // bleu
-                    mainChannel: "#1D1D1F", // blanc
+                    mainChannel: "#2C2C2C", // noir
                 },
                 secondary: {
                     main: "#86868b", // bleu clair
                 },
                 background: {
-                    default: "#FFF", // noir
+                    default: "#FFF", // blanc
                     paper: "#f7f7f7f7", // gris foncé
                 },
                 text: {
-                    primary: "#1D1D1F", // blanc
+                    primary: "#2C2C2C", // noir
                     secondary: "#9b9ba1", // noir bleuté
                 },
                 common: {
-                    onBackgroundChannel: "#1D1D1F", // blanc
+                    onBackgroundChannel: "#2C2C2C", // blanc
                 },
             },
         },

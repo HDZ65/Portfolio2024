@@ -73,6 +73,10 @@ export const FlipWords = ({
               duration: 0.3,
             }}
             className="inline-block whitespace-nowrap"
+            style={{
+              color: "#B08D57",
+              filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))"
+            }}
           >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
