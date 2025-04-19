@@ -90,7 +90,7 @@ function SkillCard({ skill, index, total, springProgress }: SkillCardProps) {
       <div className="relative z-10 flex flex-col h-[250px]">
         <motion.div
           whileHover={{ scale: 1.1, rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 }}}
-          className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#B08D57]/30 to-[#B08D57]/10 text-2xl font-bold"
+          className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#B08D57]/30 to-[#B08D57]/10 text-2xl font-bold" 
         >
           {skill.name.charAt(0)}
         </motion.div>
