@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 import { Box, Grid, Grid2, Stack, Typography } from "@mui/material";
 import Header from "./components/Header/Header";
-import Hero from "./components/Hero";
+import PortfolioHeader from "./components/PortfolioHeader";
 import Bento from "./(pages)/about/components/Bento";
 import ProjectCardMobile from "./(pages)/projets/components/ProjectCardMobile";
 import ProjectCard from "./(pages)/projets/components/ProjectCard";
@@ -53,7 +53,7 @@ function HeroSection(): JSX.Element {
         borderRadius: '12px',
       }}
     >
-      <Hero />
+      <PortfolioHeader />
     </Stack>
   );
 }

@@ -1,5 +1,3 @@
- 
-
 export interface Skill {
     name: string;
     description: string;
@@ -7,27 +5,23 @@ export interface Skill {
 
 export const skills: Skill[] = [
     {
-        name: "React",
-        description: "Bibliothèque JavaScript pour créer des interfaces utilisateur interactives",
+        name: "Next.js",
+        description: "Framework React pour le rendu côté serveur et la création d'applications web modernes",
     },
     {
         name: "TypeScript",
-        description: "Superset typé de JavaScript pour un développement plus sûr",
+        description: "Superset typé de JavaScript pour un développement plus sûr et maintenable",
     },
     {
         name: "Node.js",
         description: "Environnement d'exécution JavaScript côté serveur",
     },
     {
-        name: "MongoDB",
-        description: "Base de données NoSQL orientée documents",
+        name: "Laravel",
+        description: "Framework PHP moderne pour le développement web",
     },
     {
-        name: "Express",
-        description: "Framework web pour Node.js",
-    },
-    {
-        name: "Next.js",
-        description: "Framework React pour le rendu côté serveur",
+        name: "Figma",
+        description: "Outil de design collaboratif pour les interfaces utilisateur",
     }
 ]; 

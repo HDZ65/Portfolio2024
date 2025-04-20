@@ -39,7 +39,7 @@ const theme = extendTheme({
         fontWeightBold: 600,
         h1: {
             fontSize: '2.5rem', // 40px
-            fontWeight: 500,
+            fontWeight: 400,
             lineHeight: 1.1,
             letterSpacing: '-0.025em',
             marginBottom: 0,

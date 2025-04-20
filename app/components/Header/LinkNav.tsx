@@ -24,17 +24,17 @@ const LinkNav: React.FC = () => {
             icon: <HomeRoundedIcon />
         },
         {
-            href: '#aPropos',
+            href: 'aPropos',
             label: 'A propos',
             icon: <PersonRoundedIcon />
         },
         {
-            href: '#mesProjets',
+            href: 'mesProjets',
             label: 'Mes projets',
             icon: <WorkRoundedIcon />
         },
         {
-            href: '#contact',
+            href: 'contact',
             label: 'Contact',
             icon: <EmailRoundedIcon />
         }
@@ -108,7 +108,7 @@ const LinkNav: React.FC = () => {
                             ) : (
                                 <Link
                                     href={item.href}
-                                    className={`${commonStyles} text-secondary`}
+                                    className={`${commonStyles} text-primary`}
                                 >
                                     {item.label}
                                 </Link>
