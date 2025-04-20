@@ -6,10 +6,9 @@ import { cn } from "../../../lib/utils";
 // --- Animation Configuration --- //
 
 const GRID_CONFIG = {
-  colWidth: 350, // Espace horizontal entre les centres des cartes
-  rowHeight: 380, // Espace vertical entre le haut des cartes
-  containerWidth: 700,
-  containerHeight: 1000,
+  colWidth: 350, // Espace horizontal alloué par carte (inclut la marge)
+  rowHeight: 250, // Hauteur suffisante pour une carte minimaliste
+  // containerWidth et containerHeight seront définis dynamiquement plus bas
 };
 
 const RANDOM_CONFIG = {
@@ -45,12 +44,13 @@ function getRandomPosition() {
   };
 }
 
-function getGridPosition(index: number) {
-  const isLeft = index % 2 === 0;
-  const row = Math.floor(index / 2);
+function getGridPosition(index: number, total: number) {
+  const totalWidth = total * GRID_CONFIG.colWidth;
+  // Calcul de la position x pour centrer la ligne de cartes
+  const x = (index * GRID_CONFIG.colWidth) - (totalWidth / 2) + (GRID_CONFIG.colWidth / 2);
   return {
-    x: isLeft ? -GRID_CONFIG.colWidth / 2 : GRID_CONFIG.colWidth / 2,
-    y: row * GRID_CONFIG.rowHeight,
+    x: x,
+    y: 0, // Toutes les cartes alignées sur y=0
     rotate: 0
   };
 }
@@ -66,7 +66,7 @@ interface SkillCardProps {
 
 function SkillCard({ skill, index, total, springProgress }: SkillCardProps) {
   const random = getRandomPosition();
-  const grid = getGridPosition(index);
+  const grid = getGridPosition(index, total);
 
   const x = useTransform(springProgress, [0, 1], [random.x, grid.x]);
   const y = useTransform(springProgress, [0, 1], [random.y, grid.y]);
@@ -78,30 +78,20 @@ function SkillCard({ skill, index, total, springProgress }: SkillCardProps) {
     <motion.div
       style={{ position: 'absolute', left: '50%', x, y, rotate, scale, opacity }}
       className={cn(
-        "z-10", 
-        "w-[300px] -ml-[150px]", 
-        "group rounded-2xl p-8",
-        "bg-gradient-to-br from-white/[0.08] to-transparent",
-        "backdrop-blur-sm border border-white/[0.08]",
-        "shadow-[0_0_50px_-12px_rgba(176,141,87,0.15)]",
-        "hover:bg-gradient-to-br hover:from-white/[0.12] hover:to-transparent"
+        "z-10",
+        "w-[300px] -ml-[150px]", // Centrage de la carte elle-même
+        "rounded-lg p-5",
+        "bg-transparent",
+        "border border-neutral-700",
+        "shadow-none",
+        "transition-colors duration-300 ease-in-out",
+        "hover:bg-neutral-800/40"
       )}
     >
-      <div className="relative z-10 flex flex-col h-[250px]">
-        <motion.div
-          whileHover={{ scale: 1.1, rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 }}}
-          className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#B08D57]/30 to-[#B08D57]/10 text-2xl font-bold" 
-        >
-          {skill.name.charAt(0)}
-        </motion.div>
-        <h3 className="text-2xl font-semibold mb-4">{skill.name}</h3>
-        <p className="text-base leading-relaxed flex-grow">{skill.description}</p>
-        <div className="mt-auto flex items-center gap-2 text-sm text-white/50">
-          <span className="h-[1px] w-12 bg-white/20" />
-          {index + 1} / {total}
-        </div>
+      <div className="relative z-10 flex flex-col h-auto"> {/* Hauteur auto */}
+        <h3 className="text-lg font-medium mb-2">{skill.name}</h3> {/* Typo simplifiée */}
+        <p className="text-sm font-light flex-grow text-neutral-400">{skill.description}</p> {/* Typo simplifiée */}
       </div>
-      <div className="absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-[#B08D57]/20 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
     </motion.div>
   );
 }
@@ -115,7 +105,7 @@ export default function About() {
     target: containerRef,
     // Animation très courte, finie quand le haut a dépassé 0% de l'écran
     // (Dès l'entrée)
-    offset: ["start end", "start -5%"]
+    offset: ["start end", "start 0%"]
   });
 
   const springProgress = useSpring(scrollYProgress, SPRING_CONFIG);
@@ -143,12 +133,14 @@ export default function About() {
         </p>
       </motion.div>
 
-      {/* Conteneur pour la grille des cartes */}
-      <div 
-        className="relative mx-auto"
+      {/* Conteneur pour la ligne des cartes */}
+      <div
+        className="relative mx-auto" // Centré horizontalement
         style={{
-          width: `${GRID_CONFIG.containerWidth}px`,
-          height: `${GRID_CONFIG.containerHeight}px`,
+          // Largeur calculée pour contenir toutes les cartes et leurs marges
+          width: `${skills.length * GRID_CONFIG.colWidth}px`,
+          // Hauteur fixe pour une seule ligne
+          height: `${GRID_CONFIG.rowHeight}px`,
         }}
       >
         {skills.map((skill, index) => (
@@ -156,7 +148,7 @@ export default function About() {
             key={skill.name}
             skill={skill}
             index={index}
-            total={skills.length}
+            total={skills.length} // Passer total
             springProgress={springProgress}
           />
         ))}
