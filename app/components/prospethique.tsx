@@ -65,6 +65,11 @@ export function Prospethique() {
             {/* Section image */}
             <div
                 ref={imageSectionRef}
+                style={
+                    {
+                        border: '1px solid transparent'
+                    }
+                }
                 className="w-full h-[100dvh] flex items-center justify-center sticky top-0 left-0 right-0 overflow-hidden"
             >
                 <div className="flex items-center justify-center h-full w-full ">
@@ -75,12 +80,14 @@ export function Prospethique() {
                             scale: useTransform(smoothContainerScroll, [0, 1], [1, 0.9]),
                             y: useTransform(smoothContainerScroll, [0, 1], [0, -20]),
                             flexShrink: 0,
+
                         }}
                     >
                         <motion.img
                             src="/imageProjets/image.png"
                             alt="Image de présentation"
                             className="w-full h-full object-cover object-top rounded-xl"
+
                         />
                     </motion.div>
                 </div>
@@ -120,7 +127,7 @@ export function Prospethique() {
                             </Typography>
                             <SparklesIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-blue-400 flex-shrink-0" />
                         </div>
-                        <p  color="text.secondary" className="leading-relaxed text-xs sm:text-sm md:text-base">
+                        <p color="text.secondary" className="leading-relaxed text-xs sm:text-sm md:text-base">
                             Boostez votre présence sur LinkedIn avec notre générateur de posts IA. Utilisez des templates d'e-mails dynamiques pour une approche ciblée. Une UX optimisée pour les indépendants et TPE.
                         </p>
                     </motion.div>
