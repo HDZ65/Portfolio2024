@@ -27,7 +27,7 @@ export function MesCompetencesMobile() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full py-16 px-4"
+      className="relative w-full py-16 "
     >
       <motion.div
         className="fixed inset-0 z-[-1]"

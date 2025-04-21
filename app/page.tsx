@@ -8,6 +8,8 @@ import Lenis from 'lenis'
 import { ProspethiqueWrapper } from './components/prospethique-wrapper';
 import { PortfolioPresentation } from './components/PortfolioPresentation';
 import { MesCompetencesWrapper } from './(pages)/about/components/mes-competences-wrapper';
+import { AProposWrapper } from './(pages)/about/components/a-propos-wrapper';
+import Footer from './components/Footer';
 
 export default function Home(): JSX.Element {
 
@@ -28,8 +30,11 @@ export default function Home(): JSX.Element {
         <div className="w-full relative">
           <ProspethiqueWrapper />
           <MesCompetencesWrapper />
+          <AProposWrapper />
         </div>
       </Stack>
+      <Footer />
+
     </>
   );
 }

@@ -21,10 +21,25 @@ const config: Config = {
   				to: {
   					backgroundPosition: '350% 50%, 350% 50%'
   				}
+  			},
+  			'star-movement-bottom': {
+  				'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+  				'100%': { transform: 'translate(-100%, 0%)', opacity: '0' }
+  			},
+  			'star-movement-top': {
+  				'0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+  				'100%': { transform: 'translate(100%, 0%)', opacity: '0' }
+  			},
+  			'halo-glow': {
+  				'0%': { opacity: '0.3', transform: 'scale(1)' },
+  				'50%': { opacity: '0.6', transform: 'scale(1.05)' },
+  				'100%': { opacity: '0.3', transform: 'scale(1)' }
   			}
   		},
   		animation: {
-  			aurora: 'aurora 60s linear infinite'
+  			aurora: 'aurora 60s linear infinite',
+  			'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+  			'star-movement-top': 'star-movement-top linear infinite alternate'
   		},
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -76,7 +91,13 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
-  		}
+  		},
+  		transformStyle: {
+  			'3d': 'preserve-3d',
+  		},
+  		perspective: {
+  			'1000': '1000px',
+  		},
   	}
   },
   plugins: [addVariablesForColors, require("tailwindcss-animate")],
