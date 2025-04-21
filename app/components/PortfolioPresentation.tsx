@@ -6,6 +6,7 @@ import { FlipWords } from "./ui/flip-words";
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import AnimatedContactButton from "./AnimatedContactButton";
+import Link from 'next/link';
 
 export function PortfolioPresentation() {
     const words = ["Bonjour", "Hello"];
@@ -186,29 +187,30 @@ export function PortfolioPresentation() {
                     <motion.div
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Button
-                            variant="contained"
-                            href="mesProjets"
-                            onMouseEnter={() => !isMobile && setIsProjectHovered(true)}
-                            onMouseLeave={() => !isMobile && setIsProjectHovered(false)}
-                            sx={ButtonStyle(isProjectHovered, false, '160px')}
-                            aria-label={isProjectHovered ? "Mes Projets" : "Voir mes projets"}
-                            title="Voir mes projets de développement web"
-                            fullWidth={isMobile}
-                        >
-                            <WorkRoundedIcon sx={{ flexShrink: 0 }} />
-                            <Typography
-                                sx={{
-                                    opacity: isMobile || isProjectHovered ? 1 : 0,
-                                    maxWidth: isMobile || isProjectHovered ? 'none' : '0',
-                                    transition: 'all 0.3s cubic-bezier(0.0, 0.0, 0.2, 1)',
-                                    whiteSpace: 'nowrap',
-                                    overflow: 'hidden',
-                                }}
+                        <Link href="mesProjets" passHref>
+                            <Button
+                                variant="contained"
+                                onMouseEnter={() => !isMobile && setIsProjectHovered(true)}
+                                onMouseLeave={() => !isMobile && setIsProjectHovered(false)}
+                                sx={ButtonStyle(isProjectHovered, false, '160px')}
+                                aria-label={isProjectHovered ? "Mes Projets" : "Voir mes projets"}
+                                title="Voir mes projets de développement web"
+                                fullWidth={isMobile}
                             >
-                                Mes Projets
-                            </Typography>
-                        </Button>
+                                <WorkRoundedIcon sx={{ flexShrink: 0 }} />
+                                <Typography
+                                    sx={{
+                                        opacity: isMobile || isProjectHovered ? 1 : 0,
+                                        maxWidth: isMobile || isProjectHovered ? 'none' : '0',
+                                        transition: 'all 0.3s cubic-bezier(0.0, 0.0, 0.2, 1)',
+                                        whiteSpace: 'nowrap',
+                                        overflow: 'hidden',
+                                    }}
+                                >
+                                    Mes Projets
+                                </Typography>
+                            </Button>
+                        </Link>
                     </motion.div>
                     <motion.div
                         whileTap={{ scale: 0.95 }}

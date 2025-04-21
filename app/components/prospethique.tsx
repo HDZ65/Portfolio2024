@@ -91,43 +91,43 @@ export function Prospethique() {
                 <div className="flex w-full justify-between items-center ">
                     {/* Contenu Textuel 1 (Gauche) */}
                     <motion.div
-                        className="w-[25%] text-left max-w-[450px] xl:max-w-[550px] "
+                        className="w-[25%] text-left max-w-[550px] xl:max-w-[650px]"
                         style={leftTextAnimation}
                     >
-                        <div className="flex items-center gap-3 mb-4 ">
-                            <RocketLaunchIcon className="w-6 h-6 xl:w-8 xl:h-8 text-orange-400" />
-                            <Typography variant="h4" component="h3" color="text.primary" gutterBottom>
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 text-2xl xl:text-3xl">
+                        <div className="flex items-center gap-2 mb-4 flex-nowrap">
+                            <RocketLaunchIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-orange-400 flex-shrink-0" />
+                            <Typography variant="h4" component="h3" color="text.primary" className="mb-0 whitespace-nowrap">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 text-sm sm:text-base md:text-lg lg:text-xl">
                                     Prospethique : SaaS de prospection
                                 </span>
                             </Typography>
                         </div>
-                        <Typography variant="body1" color="text.secondary" className="leading-relaxed text-base mb-4  ">
+                        <p color="text.secondary" className="leading-relaxed text-xs sm:text-sm md:text-base mb-4">
                             Découvrez Prospethique, l'outil SaaS conçu pour révolutionner votre prospection. Gérez vos prospects, envoyez des e-mails personnalisés et automatisez votre communication, le tout de manière éthique et efficace.
-                        </Typography>
+                        </p>
                     </motion.div>
 
                     {/* Contenu Textuel 2 (Droite) */}
                     <motion.div
-                        className="w-[25%] text-left max-w-[450px] xl:max-w-[550px]"
+                        className="w-[25%] text-left max-w-[550px] xl:max-w-[650px]"
                         style={rightTextAnimation}
                     >
-                        <div className="flex items-center justify-start gap-3 mb-4  ">
-                            <Typography variant="h4" component="h3" color="text.primary" gutterBottom>
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 text-2xl xl:text-3xl">
+                        <div className="flex items-center gap-2 mb-4 flex-nowrap">
+                            <Typography variant="h4" component="h3" color="text.primary" className="mb-0 whitespace-nowrap">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 text-sm sm:text-base md:text-lg lg:text-xl">
                                     IA & Personnalisation Avancée
                                 </span>
                             </Typography>
-                            <SparklesIcon className="w-6 h-6 xl:w-8 xl:h-8 text-blue-400" />
+                            <SparklesIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-blue-400 flex-shrink-0" />
                         </div>
-                        <Typography variant="body1" color="text.secondary" className="leading-relaxed text-base ">
+                        <p  color="text.secondary" className="leading-relaxed text-xs sm:text-sm md:text-base">
                             Boostez votre présence sur LinkedIn avec notre générateur de posts IA. Utilisez des templates d'e-mails dynamiques pour une approche ciblée. Une UX optimisée pour les indépendants et TPE.
-                        </Typography>
+                        </p>
                     </motion.div>
 
                 </div>
             </div>
-            <div id="callToAction" className="sticky bottom-0 left-0 right-0 h-[100vh] m-auto gap-4 mt-4 max-w-[450px] xl:max-w-[550px] grid grid-cols-1 grid-rows-3">
+            <div id="callToAction" className="z-50 sticky bottom-0 left-0 right-0 h-[100vh] m-auto gap-4 mt-4 max-w-[450px] xl:max-w-[550px] grid grid-cols-1 grid-rows-3">
                 <div className="flex flex-col items-center gap-4  ">
                 </div>
                 <div className="flex flex-col items-center gap-4  ">

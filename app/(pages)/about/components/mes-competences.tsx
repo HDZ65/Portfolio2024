@@ -2,6 +2,7 @@ import { useRef, useState, useMemo } from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
 import { skills, Skill } from './data/skills';
 import { cn } from "../../../lib/utils";
+import { Typography } from '@mui/material';
 
 // Types
 interface GridPosition {
@@ -24,10 +25,10 @@ interface SkillCardProps {
 
 // Constants
 const GRID_CONFIG = {
-  colWidth: 240,
-  rowHeight: 300,
-  containerHeight: 400,
-  gap: 16
+  colWidth: 180,
+  rowHeight: 220,
+  containerHeight: 280,
+  gap: 10
 } as const;
 
 const RANDOM_CONFIG = {
@@ -37,10 +38,12 @@ const RANDOM_CONFIG = {
 } as const;
 
 const BREAKPOINTS = {
+  xs: 480,
   sm: 640,
   md: 768,
   lg: 1024,
-  xl: 1280
+  xl: 1280,
+  '2xl': 1536
 } as const;
 
 // Utils
@@ -58,13 +61,20 @@ function getGridPosition(index: number): GridPosition {
   if (typeof window === 'undefined') return { x: 0, y: 0, rotate: 0 };
 
   const screenWidth = window.innerWidth;
-  const gap = screenWidth >= BREAKPOINTS.lg ? 40 :
-    screenWidth >= BREAKPOINTS.md ? 30 :
-      GRID_CONFIG.gap;
+  
+  const gap = screenWidth >= BREAKPOINTS['2xl'] ? 32 :
+    screenWidth >= BREAKPOINTS.xl ? 28 :
+    screenWidth >= BREAKPOINTS.lg ? 24 :
+    screenWidth >= BREAKPOINTS.md ? 20 :
+    screenWidth >= BREAKPOINTS.sm ? 16 :
+    GRID_CONFIG.gap;
 
-  const colWidth = screenWidth >= BREAKPOINTS.lg ? 280 :
-    screenWidth >= BREAKPOINTS.md ? 260 :
-      GRID_CONFIG.colWidth;
+  const colWidth = screenWidth >= BREAKPOINTS['2xl'] ? 260 :
+    screenWidth >= BREAKPOINTS.xl ? 240 :
+    screenWidth >= BREAKPOINTS.lg ? 220 :
+    screenWidth >= BREAKPOINTS.md ? 200 :
+    screenWidth >= BREAKPOINTS.sm ? 190 :
+    GRID_CONFIG.colWidth;
 
   return {
     x: (index - 2) * (colWidth + gap),
@@ -91,8 +101,8 @@ function SkillCard({ skill, index, total, springProgress, isHovered, onHover, on
       style={{ position: 'absolute', left: '50%', x, y, rotate, scale, opacity }}
       className={cn(
         // Base styles (mobile)
-        "z-10 w-[240px] h-[300px] -ml-[120px]",
-        "rounded-2xl p-4",
+        "z-10 w-[180px] h-[220px] -ml-[90px]",
+        "rounded-xl p-4",
         "bg-gradient-to-br from-transparent to-transparent",
         "backdrop-blur-sm border border-white/[0.08]",
         "shadow-[0_0_50px_-12px_rgba(176,141,87,0.15)]",
@@ -102,49 +112,38 @@ function SkillCard({ skill, index, total, springProgress, isHovered, onHover, on
         "group hover:shadow-[0_0_80px_-12px_rgba(176,141,87,0.4)]",
 
         // Responsive styles
-        "sm:w-[260px] sm:h-[320px] sm:-ml-[130px] sm:p-5",
-        "lg:w-[280px] lg:h-[350px] lg:-ml-[140px] lg:p-6"
+        "xs:w-[190px] xs:h-[230px] xs:-ml-[95px] xs:p-4",
+        "sm:w-[200px] sm:h-[240px] sm:-ml-[100px] sm:p-4",
+        "md:w-[210px] md:h-[250px] md:-ml-[105px] md:p-5",
+        "lg:w-[220px] lg:h-[260px] lg:-ml-[110px] lg:p-5",
+        "xl:w-[230px] xl:h-[270px] xl:-ml-[115px] xl:p-5",
+        "2xl:w-[240px] 2xl:h-[280px] 2xl:-ml-[120px] 2xl:p-5"
       )}
       onHoverStart={onHover}
       onHoverEnd={onLeave}
       aria-label={`Carte de compétence : ${skill.name}`}
     >
-      <div className="relative z-10 flex flex-col h-full">
-        <motion.div
-          className={cn(
-            // Base styles (mobile)
-            "mb-4 flex h-12 w-12 items-center justify-center",
-            "rounded-2xl bg-gradient-to-br from-[#B08D57]/30 to-[#B08D57]/10",
-            "text-xl font-bold",
+      <div className="relative z-10 flex flex-col h-full gap-2">
+         
 
-            // Responsive styles
-            "sm:mb-5 sm:h-14 sm:w-14 sm:text-2xl",
-            "lg:mb-6 lg:h-16 lg:w-16"
-          )}
-          aria-hidden="true"
-        >
-          {skill.name.charAt(0)}
-        </motion.div>
-
-        <h3 className={cn(
-          "text-xl font-semibold mb-3 text-white",
-          "sm:text-2xl sm:mb-4"
-        )}>
+        <Typography variant="h5" className="text-white "  >
           {skill.name}
-        </h3>
+        </Typography>
 
-        <p className={cn(
-          "text-sm leading-relaxed text-white/90 flex-grow line-clamp-4",
-          "sm:text-base"
-        )}>
+        <Typography variant="body2" className="text-white/70 flex-grow line-clamp-4 font-light "  >
           {skill.description}
-        </p>
+        </Typography>
 
         <div className={cn(
-          "mt-3 flex items-center gap-2 text-xs text-white/70",
-          "sm:mt-4 sm:text-sm"
+          "mt-2 flex items-center gap-2 text-xs text-white/70",
+          "xs:mt-2",
+          "sm:mt-2",
+          "md:mt-3",
+          "lg:mt-3",
+          "xl:mt-3",
+          "2xl:mt-3"
         )}>
-          <span className="h-[1px] w-8 sm:w-12 bg-white/20" />
+          <span className="h-[1px] w-4 xs:w-6 sm:w-8 md:w-10 lg:w-12 xl:w-14 2xl:w-16 bg-white/20" />
           {index + 1} / {total}
         </div>
       </div>
@@ -182,7 +181,7 @@ export default function MesCompetences() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen flex flex-col justify-center"
+      className="relative w-full h-screen flex flex-col justify-center md:py-16"
       aria-label="Section des compétences"
     >
       <motion.div
@@ -191,22 +190,19 @@ export default function MesCompetences() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full  px-4 sm:px-6 lg:px-8">
         <motion.div
           style={{
             opacity: useTransform(springProgress, [0, 0.8], [0, 1]),
             y: useTransform(springProgress, [-10, 0], [100, 0]),
           }}
-          className="flex flex-col items-center justify-center gap-4 text-center mb-8 sm:mb-12 md:mb-16 lg:mb-24 z-20 relative"
+          className="flex flex-col items-center justify-center gap-4 text-center  z-20 relative"
         >
-          <h2 className={cn(
-            "text-3xl font-light tracking-tight text-white relative antialiased",
-            "sm:text-4xl md:text-5xl lg:text-7xl"
-          )}>
+          <Typography variant="h1"   >
             <motion.span className="relative text-white">
               Mes Compétences
             </motion.span>
-          </h2>
+          </Typography>
 
           {/* Ligne de séparation */}
           <div className={cn(

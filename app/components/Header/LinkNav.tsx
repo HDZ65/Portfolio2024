@@ -6,7 +6,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import logo from './../../../public/logo.png';
-import { Home, User, FolderGit2, Mail } from 'lucide-react';
 
 const LinkNav: React.FC = () => {
     const pathname = usePathname()?.slice(1) || '';
@@ -14,23 +13,19 @@ const LinkNav: React.FC = () => {
     const content = [
         {
             href: '/',
-            label: 'Accueil',
-            icon: <Home className="h-4 w-4 stroke-[1.5]" />
+            label: 'Accueil'
         },
         {
             href: 'aPropos',
-            label: 'A propos',
-            icon: <User className="h-4 w-4 stroke-[1.5]" />
+            label: 'A propos'
         },
         {
             href: 'mesProjets',
-            label: 'Mes projets',
-            icon: <FolderGit2 className="h-4 w-4 stroke-[1.5]" />
+            label: 'Mes projets'
         },
         {
             href: 'contact',
-            label: 'Contact',
-            icon: <Mail className="h-4 w-4 stroke-[1.5]" />
+            label: 'Contact'
         }
     ]
 
@@ -78,7 +73,7 @@ const LinkNav: React.FC = () => {
                             <Link
                                 href={item.href}
                                 className={`
-                                    flex flex-row items-center gap-2 text-lg px-3 xl:px-6 select-none
+                                    flex flex-row items-center text-lg px-3 xl:px-6 select-none
                                     transition-all duration-500 ease-out 
                                     ${isActive 
                                         ? 'text-gray-500' 
@@ -87,7 +82,6 @@ const LinkNav: React.FC = () => {
                                 `}
                                 aria-current={isActive ? "page" : undefined}
                             >
-                                {item.icon}
                                 {item.label}
                             </Link>
                         </motion.div>
