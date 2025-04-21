@@ -42,7 +42,7 @@ function HeroSection(): JSX.Element {
         component="section"
         sx={{
           width: '100%',
-          height: { xs: 'calc(100vh - 57,59px)', md: 'calc(100dvh - 62px)' },
+          height: { xs: 'calc(100vh - 57,59px)', md: 'calc(100vh - 62px)' },
           backgroundColor: "var(--mui-palette-background-paper)",
           borderRadius: '12px',
         }}
