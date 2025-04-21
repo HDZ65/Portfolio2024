@@ -5,8 +5,26 @@ import { CustomCursor } from "./components/CustomCursor";
 
 // Metadata pour le site
 export const metadata: Metadata = {
-  title: "Portfolio Alexandre Hernandez",
-  description: "Portfolio de Alexandre Hernandez",
+  title: "Alexandre Hernandez | Développeur Full Stack",
+  description: "Portfolio d'Alexandre Hernandez, développeur full stack spécialisé en React, Next.js et TypeScript. Découvrez mes projets et compétences.",
+  keywords: ["développeur", "portfolio", "React", "Next.js", "TypeScript", "full stack"],
+  authors: [{ name: "Alexandre Hernandez" }],
+  creator: "Alexandre Hernandez",
+  openGraph: {
+    title: "Alexandre Hernandez | Développeur Full Stack",
+    description: "Portfolio d'Alexandre Hernandez, développeur full stack spécialisé en React, Next.js et TypeScript",
+    type: "website",
+    locale: "fr_FR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alexandre Hernandez | Développeur Full Stack",
+    description: "Portfolio d'Alexandre Hernandez, développeur full stack spécialisé en React, Next.js et TypeScript",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 // Composant RootLayout

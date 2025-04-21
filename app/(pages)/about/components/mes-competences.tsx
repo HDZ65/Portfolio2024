@@ -10,7 +10,7 @@ interface GridPosition {
   rotate: number;
 }
 
-interface RandomPosition extends GridPosition {}
+interface RandomPosition extends GridPosition { }
 
 interface SkillCardProps {
   skill: Skill;
@@ -46,11 +46,11 @@ const BREAKPOINTS = {
 // Utils
 function getRandomPosition(): RandomPosition {
   const angle = Math.random() * Math.PI * 2;
-  const radius = RANDOM_CONFIG.radiusMin + Math.random() * RANDOM_CONFIG.radiusRange; 
+  const radius = RANDOM_CONFIG.radiusMin + Math.random() * RANDOM_CONFIG.radiusRange;
   return {
     x: Math.cos(angle) * radius,
     y: Math.sin(angle) * radius,
-    rotate: (Math.random() - 0.5) * RANDOM_CONFIG.rotateRange 
+    rotate: (Math.random() - 0.5) * RANDOM_CONFIG.rotateRange
   };
 }
 
@@ -58,13 +58,13 @@ function getGridPosition(index: number): GridPosition {
   if (typeof window === 'undefined') return { x: 0, y: 0, rotate: 0 };
 
   const screenWidth = window.innerWidth;
-  const gap = screenWidth >= BREAKPOINTS.lg ? 40 : 
-             screenWidth >= BREAKPOINTS.md ? 30 : 
-             GRID_CONFIG.gap;
+  const gap = screenWidth >= BREAKPOINTS.lg ? 40 :
+    screenWidth >= BREAKPOINTS.md ? 30 :
+      GRID_CONFIG.gap;
 
-  const colWidth = screenWidth >= BREAKPOINTS.lg ? 280 : 
-                  screenWidth >= BREAKPOINTS.md ? 260 : 
-                  GRID_CONFIG.colWidth;
+  const colWidth = screenWidth >= BREAKPOINTS.lg ? 280 :
+    screenWidth >= BREAKPOINTS.md ? 260 :
+      GRID_CONFIG.colWidth;
 
   return {
     x: (index - 2) * (colWidth + gap),
@@ -97,10 +97,10 @@ function SkillCard({ skill, index, total, springProgress, isHovered, onHover, on
         "backdrop-blur-sm border border-white/[0.08]",
         "shadow-[0_0_50px_-12px_rgba(176,141,87,0.15)]",
         "transition-shadow duration-300",
-        
+
         // Hover styles
         "group hover:shadow-[0_0_80px_-12px_rgba(176,141,87,0.4)]",
-        
+
         // Responsive styles
         "sm:w-[260px] sm:h-[320px] sm:-ml-[130px] sm:p-5",
         "lg:w-[280px] lg:h-[350px] lg:-ml-[140px] lg:p-6"
@@ -110,13 +110,13 @@ function SkillCard({ skill, index, total, springProgress, isHovered, onHover, on
       aria-label={`Carte de compétence : ${skill.name}`}
     >
       <div className="relative z-10 flex flex-col h-full">
-        <motion.div 
+        <motion.div
           className={cn(
             // Base styles (mobile)
             "mb-4 flex h-12 w-12 items-center justify-center",
             "rounded-2xl bg-gradient-to-br from-[#B08D57]/30 to-[#B08D57]/10",
             "text-xl font-bold",
-            
+
             // Responsive styles
             "sm:mb-5 sm:h-14 sm:w-14 sm:text-2xl",
             "lg:mb-6 lg:h-16 lg:w-16"
@@ -149,7 +149,7 @@ function SkillCard({ skill, index, total, springProgress, isHovered, onHover, on
         </div>
       </div>
 
-      <div 
+      <div
         className="absolute inset-0 z-10 rounded-2xl bg-gradient-to-tr from-[#B08D57]/30 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100"
         aria-hidden="true"
       />
@@ -180,8 +180,8 @@ export default function MesCompetences() {
   );
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative w-full h-screen flex flex-col justify-center"
       aria-label="Section des compétences"
     >
@@ -197,7 +197,7 @@ export default function MesCompetences() {
             opacity: useTransform(springProgress, [0, 0.8], [0, 1]),
             y: useTransform(springProgress, [-10, 0], [100, 0]),
           }}
-          className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-24 z-20 relative"
+          className="flex flex-col items-center justify-center gap-4 text-center mb-8 sm:mb-12 md:mb-16 lg:mb-24 z-20 relative"
         >
           <h2 className={cn(
             "text-3xl font-light tracking-tight text-white relative antialiased",
@@ -208,22 +208,17 @@ export default function MesCompetences() {
             </motion.span>
           </h2>
 
+          {/* Ligne de séparation */}
           <div className={cn(
-            "w-[240px] h-[1px] relative my-3 mx-auto",
-            "sm:w-[280px] sm:my-4",
-            "md:w-[350px] md:my-5",
-            "lg:w-[400px] lg:my-6"
-          )}>
-            <div className="absolute top-[-2px] left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-[#B08D57]/30 to-transparent clip-path-[path('M_0,2_Q_200,-15_400,2')] blur-[1px]" />
-            <div className="absolute top-[-1px] left-0 w-full h-[0.5px] bg-gradient-to-r from-transparent via-[#F58D57]/20 to-transparent clip-path-[path('M_0,1_Q_200,-6_400,1')]" />
+            "w-[40rem] relative mx-auto")}>
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#B08D57]/100 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#B08D57]/80 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#B08D57]/70 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#B08D57]/60 to-transparent h-px w-1/4" />
           </div>
-          
+
           <p className={cn(
-            "mt-3 text-xs text-[#86868b] font-light tracking-wide",
-            "sm:mt-4 sm:text-sm",
-            "md:mt-5 md:text-base",
-            "lg:mt-6"
-          )}>
+            "mt-3 text-xs lg:text-base xl:text-lg text-[#86868b] font-light tracking-wide")}>
             Technologies et outils que j'utilise au quotidien
           </p>
         </motion.div>

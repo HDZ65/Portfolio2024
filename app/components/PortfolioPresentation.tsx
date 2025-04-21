@@ -52,7 +52,9 @@ export function PortfolioPresentation() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             style={{
                 scale: useTransform(scrollYProgress, [0, 0.5], [1, 0.8]),
-                opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0])
+                opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
+                height: useTransform(scrollYProgress, [0, 0.5], ['calc(100dvh - 57.59px)', 'calc(100dvh - 62px)']),
+                width: '100%'
             }}
         >
             <Stack
@@ -60,12 +62,12 @@ export function PortfolioPresentation() {
                     maxWidth: '1200px',
                     width: { xs: '100%', md: '90%' },
                     margin: '0 auto',
-                    minHeight: '100dvh',
+                    height: '100%',
                     padding: { xxs: '0', xs: '0 1rem', md: '2.5rem' },
-                    justifyContent: 'center'
+                    justifyContent: 'center',
                 }}
                 flexDirection={{ xs: 'column' }}
-                alignItems={{ xs: 'start', md: 'center' }}
+                alignItems={{ xs: 'center', md: 'center' }}
                 gap={{ xs: "2rem", xl: "2.5rem" }}
             >
                 <Box
@@ -84,14 +86,14 @@ export function PortfolioPresentation() {
                     <Typography
                         color="primary.main"
                         width="100%"
-                        textAlign={{ xs: 'start', md: 'center' }}
+                        textAlign={{ xs: 'center', md: 'center' }}
                         variant="h1"
                     >
                         <FlipWords words={words} />
                     </Typography>
                     <Typography
                         width="100%"
-                        textAlign={{ xs: 'start', md: 'center' }}
+                        textAlign={{ xs: 'center', md: 'center' }}
                         variant="h1"
                     >
                         Je suis Alexandre Hernandez
@@ -126,10 +128,10 @@ export function PortfolioPresentation() {
                 >
                     <Typography
                         width="100%"
-                        textAlign={{ xs: 'start', md: 'center' }}
+                        textAlign={{ xs: 'center', md: 'center' }}
                         variant="h5"
                         component="div"
-                        sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'flex-start', md: 'center' } }}
+                        sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
                     >
                         Développeur web fullstack{' '}
                         <Typography
@@ -143,10 +145,10 @@ export function PortfolioPresentation() {
                     </Typography>
                     <Typography
                         width="100%"
-                        textAlign={{ xs: 'start', md: 'center' }}
+                        textAlign={{ xs: 'center', md: 'center' }}
                         variant="h5"
                         component="div"
-                        sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'flex-start', md: 'center' } }}
+                        sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
                     >
                         Actuellement en recherche d'entreprise{' '}
                         <Typography
@@ -175,6 +177,11 @@ export function PortfolioPresentation() {
                     alignItems="center"
                     flexDirection={{ xs: 'column', md: 'row' }}
                     gap={{ xs: "1.6rem", md: "2rem" }}
+                    sx={{
+                        '& > *': {
+                            width: { xs: '100%', md: 'auto' }
+                        }
+                    }}
                 >
                     <motion.div
                         whileTap={{ scale: 0.95 }}
