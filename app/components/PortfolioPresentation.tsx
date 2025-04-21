@@ -54,7 +54,7 @@ export function PortfolioPresentation() {
             style={{
                 scale: useTransform(scrollYProgress, [0, 0.5], [1, 0.8]),
                 opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
-                height: useTransform(scrollYProgress, [0, 0.5], ['calc(100dvh - 57.59px)', 'calc(100dvh - 62px)']),
+                height: useTransform(scrollYProgress, [0, 0.5], ['calc(100vh - 57.59px)', 'calc(100dvh - 62px)']),
                 width: '100%'
             }}
         >

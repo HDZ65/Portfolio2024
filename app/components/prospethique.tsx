@@ -61,7 +61,7 @@ export function Prospethique() {
     ];
 
     return (
-        <div ref={containerRef} className="w-full h-[300dvh] relative">
+        <div ref={containerRef} className="w-full h-[300vh] relative">
             {/* Section image */}
             <div
                 ref={imageSectionRef}
@@ -70,7 +70,7 @@ export function Prospethique() {
                         border: '1px solid transparent'
                     }
                 }
-                className="w-full h-[100dvh] flex items-center justify-center sticky top-0 left-0 right-0 overflow-hidden"
+                className="w-full h-[100vh] flex items-center justify-center sticky top-0 left-0 right-0 overflow-hidden"
             >
                 <div className="flex items-center justify-center h-full w-full ">
                     <motion.div
