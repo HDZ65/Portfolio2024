@@ -24,7 +24,7 @@ export default function Footer() {
   const isInView = useInView(footerRef, { once: true, amount: 0.1 });
   const currentYear = new Date().getFullYear();
   const yourName = "Alexandre Hernandez";
-  const yourTagline = "Transforme les idées en expériences numériques.";
+  const yourTagline = "Développeur Full Stack.";
   const yourEmail = "alexandre.hernandez@yahoo.com";
   const availability = true;
 
