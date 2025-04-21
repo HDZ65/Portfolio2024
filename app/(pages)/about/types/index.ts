@@ -1,3 +1,5 @@
+import { MotionValue } from 'framer-motion';
+
 export interface Skill {
   name: string;
   description: string;
