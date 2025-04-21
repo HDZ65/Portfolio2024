@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeProvider from "./libs/ThemeProvider";
-import Header from "./components/Header/Header";
-import { AuroraBackground } from "./components/ui/aurora-background";
+import { CustomCursor } from "./components/CustomCursor";
 
 // Metadata pour le site
 export const metadata: Metadata = {
@@ -29,9 +28,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="overflow-x-hidden ">
+      <body className="overflow-x-hidden">
         <ThemeProvider>
-            {children}
+          <CustomCursor />
+          {children}
         </ThemeProvider>
       </body>
     </html>

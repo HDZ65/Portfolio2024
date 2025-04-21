@@ -13,12 +13,12 @@ export const skills: Skill[] = [
         description: "Superset typé de JavaScript pour un développement plus sûr et maintenable",
     },
     {
-        name: "Node.js",
-        description: "Environnement d'exécution JavaScript côté serveur",
-    },
-    {
         name: "Laravel",
         description: "Framework PHP moderne pour le développement web",
+    },
+    {
+        name: "Tailwind CSS",
+        description: "Framework CSS utilisé pour le design des interfaces utilisateur",
     },
     {
         name: "Figma",

@@ -2,9 +2,14 @@
 
 import { Typography } from "@mui/material";
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import Image from "next/image";
 import { useRef } from 'react';
+import React from "react";
 
-export function PortfolioShowcase() {
+
+
+
+export function Prospethique() {
     const imageSectionRef = useRef<HTMLDivElement>(null);
     const textSectionRef = useRef<HTMLDivElement>(null);
 
@@ -62,6 +67,9 @@ export function PortfolioShowcase() {
             <div
                 ref={textSectionRef}
                 className="sticky top-0 left-0 right-0 min-h-[100vh] w-full flex items-center justify-between px-4 md:px-20 z-10"
+                style={{
+                    border: '1px solid transparent'
+                }}
             >
                 {/* Contenu Textuel 1 (Gauche) */}
                 <motion.div
@@ -103,4 +111,6 @@ export function PortfolioShowcase() {
             </div>
         </div>
     );
-} 
+}
+
+ 
