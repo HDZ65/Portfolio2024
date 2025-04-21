@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Typography, Box, Stack, Grid, Chip, IconButton } from '@mui/material';
+import { ArrowUp } from 'lucide-react';
 import Link from 'next/link';
  
 // --- Types et Données --- 
@@ -159,20 +160,7 @@ export default function Footer() {
               className="bg-white/5 hover:bg-white/10 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300"
               aria-label="Retour en haut"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 10l7-7m0 0l7 7m-7-7v18"
-                />
-              </svg>
+              <ArrowUp className="text-gray-400" />
             </IconButton>
           </motion.div>
         </div>
