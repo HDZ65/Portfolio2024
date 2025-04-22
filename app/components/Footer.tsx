@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Typography, Stack  , IconButton } from '@mui/material';
-import { ArrowUp } from 'lucide-react';
+import { Typography, Stack, IconButton, Button } from '@mui/material';
+import { ArrowUp, Download } from 'lucide-react';
 import Link from 'next/link';
  
 // --- Types et Données --- 
@@ -26,6 +26,7 @@ export default function Footer() {
   const yourName = "Alexandre Hernandez";
   const yourTagline = "Développeur Full Stack.";
   const yourEmail = "alexandre.hernandez@yahoo.com";
+  const cvUrl = "https://cvdesignr.com/p/66fcfecd381b2";
 
   const { scrollYProgress } = useScroll({
     target: footerRef,
@@ -43,7 +44,7 @@ export default function Footer() {
   return (
     <motion.footer
       ref={footerRef}
-      className="relative w-full pt-24 pb-12 px-8  "
+      className="relative w-full pt-24 pb-12 px-8"
       style={{ opacity, y }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -64,9 +65,24 @@ export default function Footer() {
               <Typography variant="h3" className="font-bold text-4xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent mb-6">
                 {yourName}
               </Typography>
-              <Typography variant="body1" className="text-white/90 text-lg  ">
+              <Typography variant="body1" className="text-white/90 text-lg mb-4">
                 {yourTagline}
               </Typography>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  href={cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  className="border-white/20 hover:border-white/40 text-white hover:bg-white/5"
+                  startIcon={<Download className="w-5 h-5" />}
+                >
+                  Télécharger mon CV
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
 
@@ -111,12 +127,14 @@ export default function Footer() {
                     </a>
                   </motion.div>
                   <motion.div>
-                    <Link
-                      href="/cv"
+                    <a
+                      href={cvUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-lg text-white/60 hover:text-white transition-all duration-500 ease-out flex items-center gap-2 no-underline"
                     >
-                      CV
-                    </Link>
+                      CV en ligne
+                    </a>
                   </motion.div>
                 </Stack>
               </div>
