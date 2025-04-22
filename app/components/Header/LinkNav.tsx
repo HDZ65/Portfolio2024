@@ -16,11 +16,7 @@ const LinkNav: React.FC = () => {
             label: 'Accueil'
         },
         {
-            href: 'aPropos',
-            label: 'A propos'
-        },
-        {
-            href: 'mesProjets',
+            href: 'mes-projets',
             label: 'Mes projets'
         },
         {

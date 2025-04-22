@@ -1,6 +1,6 @@
 'use client'
 
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Link } from "@mui/material";
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Image from "next/image";
 import { useRef } from 'react';
@@ -141,6 +141,9 @@ export function Prospethique() {
                 </div>
                 <div className="flex  items-center justify-center gap-4 w-full">
                     <Button
+                        component="a"
+                        href="https://prospethique.vercel.app/"
+                        target="_blank"
                         variant="contained"
                         className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600"
                     >
@@ -149,6 +152,9 @@ export function Prospethique() {
                     <Button
                         variant="outlined"
                         className="border-orange-500 text-orange-500 hover:border-orange-600 hover:text-orange-600"
+                        href="https://github.com/HDZ65/prospethique"
+                        target="_blank"
+                        component="a"
                     >
                         GitHub
                     </Button>

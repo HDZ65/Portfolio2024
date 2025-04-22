@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Typography, Box, Stack, Grid, Chip, IconButton } from '@mui/material';
+import { Typography, Stack  , IconButton } from '@mui/material';
 import { ArrowUp } from 'lucide-react';
 import Link from 'next/link';
  
@@ -22,12 +22,10 @@ const techStack: TechInfo[] = [
 
 export default function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(footerRef, { once: true, amount: 0.1 });
   const currentYear = new Date().getFullYear();
   const yourName = "Alexandre Hernandez";
   const yourTagline = "Développeur Full Stack.";
   const yourEmail = "alexandre.hernandez@yahoo.com";
-  const availability = true;
 
   const { scrollYProgress } = useScroll({
     target: footerRef,
@@ -78,16 +76,20 @@ export default function Footer() {
               {/* Liens de Navigation */}
               <div className="space-y-4">
                 <Typography variant="overline" className="text-white font-semibold tracking-wider">
-                  Navigation
+                  Menu
                 </Typography>
                 <Stack spacing={2}>
-                  {['Projets', 'À Propos', 'Compétences'].map((item) => (
-                    <motion.div key={item}>
+                  {[
+                    { label: 'Accueil', href: '/' },
+                    { label: 'Projets', href: '/mes-projets' },
+                    { label: 'Contact', href: '/contact' }
+                  ].map((item) => (
+                    <motion.div key={item.label}>
                       <Link
-                        href={`/${item.toLowerCase().replace('à', 'a')}`}
+                        href={item.href}
                         className="text-lg text-white/60 hover:text-white transition-all duration-500 ease-out flex items-center gap-2 no-underline"
                       >
-                        {item}
+                        {item.label}
                       </Link>
                     </motion.div>
                   ))}

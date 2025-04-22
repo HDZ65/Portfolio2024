@@ -202,7 +202,7 @@ export function PortfolioPresentation() {
                         <motion.div
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Link href="mesProjets" passHref>
+                            <Link href="mes-projets" passHref>
                                 <Button
                                     variant="contained"
                                     onMouseEnter={() => !isMobile && setIsProjectHovered(true)}
