@@ -12,7 +12,7 @@ import ContactSection from "../../components/ContactSection/ContactSection";
 export default function ContactPage() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const { control, errors, onSubmit, isSubmitting, statusMessage } = useContactForm();
+    const { control, errors, onSubmit, isSubmitting, statusMessage, reset } = useContactForm();
 
     const { scrollYProgress } = useScroll({
         offset: ["start start", "end start"]
@@ -39,6 +39,7 @@ export default function ContactPage() {
                         isSubmitting={isSubmitting}
                         statusMessage={statusMessage}
                         isMobile={isMobile}
+                        reset={reset}
                     />
                 </Stack>
             </Stack>

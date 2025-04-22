@@ -21,7 +21,7 @@ type StatusMessage = {
 
 export const useContactForm = () => {
     const [statusMessage, setStatusMessage] = useState<StatusMessage>(null);
-    const { control, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({
+    const { control, handleSubmit, formState: { errors, isSubmitting }, reset: formReset } = useForm<FormData>({
         resolver: zodResolver(schema),
     });
 
@@ -30,21 +30,25 @@ export const useContactForm = () => {
         const startTime = performance.now();
         
         try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+            // Ajout d'un délai minimum de 500ms pour le chargement
+            const [response] = await Promise.all([
+                fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }),
+                new Promise(resolve => setTimeout(resolve, 500)) // Délai minimum de 500ms
+            ]);
             
             const endTime = performance.now();
             console.log(`Temps d'envoi : ${endTime - startTime} ms`);
 
             if (response.ok) {
                 setStatusMessage({ type: 'success', content: 'Message envoyé avec succès !' });
-                reset();
+                formReset();
             } else {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Erreur lors de l\'envoi du message');
@@ -56,11 +60,17 @@ export const useContactForm = () => {
         }
     };
 
+    const reset = () => {
+        setStatusMessage(null);
+        formReset(); // Réinitialise aussi le formulaire
+    };
+
     return {
         control,
         errors,
         onSubmit: handleSubmit(onSubmit),
         isSubmitting,
         statusMessage,
+        reset,
     };
 };

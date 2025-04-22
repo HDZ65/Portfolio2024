@@ -9,6 +9,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { motion, MotionValue, useTransform } from 'framer-motion';
 import { useContactForm } from "../../hooks/useContactForm";
 import { Controller, Control, FieldErrors } from "react-hook-form";
+import { MultiStateBadge } from './MultiStateBadge'
+import { useState, useEffect } from 'react';
 
 // Définition temporaire de l'interface. Idéalement, exporter depuis le hook ou un fichier de types.
 interface ContactFormData {
@@ -62,12 +64,13 @@ const commonInputStyles = (theme: any) => ({
 
 interface ContactSectionProps {
     scrollYProgress: MotionValue<number>;
-    control: Control<ContactFormData>;
-    errors: FieldErrors<ContactFormData>;
+    control: Control<any>;
+    errors: FieldErrors<any>;
     onSubmit: (event: React.BaseSyntheticEvent) => Promise<void>;
     isSubmitting: boolean;
     statusMessage: { type: string; content: string } | null;
     isMobile: boolean;
+    reset: () => void;
 }
 
 export default function ContactSection({
@@ -77,10 +80,14 @@ export default function ContactSection({
     onSubmit,
     isSubmitting,
     statusMessage,
-    isMobile
+    isMobile,
+    reset,
 }: ContactSectionProps) {
     const theme = useTheme();
     // useMediaQuery n'est plus nécessaire ici, la valeur isMobile est passée en prop
+
+    const [internalStatus, setInternalStatus] = useState<{ type: string; content: string } | null>(null);
+    const [isResetting, setIsResetting] = useState(false);
 
     // Styles partagés pour les boutons de contact - Texte visible par défaut sur desktop
     const contactButtonStyle = (inverted: boolean) => ({
@@ -121,19 +128,84 @@ export default function ContactSection({
 
     const titleVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.1 } }
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.1
+            }
+        }
+    };
+
+    const inputVariants = {
+        hidden: { 
+            opacity: 0,
+            y: 20
+        },
+        visible: (i: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+                delay: 0.2 + (0.2 * i)
+            }
+        })
+    };
+
+    const buttonVariants = {
+        hidden: { opacity: 0, y: 5 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut",
+                delay: 0.5
+            }
+        }
     };
 
     const dividerVariants = {
         hidden: { width: 0 },
-        visible: { width: "120px", transition: { duration: 1, ease: [0.04, 0, 0.2, 0.8], delay: 1 } }
+        visible: {
+            width: "120px",
+            transition: {
+                duration: 1,
+                ease: [0.04, 0, 0.2, 0.8],
+                delay: 1
+            }
+        }
     };
 
+    // Déterminer l'état du badge en fonction de isSubmitting et statusMessage
+    const getBadgeState = () => {
+        if (isSubmitting) return 'loading';
+        if (internalStatus?.type === 'success' || statusMessage?.type === 'success') return 'success';
+        if (internalStatus?.type === 'error' || statusMessage?.type === 'error') return 'error';
+        return 'idle';
+    }
 
-    const formItemVariants = (delay: number) => ({
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.04, 0, 0.2, 0.8], delay } }
-    });
+    const handleReset = () => {
+        // Réinitialiser le formulaire et le statut
+        reset();
+    }
+
+    const handleFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (isResetting) {
+            setIsResetting(false);
+            return;
+        }
+        onSubmit(e as any);
+    }
+
+    // Mettre à jour l'état interne quand statusMessage change
+    useEffect(() => {
+        setInternalStatus(statusMessage);
+    }, [statusMessage]);
 
     return (
         <motion.div
@@ -167,6 +239,8 @@ export default function ContactSection({
                 <Box
                     component={motion.div}
                     variants={titleVariants}
+                    initial="hidden"
+                    animate="visible"
                     sx={{ textAlign: 'center' }}
                 >
                     <Typography variant="h2" sx={{ color: '#b08d57' }}>
@@ -174,155 +248,137 @@ export default function ContactSection({
                     </Typography>
                 </Box>
 
-                {/* Ligne de séparation */}
-                <Box component={motion.div} variants={dividerVariants} sx={{ height: "1px", background: "linear-gradient(90deg, rgba(176, 141, 87, 0.1) 0%, rgba(176, 141, 87, 0.6) 50%, rgba(176, 141, 87, 0.1) 100%)", borderRadius: "1px", }} />
-
+                <Box 
+                    component={motion.div} 
+                    variants={dividerVariants} 
+                    initial="hidden"
+                    animate="visible"
+                    sx={{ 
+                        height: "1px", 
+                        background: "linear-gradient(90deg, rgba(176, 141, 87, 0.1) 0%, rgba(176, 141, 87, 0.6) 50%, rgba(176, 141, 87, 0.1) 100%)", 
+                        borderRadius: "1px" 
+                    }} 
+                />
 
                 {/* Formulaire de contact */}
                 <Box
                     component={motion.form}
-                    onSubmit={onSubmit}
-                    noValidate // Désactiver la validation HTML native
-                    variants={formItemVariants(0.8)} // Animation simple pour l'entrée du formulaire
-                    initial="hidden" // Assurez-vous que l'état initial est défini
-                    animate="visible" // Assurez-vous que l'animation se déclenche
+                    onSubmit={handleFormSubmit}
+                    noValidate
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                     sx={{
                         width: '100%',
                         maxWidth: '480px',
                         minHeight: '100%',
                         borderRadius: '12px',
-                        px: { xs: 3, sm: 4 }, // Augmenter le padding
+                        px: { xs: 3, sm: 4 },
                         transition: 'all 0.3s ease',
                     }}
                 >
-                    <Stack className="flex flex-col justify-center items-center gap-4"> 
-                        <Controller
-                            name="name"
-                            control={control}
-                            defaultValue=""
-                            render={({ field }) => (
-                                <TextField
-                                    {...field}
-                                    fullWidth
-                                    label="Nom et Prénom"
-                                    error={!!errors.name}
-                                    helperText={errors.name?.message}
-                                    required
-                                    variant="outlined"
-                                    sx={commonInputStyles(theme)}
-                                />
-                            )}
-                        />
-
-                        <Controller
-                            name="email"
-                            control={control}
-                            defaultValue=""
-                            render={({ field }) => (
-                                <TextField
-                                    {...field}
-                                    fullWidth
-                                    label="Email"
-                                    type="email"
-                                    error={!!errors.email}
-                                    helperText={errors.email?.message}
-                                    required
-                                    variant="outlined"
-                                    sx={commonInputStyles(theme)}
-                                />
-                            )}
-                        />
-
-                        <Controller
-                            name="message"
-                            control={control}
-                            defaultValue=""
-                            render={({ field }) => (
-                                <TextField
-                                    {...field}
-                                    fullWidth
-                                    label="Message"
-                                    error={!!errors.message}
-                                    helperText={errors.message?.message}
-                                    required
-                                    multiline
-                                    rows={4}
-                                    variant="outlined"
-                                    sx={commonInputStyles(theme)}
-                                />
-                            )}
-                        />
-
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            fullWidth
-                            disabled={isSubmitting}
-                            sx={{
-                                mt: 1,
-                                py: 1.5,
-                                borderRadius: '8px',
-                                backgroundColor: 'primary.main',
-                                color: 'background.paper',
-                                textTransform: 'none',
-                                fontSize: '1rem',
-                                fontWeight: 500,
-                                letterSpacing: '-0.01em',
-                                transition: 'all 0.2s ease',
-                                boxShadow: 'none',
-                                position: 'relative',
-                                '&:hover': {
-                                    backgroundColor: 'primary.dark',
-                                },
-                                '&:disabled': {
-                                    backgroundColor: 'grey.300',
-                                    color: 'grey.500'
-                                }
-                            }}
+                    <Stack className="flex flex-col justify-center items-center gap-4">
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            custom={0}
+                            variants={inputVariants}
+                            style={{ width: '100%' }}
                         >
-                            {isSubmitting ? (
-                                <>
-                                    <CircularProgress
-                                        size={24}
-                                        sx={{
-                                            color: 'grey.500',
-                                            position: 'absolute',
-                                            top: '50%', // Centrer verticalement
-                                            left: '50%',
-                                            marginTop: '-12px', // Ajustement pour le centrage
-                                            marginLeft: '-12px',
-                                        }}
+                            <Controller
+                                name="name"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        fullWidth
+                                        label="Nom et Prénom"
+                                        error={!!errors.name}
+                                        helperText={errors.name?.message?.toString()}
+                                        required
+                                        variant="outlined"
+                                        sx={commonInputStyles(theme)}
                                     />
-                                    {/* Masquer le texte pendant le chargement pour éviter le décalage */}
-                                    <Typography component="span" sx={{ visibility: 'hidden' }}>
-                                        Envoyer le message
-                                    </Typography>
-                                </>
-                            ) : (
-                                'Envoyer le message'
-                            )}
-                        </Button>
+                                )}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            custom={1}
+                            variants={inputVariants}
+                            style={{ width: '100%' }}
+                        >
+                            <Controller
+                                name="email"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        fullWidth
+                                        label="Email"
+                                        type="email"
+                                        error={!!errors.email}
+                                        helperText={errors.email?.message?.toString()}
+                                        required
+                                        variant="outlined"
+                                        sx={commonInputStyles(theme)}
+                                    />
+                                )}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            custom={2}
+                            variants={inputVariants}
+                            style={{ width: '100%' }}
+                        >
+                            <Controller
+                                name="message"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        fullWidth
+                                        label="Message"
+                                        error={!!errors.message}
+                                        helperText={errors.message?.message?.toString()}
+                                        required
+                                        multiline
+                                        rows={4}
+                                        variant="outlined"
+                                        sx={commonInputStyles(theme)}
+                                    />
+                                )}
+                            />
+                        </motion.div>
+
+                        <motion.div
+                            variants={buttonVariants}
+                            initial="hidden"
+                            animate="visible"
+                            style={{ width: '100%' }}
+                        >
+                            <Box sx={{ 
+                                width: '100%',
+                                position: 'relative'
+                            }}>
+                                <MultiStateBadge
+                                    state={getBadgeState()}
+                                    message={statusMessage?.content}
+                                    isValid={!errors.name && !errors.email && !errors.message}
+                                    onReset={handleReset}
+                                />
+                            </Box>
+                        </motion.div>
                     </Stack>
                 </Box>
-
-                {/* Snackbar pour les notifications */}
-                <Snackbar
-                    open={!!statusMessage}
-                    autoHideDuration={6000}
-                    onClose={() => { /* Gérer la fermeture si nécessaire */ }}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                    sx={{ mb: 2 }} // Ajouter une marge en bas
-                >
-                    <Alert
-                        severity={statusMessage?.type === 'success' ? 'success' : statusMessage?.type === 'error' ? 'error' : 'info'}
-                        sx={{ width: '100%' }}
-                        elevation={6}
-                        variant="filled" // Style plus visible
-                    >
-                        {statusMessage?.content}
-                    </Alert>
-                </Snackbar>
-
             </Stack>
         </motion.div>
     );
