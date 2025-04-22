@@ -38,7 +38,7 @@ const getTransporter = () => {
     const transportOptions = {
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT || '465'),
-      secure: true, // Généralement true pour le port 465
+      secure: false, // Port 587 utilise STARTTLS, donc secure doit être false
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
