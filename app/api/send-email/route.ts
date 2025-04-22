@@ -27,26 +27,38 @@ const getTransporter = () => {
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,
       user: process.env.EMAIL_USER,
+      // Ne pas logger EMAIL_PASS pour des raisons de sécurité
+      // pass: process.env.EMAIL_PASS, 
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO
     };
 
-    debugLog("📧 Configuration email", config);
+    debugLog("📧 Configuration email lue depuis process.env", config);
 
-    transporter = nodemailer.createTransport({
+    const transportOptions = {
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT || '465'),
-      secure: true,
+      secure: true, // Généralement true pour le port 465
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
       tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false // Attention : à utiliser avec prudence
       },
-      debug: true, // Active les logs de debug nodemailer
-      logger: true // Active le logger nodemailer
+      debug: true, 
+      logger: true 
+    };
+
+    debugLog("🔧 Options passées à createTransport (sans mot de passe)", {
+      host: transportOptions.host,
+      port: transportOptions.port,
+      secure: transportOptions.secure,
+      user: transportOptions.auth.user,
+      tls_rejectUnauthorized: transportOptions.tls.rejectUnauthorized,
     });
+
+    transporter = nodemailer.createTransport(transportOptions);
   }
   return transporter;
 };
@@ -74,7 +86,7 @@ export async function POST(request: Request) {
     const transporter = getTransporter();
 
     // Vérification de la connexion SMTP
-    debugLog("🔄 Vérification de la connexion SMTP");
+    debugLog("🔄 Tentative de vérification de la connexion SMTP...");
     await new Promise((resolve, reject) => {
       transporter.verify(function (error, success) {
         if (error) {
@@ -112,8 +124,9 @@ export async function POST(request: Request) {
     });
 
     // Envoi de l'e-mail
+    debugLog("🚀 Tentative d'appel à transporter.sendMail...");
     const info = await transporter.sendMail(mailOptions);
-    debugLog("✅ Email envoyé avec succès", { messageId: info.messageId });
+    debugLog("✅ Email envoyé avec succès par sendMail", { messageId: info.messageId });
 
     return NextResponse.json({ 
       message: 'E-mail envoyé avec succès',
