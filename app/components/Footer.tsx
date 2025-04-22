@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Typography, Stack, IconButton, Button } from '@mui/material';
-import { ArrowUp, Download } from 'lucide-react';
+import { Typography, Stack, IconButton } from '@mui/material';
+import { ArrowUp } from 'lucide-react';
 import Link from 'next/link';
  
 // --- Types et Données --- 
@@ -65,24 +65,9 @@ export default function Footer() {
               <Typography variant="h3" className="font-bold text-4xl bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent mb-6">
                 {yourName}
               </Typography>
-              <Typography variant="body1" className="text-white/90 text-lg mb-4">
+              <Typography variant="body1" className="text-white/90 text-lg">
                 {yourTagline}
               </Typography>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Button
-                  href={cvUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="outlined"
-                  className="border-white/20 hover:border-white/40 text-white hover:bg-white/5"
-                  startIcon={<Download className="w-5 h-5" />}
-                >
-                  Télécharger mon CV
-                </Button>
-              </motion.div>
             </motion.div>
           </div>
 
