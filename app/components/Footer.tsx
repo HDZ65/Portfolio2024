@@ -45,7 +45,7 @@ export default function Footer() {
   return (
     <motion.footer
       ref={footerRef}
-      className="relative w-full pt-24 pb-12 px-8 bg-gradient-to-b from-black to-zinc-900"
+      className="relative w-full pt-24 pb-12 px-8  "
       style={{ opacity, y }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

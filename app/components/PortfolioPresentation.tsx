@@ -15,8 +15,12 @@ export function PortfolioPresentation() {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { scrollYProgress } = useScroll({
+        target: undefined,
         offset: ["start start", "end start"]
     });
+
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     useEffect(() => {
         if (isMobile) {
@@ -52,173 +56,185 @@ export function PortfolioPresentation() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             style={{
-                scale: useTransform(scrollYProgress, [0, 0.5], [1, 0.8]),
-                opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]),
-                height: useTransform(scrollYProgress, [0, 0.5], ['calc(100vh - 57.59px)', 'calc(100vh - 62px)']),
-                width: '100%'
+                width: '100%',
+                minHeight: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
             }}
         >
-            <Stack
-                sx={{
-                    maxWidth: '1200px',
-                    width: { xs: '100%', md: '90%' },
-                    margin: '0 auto',
-                    height: '100%',
-                    padding: { xxs: '0', xs: '0 1rem', md: '2.5rem' },
-                    justifyContent: 'center',
+            <motion.div
+                style={{
+                   scale: scale,
+                   opacity: opacity,
+                   width: '100%',
+                   height: '100%',
+                   display: 'flex',
+                   justifyContent: 'center',
+                   alignItems: 'center',
                 }}
-                flexDirection={{ xs: 'column' }}
-                alignItems={{ xs: 'center', md: 'center' }}
-                gap={{ xs: "2rem", xl: "2.5rem" }}
-            >
-                <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.6,
-                        ease: "easeOut",
-                        delay: 0.1
+             >
+                <Stack
+                    sx={{
+                        maxWidth: '1200px',
+                        width: '100%',
+                        height: 'auto',
+                        padding: { xs: '1rem', sm: '2rem', md: '2.5rem' },
                     }}
-                    display="flex"
                     flexDirection="column"
-                    gap="1rem"
-                >
-                    <Typography
-                        color="primary.main"
-                        width="100%"
-                        textAlign={{ xs: 'center', md: 'center' }}
-                        variant="h1"
-                    >
-                        <FlipWords words={words} />
-                    </Typography>
-                    <Typography
-                        width="100%"
-                        textAlign={{ xs: 'center', md: 'center' }}
-                        variant="h1"
-                    >
-                        Je suis Alexandre Hernandez
-                    </Typography>
-                </Box>
-
-                <Box
-                    component={motion.div}
-                    initial={{ width: 0 }}
-                    animate={{ width: "180px" }}
-                    transition={{
-                        duration: 1,
-                        ease: [0.04, 0, 0.2, 0.8],
-                        delay: 1
-                    }}
-                    sx={{
-                        height: "1.5px",
-                        background: "linear-gradient(90deg, rgba(176, 141, 87, 0.1) 0%, rgba(176, 141, 87, 0.6) 50%, rgba(176, 141, 87, 0.1) 100%)",
-                        borderRadius: "1px",
-                    }}
-                />
-
-                <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.6,
-                        ease: "easeOut",
-                        delay: 0.2
-                    }}
-                >
-                    <Typography
-                        width="100%"
-                        textAlign={{ xs: 'center', md: 'center' }}
-                        variant="h5"
-                        component="div"
-                        sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
-                    >
-                        Développeur web fullstack{' '}
-                        <Typography
-                            variant="h5"
-                            color="text.secondary"
-                            component="span"
-                            sx={{ ml: 1 }}
-                        >
-                            basé à Tarbes, France
-                        </Typography>
-                    </Typography>
-                    <Typography
-                        width="100%"
-                        textAlign={{ xs: 'center', md: 'center' }}
-                        variant="h5"
-                        component="div"
-                        sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
-                    >
-                        Actuellement en recherche d'entreprise{' '}
-                        <Typography
-                            variant="h5"
-                            color="text.secondary"
-                            component="h5"
-                            sx={{ ml: 1 }}
-                        >
-                            pour une alternance Concepteur Développeur d'Applications.
-                        </Typography>
-                    </Typography>
-                </Box>
-
-                <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeOut",
-                        delay: 0.5
-                    }}
-                    display="flex"
-                    width="100%"
-                    justifyContent="center"
                     alignItems="center"
-                    flexDirection={{ xs: 'column', md: 'row' }}
-                    gap={{ xs: "1.6rem", md: "2rem" }}
-                    sx={{
-                        '& > *': {
-                            width: { xs: '100%', md: 'auto' }
-                        }
-                    }}
+                    justifyContent="center"
+                    gap={{ xs: "2rem", md: "2.5rem" }}
                 >
-                    <motion.div
-                        whileTap={{ scale: 0.95 }}
+                    <Box
+                        component={motion.div}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                            delay: 0.1
+                        }}
+                        display="flex"
+                        flexDirection="column"
+                        gap="1rem"
                     >
-                        <Link href="mesProjets" passHref>
-                            <Button
-                                variant="contained"
-                                onMouseEnter={() => !isMobile && setIsProjectHovered(true)}
-                                onMouseLeave={() => !isMobile && setIsProjectHovered(false)}
-                                sx={ButtonStyle(isProjectHovered, false, '160px')}
-                                aria-label={isProjectHovered ? "Mes Projets" : "Voir mes projets"}
-                                title="Voir mes projets de développement web"
-                                fullWidth={isMobile}
+                        <Typography
+                            color="primary.main"
+                            width="100%"
+                            textAlign={{ xs: 'center', md: 'center' }}
+                            variant="h1"
+                        >
+                            <FlipWords words={words} />
+                        </Typography>
+                        <Typography
+                            width="100%"
+                            textAlign={{ xs: 'center', md: 'center' }}
+                            variant="h1"
+                        >
+                            Je suis Alexandre Hernandez
+                        </Typography>
+                    </Box>
+
+                    <Box
+                        component={motion.div}
+                        initial={{ width: 0 }}
+                        animate={{ width: "180px" }}
+                        transition={{
+                            duration: 1,
+                            ease: [0.04, 0, 0.2, 0.8],
+                            delay: 1
+                        }}
+                        sx={{
+                            height: "1.5px",
+                            background: "linear-gradient(90deg, rgba(176, 141, 87, 0.1) 0%, rgba(176, 141, 87, 0.6) 50%, rgba(176, 141, 87, 0.1) 100%)",
+                            borderRadius: "1px",
+                        }}
+                    />
+
+                    <Box
+                        component={motion.div}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                            delay: 0.2
+                        }}
+                    >
+                        <Typography
+                            width="100%"
+                            textAlign={{ xs: 'center', md: 'center' }}
+                            variant="h5"
+                            component="div"
+                            sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
+                        >
+                            Développeur web fullstack{' '}
+                            <Typography
+                                variant="h5"
+                                color="text.secondary"
+                                component="span"
+                                sx={{ ml: 1 }}
                             >
-                                <WorkRoundedIcon sx={{ flexShrink: 0 }} />
-                                <Typography
-                                    sx={{
-                                        opacity: isMobile || isProjectHovered ? 1 : 0,
-                                        maxWidth: isMobile || isProjectHovered ? 'none' : '0',
-                                        transition: 'all 0.3s cubic-bezier(0.0, 0.0, 0.2, 1)',
-                                        whiteSpace: 'nowrap',
-                                        overflow: 'hidden',
-                                    }}
-                                >
-                                    Mes Projets
-                                </Typography>
-                            </Button>
-                        </Link>
-                    </motion.div>
-                    <motion.div
-                        whileTap={{ scale: 0.95 }}
+                                basé à Tarbes, France
+                            </Typography>
+                        </Typography>
+                        <Typography
+                            width="100%"
+                            textAlign={{ xs: 'center', md: 'center' }}
+                            variant="h5"
+                            component="div"
+                            sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
+                        >
+                            Actuellement en recherche d'entreprise{' '}
+                            <Typography
+                                variant="h5"
+                                color="text.secondary"
+                                component="h5"
+                                sx={{ ml: 1 }}
+                            >
+                                pour une alternance Concepteur Développeur d'Applications.
+                            </Typography>
+                        </Typography>
+                    </Box>
+
+                    <Box
+                        component={motion.div}
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeOut",
+                            delay: 0.5
+                        }}
+                        display="flex"
+                        width="100%"
+                        justifyContent="center"
+                        alignItems="center"
+                        flexDirection={{ xs: 'column', md: 'row' }}
+                        gap={{ xs: "1rem", md: "2rem" }}
+                        sx={{
+                            '& > *': {
+                                width: { xs: '100%', md: 'auto' }
+                            }
+                        }}
                     >
-                        <AnimatedContactButton href="contact" fullWidth={isMobile} />
-                    </motion.div>
-                </Box>
-            </Stack>
+                        <motion.div
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link href="mesProjets" passHref>
+                                <Button
+                                    variant="contained"
+                                    onMouseEnter={() => !isMobile && setIsProjectHovered(true)}
+                                    onMouseLeave={() => !isMobile && setIsProjectHovered(false)}
+                                    sx={ButtonStyle(isProjectHovered, false, '160px')}
+                                    aria-label={isProjectHovered ? "Mes Projets" : "Voir mes projets"}
+                                    title="Voir mes projets de développement web"
+                                    fullWidth={isMobile}
+                                >
+                                    <WorkRoundedIcon sx={{ flexShrink: 0 }} />
+                                    <Typography
+                                        sx={{
+                                            opacity: isMobile || isProjectHovered ? 1 : 0,
+                                            maxWidth: isMobile || isProjectHovered ? 'none' : '0',
+                                            transition: 'all 0.3s cubic-bezier(0.0, 0.0, 0.2, 1)',
+                                            whiteSpace: 'nowrap',
+                                            overflow: 'hidden',
+                                        }}
+                                    >
+                                        Mes Projets
+                                    </Typography>
+                                </Button>
+                            </Link>
+                        </motion.div>
+                        <motion.div
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <AnimatedContactButton href="contact" fullWidth={isMobile} />
+                        </motion.div>
+                    </Box>
+                </Stack>
+            </motion.div>
         </motion.div>
     );
 } 

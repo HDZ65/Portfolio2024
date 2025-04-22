@@ -30,7 +30,7 @@ export const useContactForm = () => {
         const startTime = performance.now();
         
         try {
-            const response = await fetch('https://formsubmit.co/8eb17c19225f5f6bdfca429ebd58b8c4', {
+            const response = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,9 +49,10 @@ export const useContactForm = () => {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Erreur lors de l\'envoi du message');
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Erreur:', error);
-            setStatusMessage({ type: 'error', content: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.' });
+            const errorMessage = error.message || 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.';
+            setStatusMessage({ type: 'error', content: errorMessage });
         }
     };
 
