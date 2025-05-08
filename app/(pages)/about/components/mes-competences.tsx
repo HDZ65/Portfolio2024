@@ -248,7 +248,6 @@ export default function MesCompetences() {
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 80%", "end 125%"],
-    smooth: 1
   });
 
   const springProgress = useSpring(scrollYProgress, {

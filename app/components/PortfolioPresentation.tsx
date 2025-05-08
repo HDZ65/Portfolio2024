@@ -28,6 +28,17 @@ export function PortfolioPresentation() {
         }
     }, [isMobile]);
 
+    const handleAnchorClick = (event: React.MouseEvent<HTMLElement>, href: string) => {
+        if (href.startsWith('#')) {
+            event.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
     const ButtonStyle = (isHovered: boolean, inverted: boolean, expandedWidth: string) => ({
         minWidth: isMobile ? '100%' : '48px',
         width: isMobile ? '100%' : (isHovered ? expandedWidth : '48px'),
@@ -202,8 +213,9 @@ export function PortfolioPresentation() {
                         <motion.div
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Link href="mes-projets" passHref>
+                            <Link href="#projets" passHref legacyBehavior>
                                 <Button
+                                    onClick={(e) => handleAnchorClick(e, "#projets")}
                                     variant="contained"
                                     onMouseEnter={() => !isMobile && setIsProjectHovered(true)}
                                     onMouseLeave={() => !isMobile && setIsProjectHovered(false)}

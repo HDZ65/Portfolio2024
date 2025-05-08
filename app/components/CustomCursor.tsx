@@ -23,7 +23,7 @@ export function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed pointer-events-none z-50 hidden lg:block"
+      className="fixed pointer-events-none z-[100] hidden lg:block"
       style={{ mixBlendMode: 'difference' }}
     >
       <div className="w-8 h-8 flex items-center justify-center">

@@ -7,16 +7,21 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import logo from './../../../public/logo.png';
 
+interface LinkItem {
+    href: string;
+    label: string;
+}
+
 const LinkNav: React.FC = () => {
     const pathname = usePathname()?.slice(1) || '';
 
-    const content = [
+    const content: LinkItem[] = [
         {
             href: '/',
             label: 'Accueil'
         },
         {
-            href: 'mes-projets',
+            href: '#projets',
             label: 'Mes projets'
         },
         {
@@ -24,6 +29,17 @@ const LinkNav: React.FC = () => {
             label: 'Contact'
         }
     ]
+
+    const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.startsWith('#')) {
+            event.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
 
     return (
         <>
@@ -68,6 +84,7 @@ const LinkNav: React.FC = () => {
                         >
                             <Link
                                 href={item.href}
+                                onClick={(e) => handleAnchorClick(e, item.href)}
                                 className={`
                                     flex flex-row items-center text-lg px-3 xl:px-6 select-none
                                     transition-all duration-500 ease-out 
