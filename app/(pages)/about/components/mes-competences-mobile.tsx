@@ -9,7 +9,6 @@ export function MesCompetencesMobile() {
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 90%", "end 150%"],
-    smooth: 1
   });
 
   const springProgress = useSpring(scrollYProgress, {
