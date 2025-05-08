@@ -296,11 +296,7 @@ export default function MesCompetences() {
             <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#B08D57]/60 to-transparent h-px w-1/4" />
           </div>
 
-          <p className={cn(
-            "mt-3 text-xs lg:text-base xl:text-lg text-[#86868b] font-light tracking-wide"
-          )}>
-            Technologies et outils que j'utilise au quotidien
-          </p>
+          <p className="mt-3 text-sm text-[#86868b] font-light tracking-wide text-center">Technologies et outils que j&apos;utilise au quotidien</p>
         </motion.div>
 
         <div className={cn(

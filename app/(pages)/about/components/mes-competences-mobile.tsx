@@ -57,7 +57,7 @@ export function MesCompetencesMobile() {
             </div>
 
             <p className="mt-3 text-sm text-[#86868b] font-light tracking-wide">
-              Technologies et outils que j'utilise au quotidien
+              Technologies et outils que j&apos;utilise au quotidien
             </p>
           </motion.div>
         </div>

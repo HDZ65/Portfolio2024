@@ -80,7 +80,7 @@ const ContactForm: React.FC = () => {
                 Contact
             </Typography>
             <Typography color="text.primary" variant="h4" component="h2" width="100%">
-                Actuellement à la recherche d'une alternance en développement web concepteur développeur d'application.
+                Actuellement à la recherche d&apos;une alternance en développement web concepteur développeur d&apos;application.
             </Typography>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <Box display="flex" flexDirection="column" gap={{xs: '1.6rem', md: '2rem'}} width="100%">

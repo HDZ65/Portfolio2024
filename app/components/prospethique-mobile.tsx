@@ -42,7 +42,7 @@ export function ProspethiqueMobile() {
                         </Typography>
                     </div>
                     <Typography variant="body1" color="text.secondary" className="leading-relaxed text-sm">
-                        Découvrez Prospethique, l'outil SaaS conçu pour révolutionner votre prospection. Gérez vos prospects, envoyez des e-mails personnalisés et automatisez votre communication, le tout de manière éthique et efficace.
+                        Découvrez Prospethique, l&apos;outil SaaS conçu pour révolutionner votre prospection. Gérez vos prospects, envoyez des e-mails personnalisés et automatisez votre communication, le tout de manière éthique et efficace.
                     </Typography>
                 </motion.div>
 
@@ -63,7 +63,7 @@ export function ProspethiqueMobile() {
                         </Typography>
                     </div>
                     <Typography variant="body1" color="text.secondary" className="leading-relaxed text-sm">
-                        Boostez votre présence sur LinkedIn avec notre générateur de posts IA. Utilisez des templates d'e-mails dynamiques pour une approche ciblée. Une UX optimisée pour les indépendants et TPE.
+                        Boostez votre présence sur LinkedIn avec notre générateur de posts IA. Utilisez des templates d&apos;e-mails dynamiques pour une approche ciblée. Une UX optimisée pour les indépendants et TPE.
                     </Typography>
                 </motion.div>
             </div>

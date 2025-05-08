@@ -281,6 +281,17 @@ export function DraggableImages({ images }: DraggableImagesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<DraggableImage | null>(null);
 
+  // Appel inconditionnel de useScroll. containerRef est toujours une cible valide.
+  const { scrollYProgress: modalScrollYProgress } = useScroll({
+    target: containerRef, // Toujours cibler le conteneur principal
+    offset: selectedImage ? ['start start', 'end end'] : ['0 0', '0 0'], // N'appliquer l'offset que si une image est sélectionnée
+    // Ou une autre stratégie pour que le scroll ne soit effectif que pour la modale active
+  });
+
+  // Ces hooks sont maintenant appelés inconditionnellement.
+  const modalScale = useTransform(modalScrollYProgress, [0, 0.05, 0.95, 1], [0.5, 1, 1, 0.5]);
+  const modalOpacity = useTransform(modalScrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]);
+
   const openModal = (image: DraggableImage) => {
     setSelectedImage(image);
   };

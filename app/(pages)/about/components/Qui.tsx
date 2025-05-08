@@ -29,7 +29,7 @@ export default function Qui({ className }: { className: string }) {
 
       </Box>
       <Typography textAlign={{ xs: 'start' }}  >
-        Alexandre Hernandez, 28 ans, <strong>Développeur web fullstack</strong> passionné par la création d&apos;<strong>expériences digitales</strong>. Maîtrisant <strong>React</strong>, <strong>Next.js</strong>, <strong>JavaScript</strong>, <strong>Node.js</strong> et <strong>Tailwind CSS</strong>, j&apos;ai mis à profit ces compétences pour concevoir et développer des sites web dynamiques tels que <strong>"Élisabeth Coach holistique"</strong> (Mon projet le plus conséquent), <strong>"Éminence"</strong>, ainsi que ce portfolio entre autres. <Typography color="primary" sx={{ "&:hover": { textDecoration: "underline" } }} component={Link} href="#mesProjets" >Voir mes projets</Typography>
+        Alexandre Hernandez, 28 ans, <strong>Développeur web fullstack</strong> passionné par la création d&apos;<strong>expériences digitales</strong>. Maîtrisant <strong>React</strong>, <strong>Next.js</strong>, <strong>JavaScript</strong>, <strong>Node.js</strong> et <strong>Tailwind CSS</strong>, j&apos;ai mis à profit ces compétences pour concevoir et développer des sites web dynamiques tels que <strong>&quot;Élisabeth Coach holistique&quot;</strong> (Mon projet le plus conséquent), <strong>&quot;Éminence&quot;</strong>, ainsi que ce portfolio entre autres. <Typography color="primary" sx={{ "&:hover": { textDecoration: "underline" } }} component={Link} href="#mesProjets" >Voir mes projets</Typography>
       </Typography>
       <Box textAlign={{ xs: 'start' }} >
         <Box textAlign={{ xs: 'start' }} component="div">

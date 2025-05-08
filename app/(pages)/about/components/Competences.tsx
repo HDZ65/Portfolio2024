@@ -38,7 +38,7 @@ export default function Competences({ className }: { className: string }) {
                 Mes compétences
             </Typography>
             <Typography>
-                J'ai travaillé sur plusieurs projets avec des technologies telles que <strong>React</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Node.js</strong>, <strong>Express</strong>, <strong>MongoDB</strong>. J'ai aussi un projet en cours avec <strong>Symfony</strong> pour approfondir mes connaissances de ce framework.
+                J&apos;ai travaillé sur plusieurs projets avec des technologies telles que <strong>React</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, <strong>Node.js</strong>, <strong>Express</strong>, <strong>MongoDB</strong>. J&apos;ai aussi un projet en cours avec <strong>Symfony</strong> pour approfondir mes connaissances de ce framework.
             </Typography>
         </Box>
     )

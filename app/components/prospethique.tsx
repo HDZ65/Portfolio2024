@@ -110,7 +110,7 @@ export function Prospethique() {
                             </Typography>
                         </div>
                         <p color="text.secondary" className="leading-relaxed text-xs sm:text-sm md:text-base mb-4">
-                            Découvrez Prospethique, l'outil SaaS conçu pour révolutionner votre prospection. Gérez vos prospects, envoyez des e-mails personnalisés et automatisez votre communication, le tout de manière éthique et efficace.
+                            Découvrez Prospethique, l&apos;outil SaaS conçu pour révolutionner votre prospection. Gérez vos prospects, envoyez des e-mails personnalisés et automatisez votre communication, le tout de manière éthique et efficace.
                         </p>
                     </motion.div>
 
@@ -128,7 +128,7 @@ export function Prospethique() {
                             <SparklesIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-blue-400 flex-shrink-0" />
                         </div>
                         <p color="text.secondary" className="leading-relaxed text-xs sm:text-sm md:text-base">
-                            Boostez votre présence sur LinkedIn avec notre générateur de posts IA. Utilisez des templates d'e-mails dynamiques pour une approche ciblée. Une UX optimisée pour les indépendants et TPE.
+                            Boostez votre présence sur LinkedIn avec notre générateur de posts IA. Utilisez des templates d&apos;e-mails dynamiques pour une approche ciblée. Une UX optimisée pour les indépendants et TPE.
                         </p>
                     </motion.div>
 

@@ -30,7 +30,7 @@ export default function Objectif({ className }: { className: string }) {
                 🚀 Mon objectif
             </Typography>
             <Typography sx={{ position: "relative", zIndex: 2 }}>
-                Mon objectif est de <strong>trouver une alternance en tant que concepteur développeur d'applications</strong> où je pourrai mettre en pratique mes <strong>connaissances</strong>, développer mes compétences et contribuer à la réalisation de <strong>projets</strong> au sein d'une équipe.
+                Mon objectif est de <strong>trouver une alternance en tant que concepteur développeur d&apos;applications</strong> où je pourrai mettre en pratique mes <strong>connaissances</strong>, développer mes compétences et contribuer à la réalisation de <strong>projets</strong> au sein d&apos;une équipe.
             </Typography>
             <AnimatedContactButton href="#contact" fullWidth={isMobile}/>
         </Box>

@@ -177,14 +177,14 @@ export function PortfolioPresentation() {
                             component="div"
                             sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: { xs: 'center', md: 'center' } }}
                         >
-                            Actuellement en recherche d'entreprise{' '}
+                            Actuellement en recherche d&apos;entreprise{' '}
                             <Typography
                                 variant="h5"
                                 color="text.secondary"
                                 component="h5"
                                 sx={{ ml: 1 }}
                             >
-                                pour une alternance Concepteur Développeur d'Applications.
+                                pour une alternance Concepteur Développeur d&apos;Applications.
                             </Typography>
                         </Typography>
                     </Box>
