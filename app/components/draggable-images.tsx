@@ -307,6 +307,10 @@ export function DraggableImages({ images }: DraggableImagesProps) {
 
   const springProgress = useSpring(scrollYProgress, ENTRY_SCROLL_SPRING_CONFIG);
 
+  // Déplacer les appels useTransform ici, avant le retour conditionnel
+  const titleOpacity = useTransform(springProgress, [0, 0.5], [0, 1]);
+  const titleY = useTransform(springProgress, [0, 0.5], [50, 0]);
+
   if (!images || images.length === 0) {
     return null;
   }
@@ -320,8 +324,8 @@ export function DraggableImages({ images }: DraggableImagesProps) {
       {/* Titre inspiré de mes-competences.tsx */}
       <motion.div
         style={{
-          opacity: useTransform(springProgress, [0, 0.5], [0, 1]), // Apparition plus rapide
-          y: useTransform(springProgress, [0, 0.5], [50, 0]),      // Montée moins importante
+          opacity: titleOpacity, // Utiliser la valeur prédéfinie
+          y: titleY,             // Utiliser la valeur prédéfinie
         }}
         className="flex flex-col items-center justify-center gap-3 text-center mb-12 md:mb-16"
       >
